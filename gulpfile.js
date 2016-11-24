@@ -27,26 +27,9 @@ gulp.task('clean:js', function() {
 //
 // CSS
 //
-gulp.task('css:skins', function() {
-    const fs = require('fs');
-    const skins = require('./assets/scss/skins/_skins.json');
 
-    for (let skin of skins) {
-        fs.writeFile(`./assets/scss/skins/${skin.name}.scss`,
-`
-$color-header-background: ${skin.accent};
-$color-header-content: ${skin.complement};
-$color-link: ${skin.links};
-
-@import "../theme";
-@import "../core/all";
-@import "../components/**/*.scss";
-`);
-    }
-});
-
-gulp.task('css', ['css:skins'], function() {
-  return gulp.src('./assets/scss/skins/*.scss')
+gulp.task('css', function() {
+  return gulp.src('./assets/scss/theme.scss')
     .pipe(stylelint({
         reporters: [{formatter: 'string', console: true}]
     }))
