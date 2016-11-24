@@ -1,0 +1,31 @@
+.logo {
+    font-size: 50px;
+    display: block;
+    margin-right: .5em;
+    padding: .5em .5em .5625em;
+    color: $color-header-content;
+    overflow: hidden;
+
+    &:hover {
+        color: $color-header-content;
+    }
+}
+
+.logo__text {
+    display: inline-block;
+    vertical-align: top;
+    font-family: $font-pebble;
+    font-size: 1em;
+    color: $color-header-content;
+    text-transform: uppercase;
+}
+
+.logo__pebble {
+    display: inline-block;
+    vertical-align: top;
+    width: 1.3125em;
+    height: 1.4375em;
+    background-repeat: no-repeat;
+    background-image: url("../img/logo-pebble-inverse.svg");
+    background-size: 100% auto;
+}

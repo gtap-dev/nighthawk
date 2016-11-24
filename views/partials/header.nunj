@@ -1,3 +1,6 @@
 <div class="Header">
-    <a href="{{ path('/') }}" class="Header-title" data-pjax>{{ frctl.get('project.title') | default('Component Library') }}</a>
+    <a ref="{{ path('/') }}" class="logo">
+        <span class="logo__pebble"></span>
+        <span class="logo__text">{{ frctl.get('project.title') | default('Component Library') }}</span>
+    </a>
 </div>
