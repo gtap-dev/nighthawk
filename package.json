@@ -1,14 +1,14 @@
 {
-  "name": "@frctl/mandelbrot",
-  "version": "1.0.7",
-  "description": "The default theme for Fractal.",
+  "name": "sidewinder",
+  "version": "0.1.0",
+  "description": "A custom theme for Fractal.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/frctl/mandelbrot.git"
+    "url": "https://github.com/risker/sidewinder.git"
   },
   "bugs": {
-    "url": "https://github.com/frctl/mandelbrot/issues"
+    "url": "https://github.com/risker/sidewinder/issues"
   },
   "author": "Mark Perkins <mark@clearleft.com> (http://clearleft.com/)",
   "license": "MIT",
