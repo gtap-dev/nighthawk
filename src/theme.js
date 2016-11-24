@@ -23,7 +23,7 @@ module.exports = function(options){
 
     config.panels  = config.panels || ['html', 'view', 'context', 'resources', 'info', 'notes'];
     config.nav     = config.nav || ['components','docs','assets'];
-    config.styles  = [].concat(config.styles).concat(config.stylesheet).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/${config.skin}.css` : url));
+    config.styles  = [`/${config.static.mount}/css/theme.css`];
     config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url));
     config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
 
