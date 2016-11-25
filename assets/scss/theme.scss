@@ -23,14 +23,44 @@ $color-sidebar-heading: rgba($color-text, 0.75) !default;
 
 $highlight-theme: 'github' !default;
 
+$purple:       #990ae3;
+$purple-l:     #c0f;
+
+$green:        #0c6;
+$green-l:      #32ff00;
+
+$blue:         #09f;
+$blue-l:       #00cdff;
+
+$red:          #e12364;
+$red-l:        #ff3264;
+
+$pink:         #d22db9;
+$pink-l:       #ff00cd;
+
+$orange:       #ff9b00;
+$orange-l:     #ffcd64;
+
+$online:       #00cdcd;
+$online-l:     #00e3cf;
+
+$white:        #fff;
 $grey:         #e4e4e4;
 $grey-l:       #f2f2f2;
+$grey-m:       #f6f6f6;
+
 $grey-d:       #9f9f9f;
-$white :        #fff;
-$black :        #000;
+$black:        #000;
+
+$break-xs: 320px;
+$break-sm: 600px;
+$break-md: 1024px;
+$break-lg: 1200px;
+
+$base-font-size: 14px;
+$font-size-small: 0.8572em;
+$base-line-height: 1.43;
 $text-color-base: $black;
-$purple:       #990ae3;
-$blue-l:       #00cdff;
 
 @import "./core/all";
 @import "./components/**/*.scss";
