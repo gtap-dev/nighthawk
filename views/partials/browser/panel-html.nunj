@@ -1,4 +1,4 @@
-<div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-{{ entity.id }}-{{ entity.name }}-panel-html">
+<div class="Browser-panel Browser-panel--html Browser-code" data-role="tab-panel" id="browser-{{ entity.id }}-{{ entity.name }}-panel-html">
     <code class="Code Code--lang-html">
         {% set rendered = entity.render(null, renderEnv, {preview: false, collate: true}) | async(true) %}
         {% if rendered | isError %}

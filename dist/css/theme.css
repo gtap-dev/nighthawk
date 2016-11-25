@@ -1409,6 +1409,9 @@ h6 {
 .Browser-panel--preview {
   padding: 0; }
 
+.Browser-panel--html {
+  max-height: 600px; }
+
 .Browser-notes {
   padding-top: 20px; }
 
@@ -2103,7 +2106,8 @@ span.select2-selection.select2-selection--single {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   height: 50%;
-  max-height: calc(100% - 3.75rem); }
+  max-height: calc(100% - 3.75rem);
+  width: 100%; }
   @media (max-width: 31.24em) {
     .Pen-preview {
       -webkit-flex: 1 1 auto;
@@ -2505,9 +2509,6 @@ span.select2-selection.select2-selection--single {
     margin-right: 0.75rem; }
   [dir="rtl"] .Status--labelled .Status-label {
     margin-left: 0.75rem; }
-
-.Tree {
-  white-space: nowrap; }
 
 .Tree-title {
   font-size: 20px;
