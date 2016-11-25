@@ -76,6 +76,7 @@
     flex: 0 0 auto;
     height: 50%;
     max-height: calc(100% - 3.75rem);
+    width: 100%;
 
     @include mq($until: navCollapse) {
         flex: 1 1 auto;

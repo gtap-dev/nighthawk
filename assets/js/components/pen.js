@@ -20,8 +20,8 @@ class Pen {
 
     _init() {
         const initialHeight = storage.get(`pen.previewHeight`, (this._el.outerHeight() / 2));
-        const preview       = new Preview(this._previewPanel);
         let browsers        = [];
+        let previews        = [];
         let state           = storage.get(`pen.previewState`, 'open');
         let handleClicks    = 0;
         let dblClick        = false;
@@ -31,69 +31,10 @@ class Pen {
             browsers.push(new Browser(this._browser[i]));
         }
 
-        if (state === 'open') {
-            this._previewPanel.outerHeight(initialHeight);
-            storage.set(`pen.previewHeight`, initialHeight);
-        } else {
-            this._previewPanel.css('height', '100%');
+        for(let i = 0; i < this._previewPanel.length; i++) {
+            previews.push(new Preview(this._previewPanel[i]));
         }
-
-        this._handle.on('mousedown', e => {
-            dblClick = false;
-            handleClicks++;
-
-            setTimeout(function() {
-                handleClicks = 0;
-            }, 400);
-
-            if (handleClicks === 2) {
-                dblClick = true;
-                handleClicks = 0;
-                return false;
-            }
-        });
-
-        this._previewPanel.resizable({
-            handleSelector: this._handle,
-            resizeWidth: false,
-            onDragStart: () => {
-                this._el.addClass('is-resizing');
-                preview.disableEvents();
-                events.trigger('start-dragging');
-            },
-            onDragEnd: () => {
-                this._el.removeClass('is-resizing');
-                preview.enableEvents();
-                events.trigger('end-dragging');
-                if (dblClick) {
-                    if (state === 'closed') {
-                        this._previewPanel.css('height', storage.get(`pen.onClosedHeight`, initialHeight));
-                        state = 'open';
-                        storage.set(`pen.previewState`, 'open');
-                    } else {
-                        storage.set(`pen.onClosedHeight`, this._previewPanel.outerHeight());
-                        this._previewPanel.css({
-                            'height': '100%',
-                            'transition': '.3s ease all'
-                        });
-                        state = 'closed';
-                        storage.set(`pen.previewState`, 'closed');
-                    }
-                } else {
-                    if (state !== 'closed') {
-                        storage.set(`pen.previewHeight`, this._previewPanel.outerHeight());
-                    } else {
-                        setTimeout(() => {
-                            if (!dblClick) {
-                                state = 'open';
-                                storage.set(`pen.previewState`, 'open');
-                                storage.set(`pen.previewHeight`, this._previewPanel.outerHeight());
-                            }
-                        }, 400);
-                    }
-                }
-            }
-        });
+        this._previewPanel.css('height', '600px');
 
         const btn = $('.js-copyHtml');
         let $thisBtn;
