@@ -2,7 +2,7 @@
 <div id="searchid">
 <div class="navigation-search">
     <div class="form-search form-search--big">
-        <input  id="search-input" type="text" class="form-search__input" placeholder="Otsi..." data-clear="true" value="">
+        <input  id="search-input" type="text" class="form-search__input" placeholder="Search..." data-clear="true" value="">
         <button class="form-search__action">
             {{ icon.icon('search', 'form-searc__action-icon') }}
         </button>

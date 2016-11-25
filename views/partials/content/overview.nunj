@@ -11,7 +11,7 @@
 </tr>
 {% for handle, st in frctl.get('components.statuses') %}
 <tr>
-    <td>{{ status.tag(st) }}</td>
+    <td>{{ status.tag(st, st.key) }}</td>
     <td>{{ st.description }}</td>
 </tr>
 {% endfor %}

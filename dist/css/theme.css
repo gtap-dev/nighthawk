@@ -2050,14 +2050,7 @@ span.select2-selection.select2-selection--single {
       -ms-flex-align: center;
           align-items: center; }
   .Pen-header .Status {
-    -webkit-margin-start: auto;
-       -moz-margin-start: auto;
-            margin-inline-start: auto;
-    padding-left: 0.5rem; }
-    [dir="ltr"] .Pen-header .Status {
-      margin-left: auto; }
-    [dir="rtl"] .Pen-header .Status {
-      margin-right: auto; }
+    padding-right: 20px; }
   @media (max-width: 31.24em) {
     .Pen-header {
       margin: 0;
@@ -2504,11 +2497,20 @@ span.select2-selection.select2-selection--single {
           align-items: center; }
 
 .Status-dot {
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 15px;
+  height: 15px;
   background-color: white;
-  border: 1px solid transparent;
+  border: 1px solid white;
   border-radius: 100%; }
+  .Status--ready .Status-dot {
+    background-color: #0c6;
+    border-color: #0c6; }
+  .Status--wip .Status-dot {
+    background-color: #ff9b00;
+    border-color: #ff9b00; }
+  .Status--prototype .Status-dot {
+    background-color: #e12364;
+    border-color: #e12364; }
 
 .Status-dot + .Status-dot {
   -webkit-margin-start: 3px;
@@ -2528,6 +2530,15 @@ span.select2-selection.select2-selection--single {
   padding: 0.125rem 0.75rem;
   color: white;
   white-space: nowrap; }
+  .Status--ready .Status-label {
+    background-color: #0c6;
+    border-color: #0c6; }
+  .Status--wip .Status-label {
+    background-color: #ff9b00;
+    border-color: #ff9b00; }
+  .Status--prototype .Status-label {
+    background-color: #e12364;
+    border-color: #e12364; }
 
 .Status-label + .Status-label {
   -webkit-margin-start: 0.25rem;

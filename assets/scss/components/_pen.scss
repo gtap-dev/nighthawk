@@ -19,8 +19,7 @@
     align-items: center;
 
     .Status {
-        @include margin-inline(start, auto);
-        @include padding-inline(start, 0.5rem);
+        padding-right: 20px;
     }
 
     @include mq($until: navCollapse) {

@@ -1,19 +1,19 @@
-{% macro _dot(color, label) %}
-<span class="Status-dot" style="border-color: {{ color }};" title="{{ label }}"></span>
+{% macro _dot(label) %}
+<span class="Status-dot" title="{{ label }}"></span>
 {% endmacro %}
 
 {% macro _tag(color, label) %}
-<label class="Status-label" style="background-color: {{ color }}; border-color: {{ color }};">{{ label }}</label>
+<label class="Status-label">{{ label }}</label>
 {% endmacro %}
 
 {% macro _dots(status) %}
 <div class="Status-dots">
 {% if status.statuses %}
 {% for stat in status.statuses %}
-{{ _dot(stat.color, stat.label) }}
+{{ _dot(stat.label) }}
 {% endfor %}
 {% else %}
-{{ _dot(status.color, status.label) }}
+{{ _dot(status.label) }}
 {% endif %}
 </div>
 {% endmacro %}
@@ -21,10 +21,10 @@
 {% macro _tags(status) %}
 {% if status.statuses %}
 {% for stat in status.statuses %}
-{{ _tag(stat.color, stat.label) }}
+{{ _tag(stat.label) }}
 {% endfor %}
 {% else %}
-{{ _tag(status.color, status.label) }}
+{{ _tag(status.label) }}
 {% endif %}
 {% endmacro %}
 
@@ -47,7 +47,7 @@
 
 {% macro tag(status, modifier) %}
 {% if status %}
-<div class="Status Status--tag{% if modifier %} Status--{{ modifier }}{% endif %}">
+<div class="Status Status--tag{% if modifier %} Status--{{ modifier }}{% endif %}" >
 {{ _tag(status.color, status.label) }}
 </div>
 {% endif %}
