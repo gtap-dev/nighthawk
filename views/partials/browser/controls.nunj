@@ -22,4 +22,5 @@
         {% endif %}
         {% endfor %}
     </ul>
+    <button class="btn btn--variant-dark btn--small js-copyHtml">Copy</button>
 </div>

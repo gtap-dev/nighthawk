@@ -36,42 +36,42 @@ class Pen {
         }
         this._previewPanel.css('height', '600px');
 
-        const btn = $('#js-copyHtml');
+        const btn = $('.js-copyHtml');
+        let $thisBtn;
         btn.on('click', function(e) {
+            $thisBtn = $(this);
             e.preventDefault();
-            copyHtml(getHtml());
+            copyHtml(getHtml(this));
         });
 
-        function getHtml() {
-            let copyHtml;
+        function getHtml(btn) {
+            const $btn = $(btn);
+            const btnParentId = $btn.parent().parent()[0].id;
+            let copyHtml = '<div>You got nothing</div>';
+
             that._browser.children().each(function () {
                 const $this = $(this);
                 let str = $this[0].id;
+                const thisId = str.substring(0, 40);
 
-                str = str.substring(str.length - 4, str.length);
+                if (thisId === btnParentId) {
+                    str = str.substring(str.length - 4, str.length);
 
-                if (str === 'html') {
-                    const $html = $($this.text()).clone();
+                    if (str === 'html') {
+                        const $html = $($this.text()).clone();
+                        const svg = $html.find('svg');
 
-                    let child;
-                    if ($html.hasClass('sg-collator')) {
-                        child = $html.children()[1];
-                    } else {
-                        child = $html;
+                        if (svg.length && localStorage.getItem('iconPath')) {
+                            const svgUse = $(svg).find('use')
+                            const split = svgUse.attr('xlink:href').split('#');
+                            const iconName = split[1];
+
+                            const iconPath = localStorage.getItem('iconPath') + '#' + iconName;
+                            svgUse.attr('xlink:href', iconPath);
+                        }
+
+                        copyHtml = $html[0].outerHTML;
                     }
-
-                    const svg = $(child).find('svg');
-
-                    if (svg.length && localStorage.getItem('iconPath')) {
-                        const svgUse = $(svg).find('use')
-                        const split = svgUse.attr('xlink:href').split('#');
-                        const iconName = split[1];
-
-                        const iconPath = localStorage.getItem('iconPath') + '#' + iconName;
-                        svgUse.attr('xlink:href', iconPath);
-                    }
-
-                    copyHtml = $(child)[0].outerHTML;
                 }
             });
 
@@ -106,19 +106,19 @@ class Pen {
         function showNotification(state) {
             switch (state) {
                 case 'success':
-                    btn.removeClass('btn--variant-dark').addClass('btn--order');
-                    btn.text('Copied!');
+                    $thisBtn.removeClass('btn--variant-dark').addClass('btn--order');
+                    $thisBtn.text('Copied!');
                     window.setTimeout(function() {
-                        btn.removeClass('btn--order').addClass('btn--variant-dark');
-                        btn.text('Copy');
+                        $thisBtn.removeClass('btn--order').addClass('btn--variant-dark');
+                        $thisBtn.text('Copy');
                     }, 3000);
                     break;
                 case 'error':
-                    btn.removeClass('btn--variant-dark').addClass('btn--quit');
-                    btn.text('Error occurred');
+                    $thisBtn.removeClass('btn--variant-dark').addClass('btn--quit');
+                    $thisBtn.text('Error occurred');
                     window.setTimeout(function() {
-                        btn.removeClass('btn--quit').addClass('btn--variant-dark');
-                        btn.text('Copy');
+                        $thisBtn.removeClass('btn--quit').addClass('btn--variant-dark');
+                        $thisBtn.text('Copy');
                     }, 5000);
                     break;
             }
