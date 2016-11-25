@@ -60,8 +60,6 @@
     @include border-inline(end, 1px solid $color-frame-border);
     flex: 0 0 auto;
     width: $width-sidebar;
-    min-width: $width-sidebar;
-    max-width: ($width-sidebar * 2);
     background-color: $color-background-offset;
     padding: 1rem 0;
 

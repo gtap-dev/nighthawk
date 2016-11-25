@@ -86,7 +86,7 @@ gulp.task('img:watch', function () {
 //
 // Task sets
 //
-gulp.task('watch', ['css:watch', 'js:watch', 'img:watch']);
+gulp.task('watch', ['css:watch', 'js:watch', 'img:watch', 'fonts:watch']);
 
 gulp.task('default', ['fonts', 'css', 'js', 'img']);
 
