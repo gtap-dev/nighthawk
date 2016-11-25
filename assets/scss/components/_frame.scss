@@ -61,7 +61,7 @@
     flex: 0 0 auto;
     width: $width-sidebar;
     background-color: $color-background-offset;
-    padding: 1rem 0;
+    padding: 20px;
 
     @include mq($until: navCollapse) {
         max-width: $width-sidebar;

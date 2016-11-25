@@ -7,8 +7,7 @@
         {% for collection in entity.resources().items() %}
         {% if collection.size %}
         <li class="Browser-tab Browser-tab--resources{% if not collection.size %} is-disabled{% endif %}" data-role="tab">
-            <a href="#browser-{{ entity.id }}-panel-{{ collection.name }}">
-                {{ img.tabIcon(panel) }}
+            <a href="#browser-{{ entity.id }}-{{ entity.name }}-panel-{{ collection.name }}">
                 <span>{{ collection.label }}</span>
             </a>
         </li>
@@ -16,8 +15,7 @@
         {% endfor %}
         {% else %}
         <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}" data-role="tab">
-            <a href="#browser-{{ entity.id }}-panel-{{ panel }}">
-                {{ img.tabIcon(panel) }}
+            <a href="#browser-{{ entity.id }}-{{ entity.name }}-panel-{{ panel }}">
                 <span>{% if panel == 'html' %}HTML{% else %}{{ panel | capitalize }}{% endif %}</span>
             </a>
         </li>

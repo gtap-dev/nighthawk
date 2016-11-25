@@ -1,4 +1,4 @@
-<div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-{{ entity.id }}-panel-view">
+<div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-{{ entity.id }}-{{ entity.name }}-panel-view">
     <code class="Code Code--lang-{{ variant.lang.editorMode }}">
         <pre>{{ entity.getPreviewContent() | async | highlight(entity.editorMode) | linkRefs(entity) }}</pre>
     </code>

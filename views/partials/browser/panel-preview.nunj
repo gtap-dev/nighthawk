@@ -1,0 +1,3 @@
+<div class="Browser-panel Browser-panel--preview Browser-code is-active" data-role="tab-panel" id="browser-{{ entity.id }}-{{ entity.name }}-panel-preview">
+    {% include "partials/pen/preview.nunj" %}
+</div>

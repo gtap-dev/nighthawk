@@ -96,23 +96,11 @@
 // Logical positioning
 @mixin padding-inline($position, $amount) {
     @if $position == start {
-        [dir="ltr"] & {
-            padding-left: $amount;
-        }
-        [dir="rtl"] & {
-            padding-right: $amount;
-        }
-        padding-inline-start: $amount;
+        padding-left: $amount;
     }
 
     @if $position == end {
-        [dir="ltr"] & {
-            padding-right: $amount;
-        }
-        [dir="rtl"] & {
-            padding-left: $amount;
-        }
-        padding-inline-end: $amount;
+        padding-right: $amount;
     }
 }
 

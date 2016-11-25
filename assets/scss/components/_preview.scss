@@ -17,7 +17,6 @@
 
     @include mq(navCollapse) {
         background-color: $color-background-offset;
-        border: 1px solid $color-frame-border;
     }
 }
 
