@@ -2033,7 +2033,7 @@ span.select2-selection.select2-selection--single {
 
 .Pen {
   background: white;
-  padding: 40px; }
+  padding: 20px 40px 40px; }
   .Pen.is-resizing {
     cursor: -webkit-grabbing;
     cursor: grabbing; }
