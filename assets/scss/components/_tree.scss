@@ -3,10 +3,9 @@
 }
 
 .Tree-title {
-    @include font(caption);
-    @include padding-inline(start, 1rem);
-    margin-bottom: 0.5rem;
-    color: $color-sidebar-heading;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
 .Tree-collection {
@@ -19,55 +18,54 @@
 
         .Tree-collectionLabel {
             span::before {
-                [dir="ltr"] & {
-                    background-image: url("../img/icon-navigation-closed-ltr.svg");
-                }
-                [dir="rtl"] & {
-                    background-image: url("../img/icon-navigation-closed-rtl.svg");
-                }
+                transform: rotate(0);
             }
         }
     }
 }
 
 .Tree-collectionLabel {
-    @include font(navigation);
-    padding-top: 0.375rem;
-    padding-bottom: 0.375rem;
+    font-weight: 700;
+    font-size: 14px;
+    padding-top: 9px;
+    padding-bottom: 9px;
     cursor: pointer;
     touch-action: manipulation;
     user-select: none;
     color: $color-text;
+    border-top: 1px solid $color-border;
 
     &:hover {
-        background-color: $color-ui-hover;
+        color: $color-ui-hover;
     }
 
     span {
-        @include padding-inline(start, 0.75rem);
-        @include margin-inline(start, -1.75rem);
         display: block;
         position: relative;
     }
 
     span::before {
-        @include offset-inline(start);
         display: inline-block;
         position: absolute;
         top: 0.25rem;
+        right: 0;
         background-image: url("../img/icon-navigation-opened.svg");
-        background-size: 0.5rem;
+        background-size: 12px;
         background-repeat: no-repeat;
         background-position: 50%;
-        width: 0.75rem;
-        height: 0.75rem;
-        opacity: 0.5;
+        width: 12px;
+        height: 12px;
         content: "";
+        transform: rotate(180deg);
+    }
+
+    .Tree-depth-3 & {
+        border-top: 0;
     }
 }
 
 .Tree-item {
-    @include font(navigation);
+    font-size: 14px;
 }
 
 .Tree-entityLink {
@@ -76,27 +74,17 @@
     padding-top: 0.375rem;
     padding-bottom: 0.375rem;
     text-decoration: none;
+    color: $color-text;
 
     &:hover {
-        background-color: $color-ui-hover;
+        color: $color-ui-hover;
     }
 
     .is-current & {
-        background-color: $color-ui-active;
-    }
-
-    .Status {
-        @include margin-inline(start, 0.25rem);
+        color: $color-ui-active;
     }
 }
 
-@for $i from 1 through 8 {
-    .Tree-depth-#{$i} {
-        $padLeft: ($i * 1rem);
-
-        .Tree-collectionLabel,
-        .Tree-entityLink {
-            @include padding-inline(start, $padLeft);
-        }
-    }
+.Tree-collectionItems {
+    padding-left: 20px;
 }

@@ -30,7 +30,6 @@
         <li class="Tree-item Tree-entity{% if isCurrent %} is-current{% endif %}"{% if isCurrent %} data-state="current"{% endif %} data-role="item">
             <a class="Tree-entityLink" href="{{ path( (item | url), request) }}" data-pjax>
                 <span>{{ item.label }}</span>
-                {% if item.status %}{{ status.unlabelled(item.status) }}{% endif %}
             </a>
         </li>
         {% endif %}

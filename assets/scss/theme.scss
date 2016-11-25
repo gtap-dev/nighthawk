@@ -3,14 +3,16 @@ $font-family-sans-serif: "Neue Helvetica W01", Helvetica, Arial, sans-serif !def
 $font-family-heading: "Pebble", sans-serif;
 
 $color-link: #990ae3 !default;
-$color-text: #000000 !default;
+$color-text: #000 !default;
 $color-heading: $color-text !default;
 
 $color-background: #fff !default;
 $color-background-offset: #f2f2f2 !default;
 
-$color-ui-hover: rgba($color-text, 0.05) !default;
-$color-ui-active: rgba($color-text, 0.075) !default;
+$color-border: #e4e4e4 !default;
+
+$color-ui-hover: $color-link !default;
+$color-ui-active: $color-link !default;
 
 $color-header-background: #990ae3 !default;
 $color-header-content: #fff !default;
