@@ -1853,18 +1853,8 @@ span.select2-selection.select2-selection--single {
   padding: 20px; }
 
 .Pen {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  height: 100%;
-  overflow: hidden;
-  background: white; }
+  background: white;
+  padding: 40px; }
   .Pen.is-resizing {
     cursor: -webkit-grabbing;
     cursor: grabbing; }
@@ -1880,7 +1870,7 @@ span.select2-selection.select2-selection--single {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   max-height: 3rem;
-  padding: 0.75rem;
+  margin-bottom: 20px;
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center; }
@@ -1911,8 +1901,9 @@ span.select2-selection.select2-selection--single {
         color: transparent !important; } }
 
 .Pen-title {
-  font: bold 1.125rem/1.33333 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-  font-feature-settings: "dlig" 1;
+  font-family: "Pebble", sans-serif;
+  font-size: 34px;
+  text-transform: uppercase;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
@@ -1934,13 +1925,16 @@ span.select2-selection.select2-selection--single {
 .Pen-previewLink:hover svg {
   fill: #68079a; }
 
+.Pen-description {
+  margin-bottom: 40px;
+  font-size: 14px; }
+
 .Pen-preview {
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   height: 50%;
-  max-height: calc(100% - 3.75rem);
-  margin: 0 0.625rem; }
+  max-height: calc(100% - 3.75rem); }
   @media (max-width: 31.24em) {
     .Pen-preview {
       -webkit-flex: 1 1 auto;
@@ -1981,17 +1975,30 @@ span.select2-selection.select2-selection--single {
   visibility: visible; }
 
 .Pen-info {
-  -webkit-flex: 1 1 auto;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
   position: relative;
-  overflow: hidden;
-  margin: 0.625rem;
-  margin-top: 0;
-  border: 1px solid rgba(0, 0, 0, 0.25); }
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  min-height: 500px; }
   @media (max-width: 31.24em) {
     .Pen-info {
       display: none; } }
+
+.Pen-variant {
+  margin-bottom: 40px; }
+
+.Pen-variantHeader {
+  margin-bottom: 20px; }
+
+.Pen-variantDescription {
+  margin-bottom: 20px;
+  font-size: 14px; }
+
+.Pen-variantTitle {
+  font-family: "Pebble", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
 
 .Preview {
   position: relative; }

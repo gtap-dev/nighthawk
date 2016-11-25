@@ -1,9 +1,14 @@
 <div class="Pen-panel Pen-header">
     <h1 class="Pen-title">
+        {{ entity.title }}
         <a class="Pen-previewLink" href="{{ previewUrl }}" title="Component preview">
-            {{ entity.title }}
             {% include "icons/open-in-browser.svg" %}
         </a>
     </h1>
     {{ status.tag(entity.status) }}
 </div>
+{% if entity.notes %}
+<div class="Pen-description">
+    {{ frctl.docs.renderString(entity.notes, renderEnv) | async }}
+</div>
+{% endif %}
