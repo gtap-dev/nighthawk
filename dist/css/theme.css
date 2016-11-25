@@ -700,23 +700,26 @@ h6 {
   font-weight: bold; }
 
 h1 {
-  font: bold 1.75rem/1.14286 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-  font-feature-settings: "dlig" 1;
-  letter-spacing: -0.025em; }
+  font-size: 34px;
+  line-height: 1.1176;
+  font-family: "Pebble", sans-serif;
+  text-transform: uppercase; }
 
 h2 {
-  font: bold 1.3125rem/1.14286 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-  font-feature-settings: "dlig" 1; }
+  font-size: 24px;
+  line-height: 1.1667;
+  text-transform: uppercase;
+  font-family: "Pebble", sans-serif; }
 
 h3 {
-  font: bold 1.125rem/1.33333 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-  font-feature-settings: "dlig" 1; }
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 400; }
 
 h4,
 h5,
 h6 {
-  font: normal 1rem/1.5 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-  font-weight: bold; }
+  font: normal 1rem/1.5 "Neue Helvetica W01", Helvetica, Arial, sans-serif; }
 
 .AssetList {
   list-style: none;
@@ -1631,9 +1634,10 @@ Button variants
     margin-left: auto; }
 
 .Document-title {
-  font: bold 1.75rem/1.14286 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-  font-feature-settings: "dlig" 1;
-  letter-spacing: -0.025em; }
+  font-size: 34px;
+  line-height: 1.1176;
+  font-family: "Pebble", sans-serif;
+  text-transform: uppercase; }
 
 .Error-stack {
   margin-top: 1.5rem; }
@@ -1837,9 +1841,9 @@ span.select2-selection.select2-selection--single {
   background-size: 3px 16px;
   cursor: ew-resize; }
   .Frame-handle:hover {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Frame-handle:active {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Frame-handle.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -2127,9 +2131,9 @@ span.select2-selection.select2-selection--single {
   background-size: 16px 3px;
   cursor: ns-resize; }
   .Pen-handle:hover {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Pen-handle:active {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Pen-handle.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -2211,6 +2215,7 @@ span.select2-selection.select2-selection--single {
   height: 100%;
   overflow: auto;
   max-width: calc(100% - 0.625rem + 1px);
+  max-height: calc(100% - 0.625rem + 1px);
   min-width: 180px;
   min-height: 100px;
   background-color: white;
@@ -2268,9 +2273,9 @@ span.select2-selection.select2-selection--single {
   [dir="rtl"] .Preview-handle {
     border-right: 1px solid #e4e4e4; }
   .Preview-handle:hover {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Preview-handle:active {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Preview-handle.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -2292,8 +2297,8 @@ span.select2-selection.select2-selection--single {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   height: 0.625rem;
-  margin: 0 0.625rem;
-  background: transparent url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
+  margin: 0 0.625rem 0 0;
+  background: #e4e4e4 url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
   background-size: 16px 3px;
   cursor: ns-resize;
   position: absolute;
@@ -2301,9 +2306,9 @@ span.select2-selection.select2-selection--single {
   right: 0;
   bottom: 0; }
   .Preview-handle-horizontal:hover {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Preview-handle-horizontal:active {
-    background-color: #990ae3; }
+    background-color: #9f9f9f; }
   .Preview-handle-horizontal.is-disabled {
     pointer-events: none;
     visibility: hidden; }
@@ -2330,27 +2335,33 @@ span.select2-selection.select2-selection--single {
   .Prose li > ol {
     margin-bottom: 0.25em; }
   .Prose ul > li {
-    list-style-type: square; }
+    list-style-type: disc; }
   .Prose ol > li {
     list-style-type: decimal; }
   .Prose h1 {
-    font: bold 1.75rem/1.14286 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-    font-feature-settings: "dlig" 1;
-    letter-spacing: -0.025em; }
+    font-size: 34px;
+    line-height: 1.1176;
+    font-family: "Pebble", sans-serif;
+    text-transform: uppercase; }
   .Prose h2 {
-    font: bold 1.3125rem/1.14286 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-    font-feature-settings: "dlig" 1;
+    font-size: 24px;
+    line-height: 1.1667;
+    text-transform: uppercase;
+    font-family: "Pebble", sans-serif;
     margin-bottom: 1em;
     color: #000; }
+  .Prose * + h1,
+  .Prose * + h2 {
+    margin-top: 1em; }
   .Prose *:not(hr) + h2 {
     margin-top: 2em; }
   .Prose h3 {
-    font: bold 1.125rem/1.33333 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
-    font-feature-settings: "dlig" 1;
-    margin-bottom: 0.75em;
-    opacity: 0.8; }
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 400;
+    margin-bottom: 0.75em; }
   .Prose * + h3 {
-    margin-top: 2.25em; }
+    margin-top: 1em; }
   .Prose hr {
     height: 0;
     border: 0;
@@ -2383,7 +2394,8 @@ span.select2-selection.select2-selection--single {
     margin: 1rem -0.5rem;
     border-collapse: collapse;
     font-size: 0.875rem;
-    font-feature-settings: "lnum" 1, "tnum" 1; }
+    font-feature-settings: "lnum" 1, "tnum" 1;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
   .Prose caption {
     font: normal 0.8125rem/1.53846 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
     padding: 0 0.5rem;
@@ -2393,7 +2405,7 @@ span.select2-selection.select2-selection--single {
     opacity: 0.8; }
   .Prose td,
   .Prose th {
-    padding: 0.75em 0.5rem;
+    padding: 10px 15px;
     text-align: start; }
     [dir="ltr"] .Prose td, [dir="ltr"]
     .Prose th {
@@ -2401,11 +2413,10 @@ span.select2-selection.select2-selection--single {
     [dir="rtl"] .Prose td, [dir="rtl"]
     .Prose th {
       text-align: right; }
-  .Prose tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.05); }
+  .Prose tr:nth-child(odd) {
+    background-color: #f6f6f6; }
   .Prose th {
-    background-color: rgba(0, 0, 0, 0.075);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+    background-color: #fff; }
 
 .Prose--condensed > * {
   margin-bottom: 0.50em; }

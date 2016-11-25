@@ -47,6 +47,7 @@
     height: 100%;
     overflow: auto;
     max-width: calc(100% - #{$handle-size} + 1px);
+    max-height: calc(100% - #{$handle-size} + 1px);
     min-width: 180px;
     min-height: 100px;
     background-color: white;
@@ -103,8 +104,8 @@
     @include dragHandle;
     flex: 0 0 auto;
     height: $handle-size;
-    margin: 0 $handle-size;
-    background: transparent url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
+    margin: 0 $handle-size 0 0;
+    background: $color-frame-border url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
     background-size: 16px 3px;
     cursor: ns-resize;
     position: absolute;

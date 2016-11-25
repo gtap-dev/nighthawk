@@ -38,11 +38,11 @@
     transition: all 0.15s ease-out;
 
     &:hover {
-        background-color: $color-ui-hover;
+        background-color: $grey-d;
     }
 
     &:active {
-        background-color: $color-ui-active;
+        background-color: $grey-d;
     }
 
     &.is-disabled {
@@ -59,19 +59,23 @@
 // Typography
 @mixin font($preset) {
     @if $preset == title {
-        font: bold 1.75rem/#{(32 / 28)} $font-family-sans-serif;
-        font-feature-settings: "dlig" 1;
-        letter-spacing: -0.025em;
+        font-size: 34px;
+        line-height: 1.1176;
+        font-family: $font-family-heading;
+        text-transform: uppercase;
     }
 
     @if $preset == heading {
-        font: bold 1.3125rem/#{(24 / 21)} $font-family-sans-serif;
-        font-feature-settings: "dlig" 1;
+        font-size: 24px;
+        line-height: 1.1667;
+        text-transform: uppercase;
+        font-family: $font-family-heading;
     }
 
     @if $preset == subHeading {
-        font: bold 1.125rem/#{(24 / 18)} $font-family-sans-serif;
-        font-feature-settings: "dlig" 1;
+        font-size: 20px;
+        line-height: 1.3;
+        font-weight: 400;
     }
 
     @if $preset == body {

@@ -20,7 +20,7 @@
     }
 
     ul > li {
-        list-style-type: square;
+        list-style-type: disc;
     }
 
     ol > li {
@@ -37,6 +37,11 @@
         color: $color-heading;
     }
 
+    * + h1,
+    * + h2 {
+        margin-top: 1em;
+    }
+
     *:not(hr) + h2 {
         margin-top: 2em;
     }
@@ -44,11 +49,10 @@
     h3 {
         @include font(subHeading);
         margin-bottom: 0.75em;
-        opacity: 0.8;
     }
 
     * + h3 {
-        margin-top: 2.25em;
+        margin-top: 1em;
     }
 
     hr {
@@ -90,6 +94,7 @@
         border-collapse: collapse;
         font-size: 0.875rem;
         font-feature-settings: "lnum" 1, "tnum" 1;
+        box-shadow: 0 1px 1px rgba($black, .1);
     }
 
     caption {
@@ -103,7 +108,7 @@
 
     td,
     th {
-        padding: 0.75em 0.5rem;
+        padding: 10px 15px;
         text-align: start;
 
         // text-align: start isn't fully supported for th elements
@@ -111,13 +116,12 @@
         [dir="rtl"] & { text-align: right; }
     }
 
-    tr:nth-child(even) {
-        background-color: rgba($color-text, 0.05);
+    tr:nth-child(odd) {
+        background-color: $grey-m;
     }
 
     th {
-        background-color: rgba($color-text, 0.075);
-        border-bottom: 1px solid rgba($color-text, 0.1);
+        background-color: $white;
     }
 }
 

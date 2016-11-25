@@ -5,10 +5,12 @@
 <h3>Component statuses</h3>
 <p>Components and their variants have been given statuses reflecting their state of completion. The available statuses are listed below.</p>
 <table>
+<thead>
 <tr>
     <th>Label</th>
     <th>Description</th>
 </tr>
+</thead>
 {% for handle, st in frctl.get('components.statuses') %}
 <tr>
     <td>{{ status.tag(st, st.key) }}</td>
