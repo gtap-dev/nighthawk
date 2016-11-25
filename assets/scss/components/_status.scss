@@ -20,11 +20,9 @@
     @include font(caption);
     display: inline-block;
     border-radius: 2rem;
-    height: 15px;
-    width: 15px;
+    padding: 0.125rem 0.75rem;
     color: white;
     white-space: nowrap;
-    margin-right: 15px;
 }
 
 .Status-label + .Status-label {

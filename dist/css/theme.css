@@ -2111,8 +2111,7 @@ span.select2-selection.select2-selection--single {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   height: 50%;
-  max-height: calc(100% - 3.75rem);
-  width: 100%; }
+  max-height: calc(100% - 3.75rem); }
   @media (max-width: 31.24em) {
     .Pen-preview {
       -webkit-flex: 1 1 auto;
@@ -2493,11 +2492,9 @@ span.select2-selection.select2-selection--single {
   text-transform: uppercase;
   display: inline-block;
   border-radius: 2rem;
-  height: 15px;
-  width: 15px;
+  padding: 0.125rem 0.75rem;
   color: white;
-  white-space: nowrap;
-  margin-right: 15px; }
+  white-space: nowrap; }
 
 .Status-label + .Status-label {
   -webkit-margin-start: 0.25rem;

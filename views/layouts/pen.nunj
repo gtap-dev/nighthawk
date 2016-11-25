@@ -38,7 +38,7 @@
             {% if variant.name == 'default' %}
             <div class="Pen-panel Pen-header">
                 <h1 class="Pen-title">
-                    {{ status.tag(entity.status) }}
+                    {{ status.unlabelled(entity.status) }}
                     {{ entity.title }}
                 </h1>
             </div>
