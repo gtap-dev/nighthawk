@@ -1,16 +1,18 @@
-<div class="navigation-search">
-    <div class="form-search form-search--big">
-        <input type="text" class="form-search__input" placeholder="Otsi..." data-clear="true" value="">
-        <button class="form-search__action">
-            <!--<svg class="icon ">
-                <use xlink:href="{{ path('/assets/svg/icons.svg#search') }}"></use>
-            </svg>-->
-        </button>
-    </div>
+<div id="searchid">
+    <div class="navigation-search">
+        <div class="form-search form-search--big">
+            <input id="search-input" type="text" class="search form-search__input" placeholder="Otsi..." data-clear="true" value="">
+            <button class="form-search__action">
+                <svg class="icon ">
+                    <use xlink:href="{{ path('/assets/svg/icons.svg#search') }}"></use>
+                </svg>
+            </button>
+        </div>
 
+    </div>
+    <nav class="Navigation">
+        {% for navPartial in frctl.theme.get('nav') %}
+        {% include 'partials/navigation/' + navPartial + '.nunj' %}
+        {% endfor %}
+    </nav>
 </div>
-<nav class="Navigation">
-{% for navPartial in frctl.theme.get('nav') %}
-    {% include 'partials/navigation/' + navPartial + '.nunj' %}
-{% endfor %}
-</nav>

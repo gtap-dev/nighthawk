@@ -10,6 +10,7 @@ const events     = require('./events');
 const utils      = require('./utils');
 const framer     = require('./components/frame');
 const Tree       = require('./components/tree');
+const search       = require('./components/search');
 const Pen        = require('./components/pen');
 
 global.fractal = {
