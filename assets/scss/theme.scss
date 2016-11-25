@@ -2,17 +2,19 @@ $font-family-monospace: Hack, Consolas, Monaco, "Andale Mono", monospace !defaul
 $font-family-sans-serif: "Neue Helvetica W01", Helvetica, Arial, sans-serif !default;
 $font-family-heading: "Pebble", sans-serif;
 
-$color-link: #28f !default;
-$color-text: #535363 !default;
-$color-heading: #444 !default;
+$color-link: #990ae3 !default;
+$color-text: #000 !default;
+$color-heading: $color-text !default;
 
 $color-background: #fff !default;
-$color-background-offset: #f6f6f6 !default;
+$color-background-offset: #f2f2f2 !default;
 
-$color-ui-hover: rgba($color-text, 0.05) !default;
-$color-ui-active: rgba($color-text, 0.075) !default;
+$color-border: #e4e4e4 !default;
 
-$color-header-background: #14f !default;
+$color-ui-hover: $color-link !default;
+$color-ui-active: $color-link !default;
+
+$color-header-background: #990ae3 !default;
 $color-header-content: #fff !default;
 
 $color-frame-border: rgba($color-text, 0.25) !default;
@@ -20,6 +22,15 @@ $color-frame-border: rgba($color-text, 0.25) !default;
 $color-sidebar-heading: rgba($color-text, 0.75) !default;
 
 $highlight-theme: 'github' !default;
+
+$grey:         #e4e4e4;
+$grey-l:       #f2f2f2;
+$grey-d:       #9f9f9f;
+$white :        #fff;
+$black :        #000;
+$text-color-base: $black;
+$purple:       #990ae3;
+$blue-l:       #00cdff;
 
 @import "./core/all";
 @import "./components/**/*.scss";

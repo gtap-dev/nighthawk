@@ -1,10 +1,6 @@
 .Pen {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    height: 100%;
-    overflow: hidden;
     background: white;
+    padding: 40px;
 
     &.is-resizing {
         cursor: grabbing;
@@ -19,7 +15,7 @@
     display: flex;
     flex: 0 0 auto;
     max-height: 3rem;
-    padding: 0.75rem;
+    margin-bottom: 20px;
     align-items: center;
 
     .Status {
@@ -48,7 +44,9 @@
 }
 
 .Pen-title {
-    @include font(subHeading);
+    font-family: $font-family-heading;
+    font-size: 34px;
+    text-transform: uppercase;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -67,11 +65,15 @@
     }
 }
 
+.Pen-description {
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
 .Pen-preview {
     flex: 0 0 auto;
     height: 50%;
     max-height: calc(100% - 3.75rem);
-    margin: 0 $handle-size;
 
     @include mq($until: navCollapse) {
         flex: 1 1 auto;
@@ -102,14 +104,33 @@
 }
 
 .Pen-info {
-    flex: 1 1 auto;
     position: relative;
-    overflow: hidden;
-    margin: $handle-size;
-    margin-top: 0;
     border: 1px solid $color-frame-border;
+    min-height: 500px;
 
     @include mq($until: navCollapse) {
         display: none;
     }
+}
+
+.Pen-variant {
+    margin-bottom: 40px;
+}
+
+.Pen-variantHeader {
+    margin-bottom: 20px;
+}
+
+.Pen-variantDescription {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.Pen-variantTitle {
+    font-family: $font-family-heading;
+    font-size: 24px;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

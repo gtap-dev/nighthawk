@@ -12,14 +12,14 @@
 {% block content %}
 
 {% if frctl.env.server and frctl.env.sync %}
-    {% set rendered = false %}
+{% set rendered = false %}
 {% else %}
-    {% set rendered = entity.render(null, renderEnv, { preview: true, collate: true }) | async(true) %}
-    {% if rendered | isError %}
-        {% set error = rendered %}
-        {% set renderError %}{{ errors.renderError('component', error.message) }}{% endset %}
-        {% set rendered = false %}
-    {% endif %}
+{% set rendered = entity.render(null, renderEnv, { preview: true, collate: true }) | async(true) %}
+{% if rendered | isError %}
+{% set error = rendered %}
+{% set renderError %}{{ errors.renderError('component', error.message) }}{% endset %}
+{% set rendered = false %}
+{% endif %}
 {%- endif %}
 
 <div class="Pen" data-behaviour="pen" id="pen-{{ entity.id }}">
@@ -28,7 +28,34 @@
 
     {% include "partials/pen/header.nunj" %}
 
-    {% include "partials/pen/preview.nunj" %}
+    {% if entity.isComponent %}
+    {% set variants = entity.variants() %}
+    {% else %}
+    {% set variants = entity.parent.variants() %}
+    {% endif %}
+    {% if variants.size > 1 %}
+    {% for variant in variants.items() %}
+    <div class="Pen-variant">
+        <div class="Pen-variantHeader">
+            <h2 class="Pen-variantTitle">
+                {{ variant.name }}
+                <a class="Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) }}" title="Component preview">
+                    {% include "icons/open-in-browser.svg" %}
+                </a>
+            </h2>
+        </div>
+        {% if variant.notes %}
+        <div class="Pen-variantDescription">
+            {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
+        </div>
+        {% endif %}
+        <div class="Pen-variantTabs">
+            {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
+            {% include "partials/pen/preview.nunj" %}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
 
     <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
 
