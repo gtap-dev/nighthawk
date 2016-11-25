@@ -38,22 +38,14 @@
             {% if variant.name == 'default' %}
             <div class="Pen-panel Pen-header">
                 <h1 class="Pen-title">
+                    {{ status.tag(entity.status) }}
                     {{ entity.title }}
-                    <a class="Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">
-                        {% include "icons/open-in-browser.svg" %}
-                    </a>
                 </h1>
-                <button id="js-copyHtml" class="btn btn--variant-dark btn--small">Copy</button>
-                {{ status.tag(entity.status) }}
             </div>
             {% else %}
             <h2 class="Pen-variantTitle">
                 {{ variant.name }}
-                <a class="Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">
-                    {% include "icons/open-in-browser.svg" %}
-                </a>
             </h2>
-            <button id="js-copyHtml" class="btn btn--variant-dark btn--small">Copy</button>
             {% endif %}
         </div>
         {% if variant.notes %}

@@ -1,4 +1,4 @@
-<div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-{{ entity.id }}">
+<div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-{{ entity.id }}-{{ entity.name }}">
     <div class="Preview-wrapper" data-role="resizer">
         <div class="Preview-resizer">
             {% if renderError -%}

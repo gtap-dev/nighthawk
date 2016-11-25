@@ -22,4 +22,9 @@
         {% endif %}
         {% endfor %}
     </ul>
+    <button class="btn btn--variant-dark btn--small js-copyHtml" title="Copy component html">Copy</button>
+    <a class="btn btn--variant-dark btn--small Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">
+        <span>Preview</span>
+        {% include "icons/open-in-browser.svg" %}
+    </a>
 </div>

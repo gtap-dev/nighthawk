@@ -20,8 +20,8 @@ class Pen {
 
     _init() {
         const initialHeight = storage.get(`pen.previewHeight`, (this._el.outerHeight() / 2));
-        const preview       = new Preview(this._previewPanel);
         let browsers        = [];
+        let previews        = [];
         let state           = storage.get(`pen.previewState`, 'open');
         let handleClicks    = 0;
         let dblClick        = false;
@@ -31,106 +31,47 @@ class Pen {
             browsers.push(new Browser(this._browser[i]));
         }
 
-        if (state === 'open') {
-            this._previewPanel.outerHeight(initialHeight);
-            storage.set(`pen.previewHeight`, initialHeight);
-        } else {
-            this._previewPanel.css('height', '100%');
+        for(let i = 0; i < this._previewPanel.length; i++) {
+            previews.push(new Preview(this._previewPanel[i]));
         }
+        this._previewPanel.css('height', '600px');
 
-        this._handle.on('mousedown', e => {
-            dblClick = false;
-            handleClicks++;
-
-            setTimeout(function() {
-                handleClicks = 0;
-            }, 400);
-
-            if (handleClicks === 2) {
-                dblClick = true;
-                handleClicks = 0;
-                return false;
-            }
-        });
-
-        this._previewPanel.resizable({
-            handleSelector: this._handle,
-            resizeWidth: false,
-            onDragStart: () => {
-                this._el.addClass('is-resizing');
-                preview.disableEvents();
-                events.trigger('start-dragging');
-            },
-            onDragEnd: () => {
-                this._el.removeClass('is-resizing');
-                preview.enableEvents();
-                events.trigger('end-dragging');
-                if (dblClick) {
-                    if (state === 'closed') {
-                        this._previewPanel.css('height', storage.get(`pen.onClosedHeight`, initialHeight));
-                        state = 'open';
-                        storage.set(`pen.previewState`, 'open');
-                    } else {
-                        storage.set(`pen.onClosedHeight`, this._previewPanel.outerHeight());
-                        this._previewPanel.css({
-                            'height': '100%',
-                            'transition': '.3s ease all'
-                        });
-                        state = 'closed';
-                        storage.set(`pen.previewState`, 'closed');
-                    }
-                } else {
-                    if (state !== 'closed') {
-                        storage.set(`pen.previewHeight`, this._previewPanel.outerHeight());
-                    } else {
-                        setTimeout(() => {
-                            if (!dblClick) {
-                                state = 'open';
-                                storage.set(`pen.previewState`, 'open');
-                                storage.set(`pen.previewHeight`, this._previewPanel.outerHeight());
-                            }
-                        }, 400);
-                    }
-                }
-            }
-        });
-
-        const btn = $('#js-copyHtml');
+        const btn = $('.js-copyHtml');
+        let $thisBtn;
         btn.on('click', function(e) {
+            $thisBtn = $(this);
             e.preventDefault();
-            copyHtml(getHtml());
+            copyHtml(getHtml(this));
         });
 
-        function getHtml() {
-            let copyHtml;
+        function getHtml(btn) {
+            const $btn = $(btn);
+            const btnParentId = $btn.parent().parent()[0].id;
+            let copyHtml = '<div>You got nothing</div>';
+
             that._browser.children().each(function () {
                 const $this = $(this);
                 let str = $this[0].id;
+                const thisId = str.substring(0, 40);
 
-                str = str.substring(str.length - 4, str.length);
+                if (thisId === btnParentId) {
+                    str = str.substring(str.length - 4, str.length);
 
-                if (str === 'html') {
-                    const $html = $($this.text()).clone();
+                    if (str === 'html') {
+                        const $html = $($this.text()).clone();
+                        const svg = $html.find('svg');
 
-                    let child;
-                    if ($html.hasClass('sg-collator')) {
-                        child = $html.children()[1];
-                    } else {
-                        child = $html;
+                        if (svg.length && localStorage.getItem('iconPath')) {
+                            const svgUse = $(svg).find('use')
+                            const split = svgUse.attr('xlink:href').split('#');
+                            const iconName = split[1];
+
+                            const iconPath = localStorage.getItem('iconPath') + '#' + iconName;
+                            svgUse.attr('xlink:href', iconPath);
+                        }
+
+                        copyHtml = $html[0].outerHTML;
                     }
-
-                    const svg = $(child).find('svg');
-
-                    if (svg.length && localStorage.getItem('iconPath')) {
-                        const svgUse = $(svg).find('use')
-                        const split = svgUse.attr('xlink:href').split('#');
-                        const iconName = split[1];
-
-                        const iconPath = localStorage.getItem('iconPath') + '#' + iconName;
-                        svgUse.attr('xlink:href', iconPath);
-                    }
-
-                    copyHtml = $(child)[0].outerHTML;
                 }
             });
 
@@ -165,19 +106,19 @@ class Pen {
         function showNotification(state) {
             switch (state) {
                 case 'success':
-                    btn.removeClass('btn--variant-dark').addClass('btn--order');
-                    btn.text('Copied!');
+                    $thisBtn.removeClass('btn--variant-dark').addClass('btn--order');
+                    $thisBtn.text('Copied!');
                     window.setTimeout(function() {
-                        btn.removeClass('btn--order').addClass('btn--variant-dark');
-                        btn.text('Copy');
+                        $thisBtn.removeClass('btn--order').addClass('btn--variant-dark');
+                        $thisBtn.text('Copy');
                     }, 3000);
                     break;
                 case 'error':
-                    btn.removeClass('btn--variant-dark').addClass('btn--quit');
-                    btn.text('Error occurred');
+                    $thisBtn.removeClass('btn--variant-dark').addClass('btn--quit');
+                    $thisBtn.text('Error occurred');
                     window.setTimeout(function() {
-                        btn.removeClass('btn--quit').addClass('btn--variant-dark');
-                        btn.text('Copy');
+                        $thisBtn.removeClass('btn--quit').addClass('btn--variant-dark');
+                        $thisBtn.text('Copy');
                     }, 5000);
                     break;
             }

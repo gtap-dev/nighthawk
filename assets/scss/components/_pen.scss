@@ -50,10 +50,12 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    display: flex;
 }
 
 .Pen-previewLink {
-    @include link-default($color-heading, none);
+    display: flex;
+    text-decoration: none;
 
     svg {
         @include margin-inline(start, 5px);
@@ -74,6 +76,7 @@
     flex: 0 0 auto;
     height: 50%;
     max-height: calc(100% - 3.75rem);
+    width: 100%;
 
     @include mq($until: navCollapse) {
         flex: 1 1 auto;
