@@ -43,7 +43,6 @@
                         {% include "icons/open-in-browser.svg" %}
                     </a>
                 </h1>
-                <button id="js-copyHtml" class="btn btn--variant-dark btn--small">Copy</button>
                 {{ status.tag(entity.status) }}
             </div>
             {% else %}
@@ -53,7 +52,6 @@
                     {% include "icons/open-in-browser.svg" %}
                 </a>
             </h2>
-            <button id="js-copyHtml" class="btn btn--variant-dark btn--small">Copy</button>
             {% endif %}
         </div>
         {% if variant.notes %}
