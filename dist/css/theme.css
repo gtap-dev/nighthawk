@@ -1488,6 +1488,8 @@ Button base styles
     .btn--small .btn__icon--right {
       margin-left: 1px;
       margin-right: -5px; }
+  .btn + .btn {
+    margin-left: 5px; }
 
 /*
 Button variants
@@ -2075,24 +2077,27 @@ span.select2-selection.select2-selection--single {
   text-transform: uppercase;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap; }
+  white-space: nowrap;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
 
-.Pen-previewLink:link, .Pen-previewLink:visited, .Pen-previewLink:hover, .Pen-previewLink:active {
-  color: #000;
+.Pen-previewLink {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   text-decoration: none; }
-
-.Pen-previewLink svg {
-  -webkit-margin-start: 5px;
-     -moz-margin-start: 5px;
-          margin-inline-start: 5px;
-  fill: #990ae3; }
-  [dir="ltr"] .Pen-previewLink svg {
-    margin-left: 5px; }
-  [dir="rtl"] .Pen-previewLink svg {
-    margin-right: 5px; }
-
-.Pen-previewLink:hover svg {
-  fill: #68079a; }
+  .Pen-previewLink svg {
+    -webkit-margin-start: 5px;
+       -moz-margin-start: 5px;
+            margin-inline-start: 5px;
+    fill: #990ae3; }
+    [dir="ltr"] .Pen-previewLink svg {
+      margin-left: 5px; }
+    [dir="rtl"] .Pen-previewLink svg {
+      margin-right: 5px; }
+  .Pen-previewLink:hover svg {
+    fill: #68079a; }
 
 .Pen-description {
   margin-bottom: 40px;
@@ -2484,9 +2489,11 @@ span.select2-selection.select2-selection--single {
   text-transform: uppercase;
   display: inline-block;
   border-radius: 2rem;
-  padding: 0.125rem 0.75rem;
+  height: 15px;
+  width: 15px;
   color: white;
-  white-space: nowrap; }
+  white-space: nowrap;
+  margin-right: 15px; }
 
 .Status-label + .Status-label {
   -webkit-margin-start: 0.25rem;
