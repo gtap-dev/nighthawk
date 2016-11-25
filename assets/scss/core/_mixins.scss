@@ -191,3 +191,11 @@
         offset-inline-end: $value;
     }
 }
+
+@mixin clearFixer() {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
