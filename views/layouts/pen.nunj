@@ -26,23 +26,33 @@
 
     {% block penContent %}
 
-    {% include "partials/pen/header.nunj" %}
-
     {% if entity.isComponent %}
     {% set variants = entity.variants() %}
     {% else %}
     {% set variants = entity.parent.variants() %}
     {% endif %}
-    {% if variants.size > 1 %}
+    {% if variants.size > 0 %}
     {% for variant in variants.items() %}
     <div class="Pen-variant">
         <div class="Pen-variantHeader">
+            {% if variant.name == 'default' %}
+            <div class="Pen-panel Pen-header">
+                <h1 class="Pen-title">
+                    {{ entity.title }}
+                    <a class="Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">
+                        {% include "icons/open-in-browser.svg" %}
+                    </a>
+                </h1>
+                {{ status.tag(entity.status) }}
+            </div>
+            {% else %}
             <h2 class="Pen-variantTitle">
                 {{ variant.name }}
-                <a class="Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('component', { handle: variant.handle })) }}" title="Component preview">
+                <a class="Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">
                     {% include "icons/open-in-browser.svg" %}
                 </a>
             </h2>
+            {% endif %}
         </div>
         {% if variant.notes %}
         <div class="Pen-variantDescription">
