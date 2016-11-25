@@ -4,7 +4,6 @@
         <a class="Pen-previewLink" href="{{ previewUrl }}" title="Component preview">
             {% include "icons/open-in-browser.svg" %}
         </a>
-        <a href="#" id="js-copyHtml" class="btn btn--variant-dark btn--small">Copy</a>
     </h1>
     {{ status.tag(entity.status) }}
 </div>

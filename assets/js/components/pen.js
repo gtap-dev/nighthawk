@@ -151,9 +151,32 @@ class Pen {
             document.body.appendChild(element);
             selectElementText(element);
             if (document.execCommand('copy')) {
-                console.log('success');
+                showNotification('success');
+            } else {
+                showNotification('error');
             }
             element.remove();
+        }
+
+        function showNotification(state) {
+            switch (state) {
+                case 'success':
+                    btn.removeClass('btn--variant-dark').addClass('btn--order');
+                    btn.text('Copied!');
+                    window.setTimeout(function() {
+                        btn.removeClass('btn--order').addClass('btn--variant-dark');
+                        btn.text('Copy');
+                    }, 3000);
+                    break;
+                case 'error':
+                    btn.removeClass('btn--variant-dark').addClass('btn--quit');
+                    btn.text('Error occurred');
+                    window.setTimeout(function() {
+                        btn.removeClass('btn--quit').addClass('btn--variant-dark');
+                        btn.text('Copy');
+                    }, 5000);
+                    break;
+            }
         }
     }
 }
