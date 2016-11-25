@@ -1,4 +1,4 @@
-<div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-{{ entity.id }}-panel-context">
+<div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-{{ entity.id }}-{{ entity.name }}-panel-context">
     {% set hasContext = entity.hasContext() | async %}
     {% if hasContext %}
     <code class="Code Code--lang-{{ frctl.theme.get('format') }}">

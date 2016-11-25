@@ -17,7 +17,7 @@ $color-ui-active: $color-link !default;
 $color-header-background: #990ae3 !default;
 $color-header-content: #fff !default;
 
-$color-frame-border: rgba($color-text, 0.25) !default;
+$color-frame-border: $color-border !default;
 
 $color-sidebar-heading: rgba($color-text, 0.75) !default;
 

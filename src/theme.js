@@ -21,7 +21,7 @@ module.exports = function(options){
         favicon: null
     });
 
-    config.panels  = config.panels || ['html', 'view', 'context', 'resources', 'info', 'notes'];
+    config.panels  = config.panels || ['preview', 'html', 'info'];
     config.nav     = config.nav || ['components','docs','assets'];
     config.styles  = [`/${config.static.mount}/css/theme.css`];
     config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url));

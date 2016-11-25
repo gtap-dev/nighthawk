@@ -21,11 +21,15 @@ class Pen {
     _init() {
         const initialHeight = storage.get(`pen.previewHeight`, (this._el.outerHeight() / 2));
         const preview       = new Preview(this._previewPanel);
-        const browser       = new Browser(this._browser);
+        let browsers        = [];
         let state           = storage.get(`pen.previewState`, 'open');
         let handleClicks    = 0;
         let dblClick        = false;
         const that          = this;
+
+        for(let i = 0; i < this._browser.length; i++) {
+            browsers.push(new Browser(this._browser[i]));
+        }
 
         if (state === 'open') {
             this._previewPanel.outerHeight(initialHeight);

@@ -61,15 +61,12 @@
         {% endif %}
         <div class="Pen-variantTabs">
             {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
-            {% include "partials/pen/preview.nunj" %}
+            {% set entity = variant %}
+            {% include "partials/pen/browser.nunj" %}
         </div>
     </div>
     {% endfor %}
     {% endif %}
-
-    <div class="Pen-handle Pen-handle--browser" data-role="resize-handle"></div>
-
-    {% include "partials/pen/browser.nunj" %}
 
     {% endblock %}
 

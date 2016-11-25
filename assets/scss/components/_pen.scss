@@ -105,8 +105,6 @@
 
 .Pen-info {
     position: relative;
-    border: 1px solid $color-frame-border;
-    min-height: 500px;
 
     @include mq($until: navCollapse) {
         display: none;
