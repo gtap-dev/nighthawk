@@ -21,5 +21,14 @@ $color-sidebar-heading: rgba($color-text, 0.75) !default;
 
 $highlight-theme: 'github' !default;
 
+$grey:         #e4e4e4;
+$grey-l:       #f2f2f2;
+$grey-d:       #9f9f9f;
+$white :        #fff;
+$black :        #000;
+$text-color-base: $black;
+$purple:       #990ae3;
+$blue-l:       #00cdff;
+
 @import "./core/all";
 @import "./components/**/*.scss";
