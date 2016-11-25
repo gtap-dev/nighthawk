@@ -118,15 +118,7 @@ class Pen {
 
                     if (str === 'html') {
                         const $html = $($this.text()).clone();
-
-                        let child;
-                        if ($html.hasClass('sg-collator')) {
-                            child = $html.children()[1];
-                        } else {
-                            child = $html;
-                        }
-
-                        const svg = $(child).find('svg');
+                        const svg = $html.find('svg');
 
                         if (svg.length && localStorage.getItem('iconPath')) {
                             const svgUse = $(svg).find('use')
@@ -137,7 +129,7 @@ class Pen {
                             svgUse.attr('xlink:href', iconPath);
                         }
 
-                        copyHtml = $(child)[0].outerHTML;
+                        copyHtml = $html[0].outerHTML;
                     }
                 }
             });
