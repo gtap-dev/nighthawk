@@ -2345,12 +2345,15 @@ span.select2-selection.select2-selection--single {
   background-color: transparent; }
   .Tree-collection.is-closed .Tree-collectionItems {
     display: none; }
-  .Tree-collection.is-closed .Tree-collectionLabel span::before {
+  .Tree-collection.is-closed .Tree-collectionLabel {
+    color: #000; }
+  .Tree-collection.is-closed .Tree-collectionIcon {
     -webkit-transform: rotate(0);
         -ms-transform: rotate(0);
             transform: rotate(0); }
 
 .Tree-collectionLabel {
+  position: relative;
   font-weight: 700;
   font-size: 14px;
   padding-top: 9px;
@@ -2362,30 +2365,29 @@ span.select2-selection.select2-selection--single {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: #000;
-  border-top: 1px solid #e4e4e4; }
+  color: #990ae3;
+  border-top: 1px solid #e4e4e4;
+  border-bottom: 1px solid #e4e4e4;
+  margin-top: -1px; }
   .Tree-collectionLabel:hover {
     color: #990ae3; }
-  .Tree-collectionLabel span {
-    display: block;
-    position: relative; }
-  .Tree-collectionLabel span::before {
-    display: inline-block;
-    position: absolute;
-    top: 0.25rem;
-    right: 0;
-    background-image: url("../img/icon-navigation-opened.svg");
-    background-size: 12px;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    width: 12px;
-    height: 12px;
-    content: "";
-    -webkit-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-            transform: rotate(180deg); }
   .Tree-depth-3 .Tree-collectionLabel {
-    border-top: 0; }
+    border-color: transparent; }
+
+.Tree-collectionIcon {
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 0;
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 12px;
+  height: 12px;
+  content: "";
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg); }
 
 .Tree-item {
   font-size: 14px; }

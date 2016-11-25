@@ -17,14 +17,17 @@
         }
 
         .Tree-collectionLabel {
-            span::before {
-                transform: rotate(0);
-            }
+            color: $color-text;
+        }
+
+        .Tree-collectionIcon {
+            transform: rotate(0);
         }
     }
 }
 
 .Tree-collectionLabel {
+    position: relative;
     font-weight: 700;
     font-size: 14px;
     padding-top: 9px;
@@ -32,36 +35,32 @@
     cursor: pointer;
     touch-action: manipulation;
     user-select: none;
-    color: $color-text;
+    color: $color-ui-active;
     border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+    margin-top: -1px;
 
     &:hover {
         color: $color-ui-hover;
     }
 
-    span {
-        display: block;
-        position: relative;
-    }
-
-    span::before {
-        display: inline-block;
-        position: absolute;
-        top: 0.25rem;
-        right: 0;
-        background-image: url("../img/icon-navigation-opened.svg");
-        background-size: 12px;
-        background-repeat: no-repeat;
-        background-position: 50%;
-        width: 12px;
-        height: 12px;
-        content: "";
-        transform: rotate(180deg);
-    }
-
     .Tree-depth-3 & {
-        border-top: 0;
+        border-color: transparent;
     }
+}
+
+.Tree-collectionIcon {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 12px;
+    height: 12px;
+    content: "";
+    transform: rotate(180deg);
 }
 
 .Tree-item {

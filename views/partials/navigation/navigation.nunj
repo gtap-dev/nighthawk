@@ -1,13 +1,11 @@
+{% import "macros/icon.nunj" as icon %}
 <div class="navigation-search">
     <div class="form-search form-search--big">
         <input type="text" class="form-search__input" placeholder="Otsi..." data-clear="true" value="">
         <button class="form-search__action">
-            <!--<svg class="icon ">
-                <use xlink:href="{{ path('/assets/svg/icons.svg#search') }}"></use>
-            </svg>-->
+            {{ icon.icon('search', 'form-searc__action-icon') }}
         </button>
     </div>
-
 </div>
 <nav class="Navigation">
 {% for navPartial in frctl.theme.get('nav') %}
