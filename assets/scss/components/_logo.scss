@@ -1,10 +1,10 @@
 .logo {
-    font-size: 50px;
+    font-size: 16px;
     display: block;
-    margin-right: .5em;
-    padding: .5em .5em .5625em;
+    padding: 12px 20px;
     color: $color-header-content;
     overflow: hidden;
+    text-decoration: none;
 
     &:hover {
         color: $color-header-content;

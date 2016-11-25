@@ -1,5 +1,5 @@
 <div class="Header">
-    <a ref="{{ path('/') }}" class="logo">
+    <a href="{{ path('/') }}" class="logo">
         <span class="logo__pebble"></span>
         <span class="logo__text">{{ frctl.get('project.title') | default('Component Library') }}</span>
     </a>
