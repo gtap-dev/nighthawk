@@ -22,7 +22,7 @@
 
 .Preview-wrapper {
     @include offset-inline(start, 0);
-    position: absolute;
+    position: relative;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -31,6 +31,7 @@
     min-width: 200px;
     max-width: calc(100% + #{$handle-size});
     background-color: transparent;
+    min-height: 100px;
 
     // @include mq($until: navCollapse) {
         max-width: 100%;
@@ -39,7 +40,7 @@
 
 .Preview-resizer {
     @include offset-inline(start, 0);
-    position: absolute;
+    position: relative;
     top: 0;
     bottom: 0;
     width: 100%;
@@ -47,6 +48,7 @@
     overflow: auto;
     max-width: calc(100% - #{$handle-size} + 1px);
     min-width: 180px;
+    min-height: 100px;
     background-color: white;
     -webkit-overflow-scrolling: touch;
 
@@ -63,7 +65,7 @@
 
 .Preview-iframe {
     @include trbl(0);
-    position: absolute;
+    position: relative;
     z-index: 0;
     width: 100%;
     height: 100%;
@@ -83,14 +85,32 @@
     @include dragHandle;
     @include offset-inline(end, 0);
     position: absolute;
-    top: -1px;
-    bottom: -1px;
+    top: 0;
+    bottom: 0;
     z-index: 100;
-    height: calc(100% + 2px);
+    height: 100%;
     width: $handle-size;
     background: transparent url("../img/icon-drag--vertical.svg") no-repeat 50%;
     background-size: 3px 16px;
     cursor: ew-resize;
+
+    @include mq($until: navCollapse) {
+        display: none;
+    }
+}
+
+.Preview-handle-horizontal {
+    @include dragHandle;
+    flex: 0 0 auto;
+    height: $handle-size;
+    margin: 0 $handle-size;
+    background: transparent url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
+    background-size: 16px 3px;
+    cursor: ns-resize;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
 
     @include mq($until: navCollapse) {
         display: none;

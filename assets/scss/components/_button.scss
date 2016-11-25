@@ -61,10 +61,11 @@ Button base styles
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
     min-width: 125px;
     max-width: 100%;
-    font-size: .7em;
+    font-size: 12px;
     line-height: $btn-line-height;
     font-weight: 700;
     text-transform: uppercase;
+    text-decoration: none;
     text-align: center;
     box-sizing: border-box;
     border-style: solid;
@@ -89,7 +90,7 @@ Button base styles
 
     &--small {
         min-width: 0;
-        font-size: $btn-small-font-size;
+        font-size: 11px;
         line-height: $btn-small-line-height;
         padding: 1px $btn-small-min-horizontal-padding;
 

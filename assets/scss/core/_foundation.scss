@@ -14,7 +14,7 @@ html {
     width: 100%;
     background: $color-background;
     box-sizing: border-box;
-    font: 16px/#{(24/16)} $font-family-sans-serif;
+    font: 14px/#{(24/16)} $font-family-sans-serif;
     color: $color-text;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -71,13 +71,14 @@ ul {
 a {
     color: $color-link;
     transition: all 0.15s ease-out;
+    text-decoration: none;
 
     &:active {
         color: $color-link;
     }
 
     &:hover {
-        color: darken($color-link, 15%);
+        color: $color-link-hover;
     }
 }
 

@@ -588,7 +588,7 @@ html {
   width: 100%;
   background: #fff;
   box-sizing: border-box;
-  font: 16px/1.5 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
+  font: 14px/1.5 "Neue Helvetica W01", Helvetica, Arial, sans-serif;
   color: #000;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; }
@@ -636,11 +636,12 @@ ul {
 
 a {
   color: #990ae3;
-  transition: all 0.15s ease-out; }
+  transition: all 0.15s ease-out;
+  text-decoration: none; }
   a:active {
     color: #990ae3; }
   a:hover {
-    color: #68079a; }
+    color: #c0f; }
 
 [tabindex="-1"]:focus {
   outline: none !important; }
@@ -1407,7 +1408,8 @@ h6 {
             flex-basis: 100%; }
 
 .Browser-panel--preview {
-  padding: 0; }
+  padding: 0;
+  min-height: 100px; }
 
 .Browser-panel--html {
   max-height: 600px; }
@@ -1432,10 +1434,11 @@ Button base styles
   background-image: none;
   min-width: 125px;
   max-width: 100%;
-  font-size: .7em;
+  font-size: 12px;
   line-height: 2.625rem;
   font-weight: 700;
   text-transform: uppercase;
+  text-decoration: none;
   text-align: center;
   box-sizing: border-box;
   border-style: solid;
@@ -1477,7 +1480,7 @@ Button base styles
     cursor: inherit; }
   .btn--small {
     min-width: 0;
-    font-size: 0.7858em;
+    font-size: 11px;
     line-height: 1.429rem;
     padding: 1px 18px; }
     .btn--small [class*="btn__icon--"] {
@@ -1966,25 +1969,23 @@ span.select2-selection.select2-selection--single {
   background-image: url("../img/logo-pebble-inverse.svg");
   background-size: 100% auto; }
 
-.Meta a {
-  text-decoration: none; }
-
 .Meta-item {
   padding: 14px 0;
   overflow: hidden; }
   .Meta-item + .Meta-item {
     border-top: 1px solid #fefefe; }
+  .Meta-item:first-child {
+    padding-top: 0; }
+  .Meta-item:last-child {
+    padding-bottom: 0; }
 
 .Meta-key {
-  margin-bottom: 10px;
   display: block; }
 
 .Meta-value {
   display: block;
   min-width: 200px;
   white-space: nowrap; }
-  .Meta-value a:hover span {
-    text-decoration: underline; }
   .Meta-value li {
     margin-bottom: 5px; }
     .Meta-value li:last-child {
@@ -2111,7 +2112,8 @@ span.select2-selection.select2-selection--single {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   height: 50%;
-  max-height: calc(100% - 3.75rem); }
+  max-height: calc(100% - 3.75rem);
+  width: 100%; }
   @media (max-width: 31.24em) {
     .Pen-preview {
       -webkit-flex: 1 1 auto;
@@ -2191,7 +2193,7 @@ span.select2-selection.select2-selection--single {
 
 .Preview-wrapper {
   offset-inline-start: 0;
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   height: 100%;
@@ -2200,6 +2202,7 @@ span.select2-selection.select2-selection--single {
   min-width: 200px;
   max-width: calc(100% + 0.625rem);
   background-color: transparent;
+  min-height: 100px;
   max-width: 100%; }
   [dir="ltr"] .Preview-wrapper {
     left: 0; }
@@ -2208,7 +2211,7 @@ span.select2-selection.select2-selection--single {
 
 .Preview-resizer {
   offset-inline-start: 0;
-  position: absolute;
+  position: relative;
   top: 0;
   bottom: 0;
   width: 100%;
@@ -2216,6 +2219,7 @@ span.select2-selection.select2-selection--single {
   overflow: auto;
   max-width: calc(100% - 0.625rem + 1px);
   min-width: 180px;
+  min-height: 100px;
   background-color: white;
   -webkit-overflow-scrolling: touch; }
   [dir="ltr"] .Preview-resizer {
@@ -2235,7 +2239,7 @@ span.select2-selection.select2-selection--single {
   right: 0;
   bottom: 0;
   left: 0;
-  position: absolute;
+  position: relative;
   z-index: 0;
   width: 100%;
   height: 100%; }
@@ -2258,10 +2262,10 @@ span.select2-selection.select2-selection--single {
   transition: all 0.15s ease-out;
   offset-inline-end: 0;
   position: absolute;
-  top: -1px;
-  bottom: -1px;
+  top: 0;
+  bottom: 0;
   z-index: 100;
-  height: calc(100% + 2px);
+  height: 100%;
   width: 0.625rem;
   background: transparent url("../img/icon-drag--vertical.svg") no-repeat 50%;
   background-size: 3px 16px;
@@ -2287,6 +2291,35 @@ span.select2-selection.select2-selection--single {
     left: 0; }
   @media (max-width: 31.24em) {
     .Preview-handle {
+      display: none; } }
+
+.Preview-handle-horizontal {
+  transition: all 0.15s ease-out;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  height: 0.625rem;
+  margin: 0 0.625rem;
+  background: transparent url("../img/icon-drag--horizontal.svg") no-repeat 50% 50%;
+  background-size: 16px 3px;
+  cursor: ns-resize;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  .Preview-handle-horizontal:hover {
+    background-color: #990ae3; }
+  .Preview-handle-horizontal:active {
+    background-color: #990ae3; }
+  .Preview-handle-horizontal.is-disabled {
+    pointer-events: none;
+    visibility: hidden; }
+  @media (max-width: 31.24em) {
+    .Preview-handle-horizontal {
+      pointer-events: none;
+      visibility: hidden; } }
+  @media (max-width: 31.24em) {
+    .Preview-handle-horizontal {
       display: none; } }
 
 .Prose {

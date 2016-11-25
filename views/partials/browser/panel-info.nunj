@@ -42,15 +42,5 @@
             </span>
         </li class="Meta-item">
         {% endif %}
-        {% if entity.referencedBy.length %}
-        <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">({{ entity.referencedBy.length }})</em>:</strong>
-            <span class="Meta-value Meta-value--linkList">
-            {% for ref in entity.referencedBy %}
-                <a href="{{ path(frctl.theme.urlFromRoute('component', { handle: ref.handle })) }}">@<span>{{ ref.handle }}</span></a>{% if not loop.last %}, {% endif %}
-            {% endfor %}
-            </span>
-        </li>
-        {% endif %}
     </ul>
 </div>
