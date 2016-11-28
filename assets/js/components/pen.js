@@ -60,14 +60,18 @@ class Pen {
                         const $html = $($this.text()).clone();
                         const svg = $html.find('svg');
 
-                        if (svg.length && localStorage.getItem('iconPath')) {
-                            const svgUse = $(svg).find('use')
-                            const split = svgUse.attr('xlink:href').split('#');
-                            const iconName = split[1];
+                        svg.each(function () {
+                            const $this = $(this);
 
-                            const iconPath = localStorage.getItem('iconPath') + '#' + iconName;
-                            svgUse.attr('xlink:href', iconPath);
-                        }
+                            if ($this.length && storage.get('iconPath')) {
+                                const svgUse = $this.find('use');
+                                const split = svgUse.attr('xlink:href').split('#');
+                                const iconName = split[1];
+
+                                const iconPath = storage.get('iconPath') + iconName;
+                                svgUse.attr('xlink:href', iconPath);
+                            }
+                        });
 
                         copyHtml = $html[0].outerHTML;
                     }
