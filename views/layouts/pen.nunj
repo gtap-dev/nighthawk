@@ -28,9 +28,7 @@
 
     {% if entity.isComponent %}
     {% set variants = entity.variants() %}
-    {% else %}
-    {% set variants = entity.parent.variants() %}
-    {% endif %}
+
     {% if variants.size > 0 %}
     {% for variant in variants.items() %}
     <div class="Pen-variant">
@@ -60,6 +58,40 @@
         </div>
     </div>
     {% endfor %}
+    {% endif %}
+
+    {% else %}
+    {% set variant = entity %}
+
+    <div class="Pen-variant">
+        <div class="Pen-variantHeader">
+            <div class="Pen-panel Pen-header">
+                <h1 class="Pen-title">
+                    {{ status.unlabelled(entity.parent.status, entity.status.key) }}
+                    {{ entity.parent.title }}
+                </h1>
+            </div>
+            {% if entity.parent.notes %}
+            <div class="Pen-variantDescription Prose">
+                {{ frctl.docs.renderString(entity.parent.notes, renderEnv) | async }}
+            </div>
+            {% endif %}
+            <h2 class="Pen-variantTitle">
+                {{ variant.name }}
+            </h2>
+        </div>
+        {% if variant.notes %}
+        <div class="Pen-variantDescription Prose">
+            {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
+        </div>
+        {% endif %}
+        <div class="Pen-variantTabs">
+            {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
+            {% set entity = variant %}
+            {% include "partials/pen/browser.nunj" %}
+        </div>
+    </div>
+
     {% endif %}
 
     {% endblock %}
