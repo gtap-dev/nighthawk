@@ -11,7 +11,7 @@ $('#copyPreferenceForm').find('[name=copyPreferenceRadio]').each(function () {
     }
 });
 
-$('.Header-dropdown__title').on('click', function () {
+$('[data-action="toggle-settings"]').on('click', function () {
     const $this = $(this);
     const $dropdown = $this.parent();
 

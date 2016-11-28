@@ -2,6 +2,10 @@
     background: white;
     padding: 20px 40px 40px;
 
+    @include mq($until: navCollapse) {
+        padding: 20px;
+    }
+
     &.is-resizing {
         cursor: grabbing;
 
@@ -109,7 +113,7 @@
     position: relative;
 
     @include mq($until: navCollapse) {
-        display: none;
+        //display: none;
     }
 }
 

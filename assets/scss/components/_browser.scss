@@ -14,18 +14,26 @@
     align-items: center;
     width: 100%;
     margin-bottom: -3px;
-}
-
-.Browser-tabs {
-    width: 100%;
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: row;
-    overflow-x: auto;
+    padding: 0 40px;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
+
     &::-webkit-scrollbar {
         display: none;
     }
+}
+
+.Browser-tabs {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: row;
+}
+
+.Browser-links {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
 }
 
 .Browser-tab {
@@ -40,7 +48,7 @@
         display: block;
         width: 100%;
         text-align: center;
-        padding: 5px 20px;
+        padding: 15px 0;
         border-bottom: 3px solid transparent;
         border-top: 1px solid transparent;
         color: $color-text;
@@ -78,6 +86,10 @@
         a {
             opacity: 0.5;
         }
+    }
+
+    + .Browser-tab {
+        padding-left: 20px;
     }
 }
 

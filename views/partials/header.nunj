@@ -1,17 +1,25 @@
 {% import "macros/icon.nunj" as icon %}
 
 <div class="Header">
-    <a href="{{ path('/') }}" class="logo">
-        <span class="logo__pebble"></span>
-        <span class="logo__text">{{ frctl.get('project.title') | default('Component Library') }}</span>
-    </a>
+    <div class="Header-left">
+        <button class="Header-button Header-button--border-right" data-action="toggle-sidebar">
+            <span class="Header-buttonIcon">
+                <span class="Header-buttonIconInner"></span>
+            </span>
+        </button>
+        <a href="{{ path('/') }}" class="logo">
+            <span class="logo__pebble"></span>
+            <span class="logo__text">{{ frctl.get('project.title') | default('Component Library') }}</span>
+        </a>
+    </div>
 
     <div class="Header-dropdown">
-        <button class="Header-dropdown__title logo">
+        <button class="Header-button Header-button--border-left" data-action="toggle-settings">
             {{ icon.icon('settings') }}
         </button>
         <div class="Header-dropdown-content">
             <form id="copyPreferenceForm" method="post">
+                <h4 class="Header-dropdownTitle">Copy environment</h4>
                 <div class="form-choice-group">
                     <div class="form-radio">
                         <input type="radio" name="copyPreferenceRadio" id="radio-grey" class="form-radio__input" value="/assets/svg/icons.svg#">
@@ -28,7 +36,6 @@
                         </label>
                     </div>
                 </div>
-
                 <button type="button" id="copyPreferenceSubmit" class="btn">Save</button>
             </form>
         </div>

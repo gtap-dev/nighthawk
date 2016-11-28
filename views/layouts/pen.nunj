@@ -52,8 +52,10 @@
         </div>
         {% endif %}
         <div class="Pen-variantTabs">
+            {% if entity.collated %}
             {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
             {% set entity = variant %}
+            {% endif %}
             {% include "partials/pen/browser.nunj" %}
         </div>
     </div>
@@ -80,7 +82,7 @@
                 {{ variant.name }}
             </h2>
         </div>
-        {% if variant.notes %}
+        {% if not variant.name == 'default' and variant.notes %}
         <div class="Pen-variantDescription Prose">
             {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
         </div>
