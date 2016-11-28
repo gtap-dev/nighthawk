@@ -15,6 +15,7 @@
             {%- endif %}
         </div>
         <div class="Preview-handle" data-role="resize-handle"></div>
+        <div class="Preview-handle-horizontal" data-role="resize-handle-hor"></div>
         <div class="Preview-overlay"></div>
     </div>
 </div>

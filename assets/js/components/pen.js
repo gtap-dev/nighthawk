@@ -34,7 +34,6 @@ class Pen {
         for(let i = 0; i < this._previewPanel.length; i++) {
             previews.push(new Preview(this._previewPanel[i]));
         }
-        this._previewPanel.css('height', '600px');
 
         const btn = $('.js-copyHtml');
         let $thisBtn;

@@ -5,11 +5,26 @@
 }
 
 .Status-dot {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 15px;
+    height: 15px;
     background-color: white;
-    border: 1px solid transparent;
+    border: 1px solid white;
     border-radius: 100%;
+
+    .Status--ready & {
+        background-color: $green;
+        border-color: $green;
+    }
+
+    .Status--wip & {
+        background-color: $orange;
+        border-color: $orange;
+    }
+
+    .Status--prototype & {
+        background-color: $red;
+        border-color: $red;
+    }
 }
 
 .Status-dot + .Status-dot {
@@ -23,6 +38,21 @@
     padding: 0.125rem 0.75rem;
     color: white;
     white-space: nowrap;
+
+    .Status--ready & {
+        background-color: $green;
+        border-color: $green;
+    }
+
+    .Status--wip & {
+        background-color: $orange;
+        border-color: $orange;
+    }
+
+    .Status--prototype & {
+        background-color: $red;
+        border-color: $red;
+    }
 }
 
 .Status-label + .Status-label {

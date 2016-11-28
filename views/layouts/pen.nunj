@@ -38,7 +38,7 @@
             {% if variant.name == 'default' %}
             <div class="Pen-panel Pen-header">
                 <h1 class="Pen-title">
-                    {{ status.unlabelled(entity.status) }}
+                    {{ status.unlabelled(entity.status, entity.status.key) }}
                     {{ entity.title }}
                 </h1>
             </div>
@@ -49,7 +49,7 @@
             {% endif %}
         </div>
         {% if variant.notes %}
-        <div class="Pen-variantDescription">
+        <div class="Pen-variantDescription Prose">
             {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
         </div>
         {% endif %}

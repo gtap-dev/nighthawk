@@ -1,6 +1,6 @@
 .Pen {
     background: white;
-    padding: 40px;
+    padding: 20px 40px 40px;
 
     &.is-resizing {
         cursor: grabbing;
@@ -19,8 +19,7 @@
     align-items: center;
 
     .Status {
-        @include margin-inline(start, auto);
-        @include padding-inline(start, 0.5rem);
+        padding-right: 20px;
     }
 
     @include mq($until: navCollapse) {
@@ -76,6 +75,7 @@
     flex: 0 0 auto;
     height: 50%;
     max-height: calc(100% - 3.75rem);
+    width: 100%;
 
     @include mq($until: navCollapse) {
         flex: 1 1 auto;

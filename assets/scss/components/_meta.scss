@@ -1,19 +1,20 @@
-.Meta {
-    a {
-        text-decoration: none;
-    }
-}
-
 .Meta-item {
     padding: 14px 0;
     overflow: hidden;
     & + & {
         border-top: 1px solid lighten($color-frame-border, 10%);
     }
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+    }
 }
 
 .Meta-key {
-    margin-bottom: 10px;
     display: block;
 }
 
@@ -21,11 +22,7 @@
     display: block;
     min-width: 200px;
     white-space: nowrap;
-    a {
-        &:hover span {
-            text-decoration: underline;
-        }
-    }
+
     li {
         margin-bottom: 5px;
         &:last-child {

@@ -1,4 +1,5 @@
 {% import "macros/image.nunj" as img %}
+{% import "macros/icon.nunj" as icon %}
 
 <div class="Browser-controls">
     <ul class="Browser-tabs">
@@ -23,8 +24,5 @@
         {% endfor %}
     </ul>
     <button class="btn btn--variant-dark btn--small js-copyHtml" title="Copy component html">Copy</button>
-    <a class="btn btn--variant-dark btn--small Pen-previewLink" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">
-        <span>Preview</span>
-        {% include "icons/open-in-browser.svg" %}
-    </a>
+    <a class="btn btn--variant-dark btn--small" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: variant.handle })) }}" title="Component preview">Preview</a>
 </div>
