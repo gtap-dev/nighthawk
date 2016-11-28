@@ -24,7 +24,6 @@
             <span class="Meta-value">
                 <ul>
                     <li><a data-no-pjax href="{{ path(frctl.theme.urlFromRoute('preview', { handle: entity.handle })) }}">{% include "icons/open-in-browser.svg" %} <span>With layout</span></a><br></li>
-                    <li><a data-no-pjax href="{{ path(frctl.theme.urlFromRoute('render', { handle: entity.handle })) }}">{% include "icons/open-in-browser.svg" %} <span>Component only</span></a></li>
                 </ul>
             </span>
         </li>
