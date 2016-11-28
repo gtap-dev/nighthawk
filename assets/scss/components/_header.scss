@@ -1,6 +1,7 @@
 .Header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     z-index: 10;
     background-color: $color-header-background;
@@ -15,4 +16,38 @@
     font-size: 1.125rem; // 18px
     line-height: (24 / 18);
     white-space: nowrap;
+}
+
+.Header-dropdown {
+    position: relative;
+    display: inline-block;
+
+    &.is-open .Header-dropdown-content {
+        display: block;
+    }
+}
+
+.Header-dropdown__title {
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    .is-open & {
+        background: $purple-l;
+    }
+}
+
+.Header-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    color: $color-text;
+    background-color: $color-background-offset;
+    min-width: 160px;
+    padding: 60px 40px;
+    z-index: 1;
+
+    .btn {
+        margin-top: 2em;
+    }
 }

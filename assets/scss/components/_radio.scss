@@ -1,0 +1,124 @@
+.form-radio {
+    position: relative;
+}
+
+.form-radio__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+
+    &:checked {
+        ~ .form-radio__label {
+            .form-radio__indicator {
+                &:before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &:focus {
+        ~ .form-radio__label {
+            .form-radio__indicator {
+                border-color: $black;
+            }
+        }
+    }
+
+    &--hide-focus:focus {
+        ~ .form-radio__label {
+            .form-radio__indicator {
+                border-color: $grey-d;
+            }
+        }
+    }
+}
+
+.form-radio__label {
+    position: relative;
+    display: block;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.form-radio__text {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form-radio__indicator {
+    display: block;
+    border: 1px solid $grey-d;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: $white;
+    position: absolute;
+    top: 3px;
+    left: 0;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: $green;
+        border-radius: 50%;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        opacity: 0;
+    }
+}
+
+.form-radio--disabled {
+    .form-radio__text {
+        color: $grey-d;
+    }
+}
+
+.form-radio--text-normal {
+    .form-radio__text {
+        font-size: inherit;
+        font-weight: inherit;
+    }
+}
+
+@mixin form-choice-group($element-class) {
+    .form-choice-group {
+        .#{$element-class} + .#{$element-class} {
+            margin-top: 13px;
+        }
+
+        &--inline {
+            .#{$element-class} {
+                display: block;
+                margin-right: 13px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                @media (min-width: $break-sm) {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.form-choice-group {
+    .form-error,
+    .form-saved {
+        display: none;
+    }
+
+    &.is-invalid .form-error,
+    &.is-saved .form-saved {
+        display: block;
+    }
+}
+
+// Radio group
+@include form-choice-group("form-radio");

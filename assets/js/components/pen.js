@@ -60,12 +60,12 @@ class Pen {
                         const $html = $($this.text()).clone();
                         const svg = $html.find('svg');
 
-                        if (svg.length && localStorage.getItem('iconPath')) {
-                            const svgUse = $(svg).find('use')
+                        if (svg.length && storage.get('iconPath')) {
+                            const svgUse = $(svg).find('use');
                             const split = svgUse.attr('xlink:href').split('#');
                             const iconName = split[1];
 
-                            const iconPath = localStorage.getItem('iconPath') + '#' + iconName;
+                            const iconPath = storage.get('iconPath') + iconName;
                             svgUse.attr('xlink:href', iconPath);
                         }
 

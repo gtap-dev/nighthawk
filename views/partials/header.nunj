@@ -1,6 +1,36 @@
+{% import "macros/icon.nunj" as icon %}
+
 <div class="Header">
     <a href="{{ path('/') }}" class="logo">
         <span class="logo__pebble"></span>
         <span class="logo__text">{{ frctl.get('project.title') | default('Component Library') }}</span>
     </a>
+
+    <div class="Header-dropdown">
+        <button class="Header-dropdown__title logo">
+            {{ icon.icon('settings') }}
+        </button>
+        <div class="Header-dropdown-content">
+            <form id="copyPreferenceForm" method="post">
+                <div class="form-choice-group">
+                    <div class="form-radio">
+                        <input type="radio" name="copyPreferenceRadio" id="radio-grey" class="form-radio__input" value="/assets/svg/icons.svg#">
+                        <label for="radio-grey" class="form-radio__label">
+                            <span class="form-radio__indicator"></span>
+                            <span class="form-radio__text">Default</span>
+                        </label>
+                    </div>
+                    <div class="form-radio ">
+                        <input type="radio" name="copyPreferenceRadio" id="radio-grey-1" class="form-radio__input" value="/tk-telia-theme/images/icons.svg#">
+                        <label for="radio-grey-1" class="form-radio__label">
+                            <span class="form-radio__indicator"></span>
+                            <span class="form-radio__text">Liferay</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="button" id="copyPreferenceSubmit" class="btn">Save</button>
+            </form>
+        </div>
+    </div>
 </div>
