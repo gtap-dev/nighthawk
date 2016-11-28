@@ -64,11 +64,6 @@ module.exports = function(options){
         view: 'pages/components/preview.nunj'
     }, getHandles);
 
-    theme.addRoute('/components/render/:handle', {
-        handle: 'render',
-        view: 'pages/components/render.nunj'
-    }, getHandles);
-
     theme.addRoute('/components/detail/:handle', {
         handle: 'component',
         view: 'pages/components/detail.nunj'
