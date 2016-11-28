@@ -78,28 +78,18 @@ class Pen {
             return copyHtml;
         }
 
-        function copyHtml(text) {
-            function selectElementText(element) {
-                if (document.selection) {
-                    let range = document.body.createTextRange();
-                    range.moveToElementText(element);
-                    range.select();
-                } else if (window.getSelection) {
-                    let range = document.createRange();
-                    range.selectNode(element);
-                    window.getSelection().removeAllRanges();
-                    window.getSelection().addRange(range);
-                }
-            }
-            let element = document.createElement('DIV');
-            element.textContent = text;
+        function copyHtml(html) {
+            let element = document.createElement('textarea');
+            element.textContent = html;
             document.body.appendChild(element);
-            selectElementText(element);
+            element.select();
+
             if (document.execCommand('copy')) {
                 showNotification('success');
             } else {
                 showNotification('error');
             }
+
             element.remove();
         }
 
@@ -108,6 +98,7 @@ class Pen {
                 case 'success':
                     $thisBtn.removeClass('btn--variant-dark').addClass('btn--order');
                     $thisBtn.text('Copied!');
+                    $thisBtn.blur();
                     window.setTimeout(function() {
                         $thisBtn.removeClass('btn--order').addClass('btn--variant-dark');
                         $thisBtn.text('Copy');
