@@ -12,7 +12,8 @@ function search(list,key) {
     for (i = 0; i < li.length; i++) {
         var $li = jQuery(li[i]);
         var childTree = jQuery(li[i]).children('ul');
-        if ($li.html().toUpperCase().indexOf(key) !== -1) {
+
+        if (($li.text().toUpperCase().indexOf(key) !== -1) || ($li.find('[data-tags]').attr('data-tags').toUpperCase().indexOf(key) !== -1)) {
             match = true;
             jQuery($li.find('.Tree-collectionLabel span')[0]).trigger('click');
             $li.show();
