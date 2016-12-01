@@ -45,9 +45,20 @@
     }
 
     .form-textfield__icon--clear {
+        display: none;
+        position: absolute;
         top: 7px;
         right: 10px;
         font-size: 14px;
+        color: $black;
+
+        &:hover {
+            color: $purple;
+        }
+
+        &.is-visible {
+            display: block;
+        }
     }
 
     &--big {
@@ -68,7 +79,7 @@
 
         .form-textfield__icon--clear {
             font-size: 16px;
-            top: 13px;
+            top: 10px;
             right: 14px;
         }
     }

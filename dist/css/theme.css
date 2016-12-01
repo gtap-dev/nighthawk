@@ -2694,9 +2694,16 @@ span.select2-selection.select2-selection--single {
     .form-search__action:hover, .form-search__action:focus {
       color: #990ae3; }
   .form-search .form-textfield__icon--clear {
+    display: none;
+    position: absolute;
     top: 7px;
     right: 10px;
-    font-size: 14px; }
+    font-size: 14px;
+    color: #000; }
+    .form-search .form-textfield__icon--clear:hover {
+      color: #990ae3; }
+    .form-search .form-textfield__icon--clear.is-visible {
+      display: block; }
   .form-search--big .form-search__input {
     height: 46px;
     font-size: 16px;
@@ -2708,7 +2715,7 @@ span.select2-selection.select2-selection--single {
       font-size: 16px; }
   .form-search--big .form-textfield__icon--clear {
     font-size: 16px;
-    top: 13px;
+    top: 10px;
     right: 14px; }
 
 .Status,
