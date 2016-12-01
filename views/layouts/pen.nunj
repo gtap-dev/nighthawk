@@ -46,9 +46,13 @@
         {% set variants = entity.variants() %}
 
         {% if variants.size > 0 %}
-            {% asyncAll variant in variants.items() %}
-                {% include "partials/pen/variant.nunj" %}
-            {% endall %}
+            {% if entity.handle == 'icon' %}
+                {% include "partials/pen/icon.nunj" %}
+            {% else %}
+                {% asyncAll variant in variants.items() %}
+                    {% include "partials/pen/variant.nunj" %}
+                {% endall %}
+            {% endif %}
         {% endif %}
 
     {% else %}

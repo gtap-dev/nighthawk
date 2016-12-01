@@ -1,0 +1,28 @@
+.IconGrid-item {
+    width: 150px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    padding: 15px;
+
+    @include mq($until: navCollapse) {
+        width: 134px;
+        padding: 10px;
+    }
+}
+
+.IconGrid-icon {
+    font-size: 75px;
+
+    @include mq($until: navCollapse) {
+        font-size: 50px;
+    }
+}
+
+.IconGrid-label {
+    font-size: 14px;
+}
+
+.IconGrid-button {
+    margin-top: 10px;
+}

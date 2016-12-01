@@ -1,21 +1,45 @@
 <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-{{ entity.id }}-{{ entity.name }}">
-    <div class="Preview-wrapper" data-role="resizer">
-        <div class="Preview-resizer">
-            {% if renderError -%}
-                {{ renderError }}
-            {% else %}
-             <iframe
-                class="Preview-iframe"
-                data-role="window"
-                src="{{ previewUrl }}"
-                sandbox="allow-same-origin allow-scripts"
-                {% if entity.display %} style="{% for property, value in entity.display %}{{ property }}: {{ value }} !important; {% endfor %}"{% endif %}
-                marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
-            </iframe>
-            {%- endif %}
+    {% if entity.handle == 'icon' %}
+        {{ frctl.components.render | dump }}
+        {% set variants = entity.variants() %}
+
+        {% if variants.size > 0 %}
+            <div class="IconGrid">
+                {% for variant in variants.items() %}
+                    {% if not variant.isHidden %}
+                    <div class="IconGrid-item">
+                        <div class="IconGrid-icon">
+                            {{ frctl.components.renderPreview(variant, false, renderEnv) | async }}
+                        </div>
+                        <div class="IconGrid-label">{{ variant.name }}</div>
+                        <div class="IconGrid-button">
+                            <button class="btn btn--variant-light btn--small js-copyHtml" title="Copy component html">Copy</button>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    {% else %}
+        <div class="Preview-wrapper" data-role="resizer">
+            <div class="Preview-resizer">
+                {% if renderError -%}
+                    {{ renderError }}
+                {% else %}
+                 <iframe
+                    class="Preview-iframe"
+                    data-role="window"
+                    src="{{ previewUrl }}"
+                    sandbox="allow-same-origin allow-scripts"
+                    {% if entity.display %} style="{% for property, value in entity.display %}{{ property }}: {{ value }} !important; {% endfor %}"{% endif %}
+                    marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
+                </iframe>
+                {%- endif %}
+            </div>
+            <div class="Preview-handle" data-role="resize-handle"></div>
+            <div class="Preview-handle-horizontal" data-role="resize-handle-hor"></div>
+            <div class="Preview-overlay"></div>
         </div>
-        <div class="Preview-handle" data-role="resize-handle"></div>
-        <div class="Preview-handle-horizontal" data-role="resize-handle-hor"></div>
-        <div class="Preview-overlay"></div>
-    </div>
+    {% endif %}
 </div>

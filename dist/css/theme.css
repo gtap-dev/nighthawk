@@ -2062,6 +2062,29 @@ span.select2-selection.select2-selection--single {
   font-size: 20px;
   line-height: 2; }
 
+.IconGrid-item {
+  width: 150px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  padding: 15px; }
+  @media (max-width: 31.24em) {
+    .IconGrid-item {
+      width: 134px;
+      padding: 10px; } }
+
+.IconGrid-icon {
+  font-size: 75px; }
+  @media (max-width: 31.24em) {
+    .IconGrid-icon {
+      font-size: 50px; } }
+
+.IconGrid-label {
+  font-size: 14px; }
+
+.IconGrid-button {
+  margin-top: 10px; }
+
 .logo {
   font-size: 16px;
   display: block;
