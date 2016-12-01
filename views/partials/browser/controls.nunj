@@ -1,22 +1,19 @@
-{% import "macros/image.nunj" as img %}
-{% import "macros/icon.nunj" as icon %}
-
 <div class="Browser-controls">
     <ul class="Browser-tabs">
         {% for panel in frctl.theme.get('panels') %}
         {% if panel == 'resources' %}
         {% for collection in entity.resources().items() %}
         {% if collection.size %}
-        <li class="Browser-tab Browser-tab--resources{% if not collection.size %} is-disabled{% endif %}" data-role="tab">
-            <a href="#browser-{{ entity.id }}-{{ entity.name }}-panel-{{ collection.name }}">
+        <li class="Browser-tab Browser-tab--resources{% if not collection.size %} is-disabled{% endif %}">
+            <a href="#browser-{{ entity.id }}-{{ entity.name }}-panel-{{ collection.name }}" data-role="tab">
                 <span>{{ collection.label }}</span>
             </a>
         </li>
         {% endif %}
         {% endfor %}
         {% else %}
-        <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}" data-role="tab">
-            <a href="#browser-{{ entity.id }}-{{ entity.name }}-panel-{{ panel }}">
+        <li class="Browser-tab Browser-tab--{{ panel }}{% if loop.first %} is-active {% endif %}">
+            <a href="#browser-{{ entity.id }}-{{ entity.name }}-panel-{{ panel }}" data-role="tab">
                 <span>{% if panel == 'html' %}HTML{% else %}{{ panel | capitalize }}{% endif %}</span>
             </a>
         </li>

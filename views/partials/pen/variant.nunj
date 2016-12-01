@@ -1,0 +1,28 @@
+<div class="Pen-variant">
+    {% set isDefault = (variant.name == 'default') %}
+    {% if not isDefault %}
+        <div class="Pen-variantHeader">
+            <h2 class="Pen-variantTitle">
+                {{ variant.name }}
+            </h2>
+        </div>
+    {% endif %}
+
+    {% if not isDefault and variant.notes %}
+        <div class="Pen-variantDescription Prose">
+            {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
+        </div>
+    {% endif %}
+
+    <div class="Pen-variantTabs">
+        {% if entity.collated and entity.isComponent %}
+            {% if entity.variants().size == 1 %}
+                {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: entity.handle})) %}
+            {% else %}
+                {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
+            {% endif %}
+            {% set entity = variant %}
+        {% endif %}
+        {% include "partials/pen/browser.nunj" %}
+    </div>
+</div>

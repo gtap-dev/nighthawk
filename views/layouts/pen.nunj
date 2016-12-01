@@ -1,5 +1,4 @@
 {% extends "layouts/pjax.nunj" if request.isPjax else "layouts/frame.nunj" %}
-{% import "macros/image.nunj" as img %}
 {% import "macros/status.nunj" as status %}
 {% import "macros/errors.nunj" as errors %}
 
@@ -12,88 +11,49 @@
 {% block content %}
 
 {% if frctl.env.server and frctl.env.sync %}
-{% set rendered = false %}
+    {% set rendered = false %}
 {% else %}
-{% set rendered = entity.render(null, renderEnv, { preview: true, collate: true }) | async(true) %}
-{% if rendered | isError %}
-{% set error = rendered %}
-{% set renderError %}{{ errors.renderError('component', error.message) }}{% endset %}
-{% set rendered = false %}
+    {% set rendered = entity.render(null, renderEnv, { preview: true, collate: true }) | async(true) %}
+    {% if rendered | isError %}
+        {% set error = rendered %}
+        {% set renderError %}{{ errors.renderError('component', error.message) }}{% endset %}
+        {% set rendered = false %}
+    {% endif %}
 {% endif %}
-{%- endif %}
 
 <div class="Pen" data-behaviour="pen" id="pen-{{ entity.id }}">
 
     {% block penContent %}
 
     {% if entity.isComponent %}
-    {% set variants = entity.variants() %}
-
-    {% if variants.size > 0 %}
-    {% for variant in variants.items() %}
-    <div class="Pen-variant">
-        <div class="Pen-variantHeader">
-            {% if variant.name == 'default' %}
-            <div class="Pen-panel Pen-header">
-                <h1 class="Pen-title">
-                    {{ status.unlabelled(entity.status, entity.status.key) }}
-                    {{ entity.title }}
-                </h1>
-            </div>
-            {% else %}
-            <h2 class="Pen-variantTitle">
-                {{ variant.name }}
-            </h2>
-            {% endif %}
-        </div>
-        {% if variant.notes %}
-        <div class="Pen-variantDescription Prose">
-            {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
-        </div>
-        {% endif %}
-        <div class="Pen-variantTabs">
-            {% if entity.collated %}
-            {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
-            {% set entity = variant %}
-            {% endif %}
-            {% include "partials/pen/browser.nunj" %}
-        </div>
+        {% set header = entity %}
+    {% else %}
+        {% set header = entity.parent %}
+    {% endif %}
+    <div class="Pen-panel Pen-header">
+        <h1 class="Pen-title">
+            {{ status.unlabelled(header.status, header.status.key) }}
+            {{ header.title }}
+        </h1>
     </div>
-    {% endfor %}
+    {% if header.notes %}
+    <div class="Pen-variantDescription Prose">
+        {{ frctl.docs.renderString(header.notes, renderEnv) | async }}
+    </div>
     {% endif %}
 
-    {% else %}
-    {% set variant = entity %}
+    {% if entity.isComponent %}
+        {% set variants = entity.variants() %}
 
-    <div class="Pen-variant">
-        <div class="Pen-variantHeader">
-            <div class="Pen-panel Pen-header">
-                <h1 class="Pen-title">
-                    {{ status.unlabelled(entity.parent.status, entity.status.key) }}
-                    {{ entity.parent.title }}
-                </h1>
-            </div>
-            {% if entity.parent.notes %}
-            <div class="Pen-variantDescription Prose">
-                {{ frctl.docs.renderString(entity.parent.notes, renderEnv) | async }}
-            </div>
-            {% endif %}
-            <h2 class="Pen-variantTitle">
-                {{ variant.name }}
-            </h2>
-        </div>
-        {% if not variant.name == 'default' and variant.notes %}
-        <div class="Pen-variantDescription Prose">
-            {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
-        </div>
+        {% if variants.size > 0 %}
+            {% asyncAll variant in variants.items() %}
+                {% include "partials/pen/variant.nunj" %}
+            {% endall %}
         {% endif %}
-        <div class="Pen-variantTabs">
-            {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
-            {% set entity = variant %}
-            {% include "partials/pen/browser.nunj" %}
-        </div>
-    </div>
 
+    {% else %}
+        {% set variant = entity %}
+        {% include "partials/pen/variant.nunj" %}
     {% endif %}
 
     {% endblock %}

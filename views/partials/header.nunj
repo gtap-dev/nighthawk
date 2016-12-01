@@ -1,4 +1,4 @@
-{% import "macros/icon.nunj" as icon %}
+{% import "macros/image.nunj" as icon %}
 
 <div class="Header">
     <div class="Header-left">
@@ -15,7 +15,7 @@
 
     <div class="Header-dropdown">
         <button class="Header-button Header-button--border-left" data-action="toggle-settings">
-            {{ icon.icon('settings') }}
+            {{ icon.svg('settings') }}
         </button>
         <div class="Header-dropdown-content">
             <form id="copyPreferenceForm" method="post">

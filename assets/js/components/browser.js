@@ -36,7 +36,7 @@ class Browser {
         tabs.on('click', e => {
             const link = $(e.target).closest('a');
             const tab = link.parent();
-            tabs.removeClass(ac);
+            tab.siblings().removeClass(ac);
             tab.addClass(ac);
             this._tabPanels.removeClass(ac);
             this._tabPanels.filter(link.attr('href')).addClass(ac);

@@ -1,5 +1,5 @@
 {% import "macros/status.nunj" as status %}
-{% import "macros/icon.nunj" as icon %}
+{% import "macros/image.nunj" as icon %}
 
 {% macro tree(root, current, request) %}
 <div class="Tree" data-behaviour="tree" id="tree-{{ root.name }}">
@@ -16,7 +16,7 @@
         <li class="Tree-item Tree-collection Tree-depth-{{ depth }}" data-behaviour="collection" id="tree-{{ root.name }}-collection-{{ item.handle }}">
             <h4 class="Tree-collectionLabel" data-role="toggle">
                 {{ item.label }}
-                {{ icon.icon('arrow-down', 'Tree-collectionIcon') }}
+                {{ icon.svg('arrow-down', 'Tree-collectionIcon') }}
             </h4>
             <ul class="Tree-collectionItems" data-role="items">
             {% if item.isComponent and not item.isCollated %}
