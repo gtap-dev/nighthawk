@@ -24,7 +24,7 @@
     {% else %}
     <div class="Browser-links">
         <button class="btn btn--variant-dark btn--small js-copyHtml" title="Copy component html">Copy</button>
-        <a class="btn btn--variant-dark btn--small" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: entity.handle })) }}" title="Component preview">Preview</a>
+        <a class="btn btn--variant-dark btn--small" href="{{ path(frctl.theme.urlFromRoute('preview', { handle: entity.handle })) }}" title="Component preview" target="_blank" data-no-pjax>Preview</a>
     </div>
     {% endif %}
 </div>
