@@ -8,6 +8,10 @@ $('#copyPreferenceForm').find('[name=copyPreferenceRadio]').each(function () {
 
     if ($this.val() === storage.get('iconPath')) {
         $this.prop('checked', true);
+    } else {
+        if ($this.val() === '/assets/svg/icons.svg#') {
+            $this.prop('checked', true);
+        }
     }
 });
 

@@ -45,7 +45,7 @@ class Pen {
 
         function getHtml(btn) {
             const $btn = $(btn);
-            const btnParentId = $btn.parent().parent()[0].id;
+            const btnParentId = $btn.closest('.Browser')[0].id;
             let copyHtml = '<div>You got nothing</div>';
 
             that._browser.children().each(function () {
@@ -54,9 +54,22 @@ class Pen {
                 const thisId = str.substring(0, 40);
 
                 if (thisId === btnParentId) {
-                    str = str.substring(str.length - 4, str.length);
+                    const charsFromEndIcon = str.substring(str.length - 18, str.length);
+                    const charsFromEnd = str.substring(str.length - 4, str.length);
 
-                    if (str === 'html') {
+                    if (charsFromEndIcon === 'icon-panel-preview') {
+                        const iconHtml = $btn.closest('.IconGrid-item').find('.IconGrid-icon');
+                        const $svg = $(iconHtml.html()).clone();
+
+                        if ($svg.length && storage.get('iconPath')) {
+                            setIconsPath($svg);
+                        }
+
+                        copyHtml = $svg[0].outerHTML;
+                        return false;
+                    }
+
+                    if (charsFromEnd === 'html') {
                         const $html = $($this.text()).clone();
                         const svg = $html.find('svg');
 
@@ -64,12 +77,7 @@ class Pen {
                             const $this = $(this);
 
                             if ($this.length && storage.get('iconPath')) {
-                                const svgUse = $this.find('use');
-                                const split = svgUse.attr('xlink:href').split('#');
-                                const iconName = split[1];
-
-                                const iconPath = storage.get('iconPath') + iconName;
-                                svgUse.attr('xlink:href', iconPath);
+                                setIconsPath($this);
                             }
                         });
 
@@ -79,6 +87,15 @@ class Pen {
             });
 
             return copyHtml;
+        }
+
+        function setIconsPath (svg) {
+            const svgUse = svg.find('use');
+            const split = svgUse.attr('xlink:href').split('#');
+            const iconName = split[1];
+
+            const iconPath = storage.get('iconPath') + iconName;
+            svgUse.attr('xlink:href', iconPath);
         }
 
         function copyHtml(html) {
