@@ -1,3 +1,4 @@
+{% if not variant.isHidden %}
 <div class="Pen-variant">
     {% set isDefault = (variant.name == 'default') %}
     {% if not isDefault %}
@@ -26,3 +27,4 @@
         {% include "partials/pen/browser.nunj" %}
     </div>
 </div>
+{% endif %}
