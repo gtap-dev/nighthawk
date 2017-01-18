@@ -9,6 +9,18 @@
         {% else %}
         {% set variants = entity.parent.variants() %}
         {% endif %}
+        {% if entity.tags.length %}
+        <li class="Meta-item">
+            <strong class="Meta-key">Tags:</strong>
+            <span class="Meta-value Meta-value--linkList">
+            {% for tag in entity.tags %}
+                {% if tag %}
+                    <span>{{ tag }}</span></a>{% if not loop.last %}, {% endif %}
+                {% endif %}
+            {% endfor %}
+            </span>
+        </li>
+        {% endif %}
         {% if variants.size > 1 %}
         <li class="Meta-item">
             <strong class="Meta-key">Variants <em class="Meta-count">({{ variants.size }})</em>:</strong>
