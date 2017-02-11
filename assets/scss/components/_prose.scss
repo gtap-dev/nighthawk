@@ -29,10 +29,13 @@
 
     h1 {
         @include font(title);
+        color: $teal;
     }
 
     h2 {
         @include font(heading);
+        font-weight: 400;
+        text-transform: initial;
         margin-bottom: 1em;
         color: $color-heading;
     }

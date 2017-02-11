@@ -1,14 +1,14 @@
 {
-  "name": "sidewinder",
+  "name": "nighthawk",
   "version": "0.1.0",
-  "description": "A custom theme for Fractal.",
+  "description": "A custom theme for Fractal. Remaster by gotoAndPlay.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/risker/sidewinder.git"
+    "url": "https://github.com/gtap-dev/nighthawk.git"
   },
   "bugs": {
-    "url": "https://github.com/risker/sidewinder/issues"
+    "url": "https://github.com/gtap-dev/nighthawk/issues"
   },
   "author": "Mark Perkins <mark@clearleft.com> (http://clearleft.com/)",
   "license": "MIT",

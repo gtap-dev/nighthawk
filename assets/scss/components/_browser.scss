@@ -14,7 +14,7 @@
     align-items: center;
     width: 100%;
     margin-bottom: -3px;
-    padding: 0 40px;
+    padding: 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -34,6 +34,7 @@
     flex: 0 0 auto;
     flex-direction: row;
     align-items: center;
+    padding-bottom: 5px;
 }
 
 .Browser-tab {
@@ -43,12 +44,14 @@
 
     a {
         flex: auto;
-        font-size: 20px;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 700;
         text-decoration: none;
         display: block;
         width: 100%;
         text-align: center;
-        padding: 15px 0;
+        padding: 10px 15px;
         border-bottom: 3px solid transparent;
         border-top: 1px solid transparent;
         color: $color-text;
@@ -86,10 +89,6 @@
         a {
             opacity: 0.5;
         }
-    }
-
-    + .Browser-tab {
-        padding-left: 20px;
     }
 }
 

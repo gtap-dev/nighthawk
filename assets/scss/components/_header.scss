@@ -1,18 +1,10 @@
 .Header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     position: relative;
     z-index: 10;
     background-color: $color-header-background;
-    //box-shadow: inset 0 -1px 0 0 rgba(black, 0.25), 0 2px 0 rgba(black, 0.1);
     text-overflow: ellipsis;
     color: $color-header-content;
-}
-
-.Header-left {
-    display: flex;
-    align-items: center;
+    height: 100%;
 }
 
 .Header-title {
@@ -24,8 +16,8 @@
 }
 
 .Header-dropdown {
+    display: none;
     position: relative;
-    display: inline-block;
 
     &.is-open .Header-dropdown-content {
         display: block;
@@ -38,7 +30,7 @@
     &:hover,
     &:focus,
     .is-open & {
-        background: $purple-l;
+        background: $teal-l;
     }
 }
 
@@ -67,24 +59,21 @@
     height: 48px;
     padding: 14px;
     text-align: center;
-    color: $white;
+    color: $teal;
     outline: 0;
     cursor: pointer;
+    position: absolute;
+    z-index: 11;
+    top: 18px;
+    right: 15px;
+    background-color: $white;
 
     &:focus {
         outline: 0;
     }
 
-    &--border-right {
-        border-right: 1px solid darken($purple, 5%);
-    }
-
-    &--border-left {
-        border-left: 1px solid darken($purple, 5%);
-    }
-
     .Header-dropdown.is-open & {
-        background: $purple-l;
+        background: $teal-l;
     }
 }
 
@@ -97,8 +86,8 @@
 
 .Header-buttonIconInner {
     top: 50%;
-    margin-top: -.125em;
-    transform: rotate(225deg);
+    margin-top: -1px;
+    transform: rotate(-225deg);
 
     &,
     &:after,
@@ -107,7 +96,7 @@
         content: "";
         display: block;
         width: 100%;
-        height: .25em;
+        height: 2px;
         position: absolute;
         background: currentColor;
         border-radius: 99em;
@@ -116,7 +105,7 @@
     &:before,
     &:after {
         top: 50%;
-        margin-top: -.125em;
+        margin-top: -1px;
     }
 
     &:after {

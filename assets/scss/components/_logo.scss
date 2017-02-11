@@ -5,6 +5,13 @@
     color: $color-header-content;
     overflow: hidden;
     text-decoration: none;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    bottom: -22px;
+    position: absolute;
+    left: calc(100% - 64px);
+    background: #fff;
 
     &:hover {
         color: $color-header-content;
@@ -15,17 +22,8 @@
     display: inline-block;
     vertical-align: top;
     font-family: $font-family-heading;
-    font-size: 1em;
+    font-size: 14px;
+    font-weight: 600;
     color: $color-header-content;
     text-transform: uppercase;
-}
-
-.logo__pebble {
-    display: inline-block;
-    vertical-align: top;
-    width: 1.3125em;
-    height: 1.4375em;
-    background-repeat: no-repeat;
-    background-image: url("../img/logo-pebble-inverse.svg");
-    background-size: 100% auto;
 }

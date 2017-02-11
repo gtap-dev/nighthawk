@@ -4,7 +4,6 @@ var ul = jQuery('#searchid ul' )[0];
 $input.on('keyup focus blur change',function () {
     var filter = this.value.toUpperCase();
     search(ul,filter);
-    check(jQuery(this));
 });
 
 function search(list,key) {

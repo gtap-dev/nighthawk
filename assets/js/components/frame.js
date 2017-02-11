@@ -74,7 +74,7 @@ module.exports = function(element){
         const w = sidebar.outerWidth();
         let translate = (dir == 'rtl') ? w + 'px' : (-1 * w) + 'px';
         let sidebarProps = {
-            transform: `translate3d(${translate}, 0, 0)`
+            transform: `translate3d(0, 0, 0)`
         };
         if (dir == 'rtl') {
             sidebarProps.marginLeft = (-1 * w) + 'px';

@@ -62,13 +62,11 @@
         font-size: 34px;
         line-height: 1.1176;
         font-family: $font-family-heading;
-        text-transform: uppercase;
     }
 
     @if $preset == heading {
         font-size: 24px;
         line-height: 1.1667;
-        text-transform: uppercase;
         font-family: $font-family-heading;
     }
 

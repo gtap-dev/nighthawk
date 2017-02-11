@@ -1,6 +1,6 @@
 $btn-primary-color: $white;
-$btn-primary-background-color: $purple;
-$btn-primary-border-color: $purple;
+$btn-primary-background-color: $teal;
+$btn-primary-border-color: $teal;
 $btn-border-width: 2px;
 $btn-min-horizontal-padding: 30 - $btn-border-width;
 $btn-icon-padding: 25px - $btn-border-width;
@@ -76,7 +76,7 @@ Button base styles
     cursor: pointer;
     overflow: hidden;
 
-    @include button-variant($white, $purple, $purple-l, $purple, $purple-l);
+    @include button-variant($white, $teal, $teal-l, $teal, $teal-l);
 
     @media only screen and (min-width: $break-sm) {
         min-width: 150px;
@@ -124,11 +124,11 @@ Button variants
 */
 
 .btn--variant-dark {
-    @include button-variant($purple, $grey-l, $grey-l, $grey-l, $purple);
+    @include button-variant($teal, $grey-l, $grey-l, $grey-l, $teal);
 }
 
 .btn--variant-light {
-    @include button-variant($purple, $white, $white, $white, $purple);
+    @include button-variant($teal, $white, $white, $white, $teal);
 }
 
 .btn--order {

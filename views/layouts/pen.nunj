@@ -32,8 +32,8 @@
     {% endif %}
     <div class="Pen-panel Pen-header">
         <h1 class="Pen-title">
-            {{ status.unlabelled(header.status, header.status.key) }}
             {{ header.title }}
+            {{ status.unlabelled(header.status, header.status.key) }}
         </h1>
     </div>
     {% if header.notes %}
