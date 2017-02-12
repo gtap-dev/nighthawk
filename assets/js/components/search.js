@@ -1,7 +1,7 @@
 var $input = jQuery('#search-input');
 var ul = jQuery('#searchid ul' )[0];
 
-$input.on('keyup focus blur change',function () {
+$input.on('keyup blur change',function () {
     var filter = this.value.toUpperCase();
     search(ul,filter);
 });
@@ -13,7 +13,7 @@ function search(list,key) {
         var $li = jQuery(li[i]);
         var childTree = jQuery(li[i]).children('ul');
 
-        if (($li.text().toUpperCase().indexOf(key) !== -1) || ($li.find('[data-tags]').attr('data-tags').toUpperCase().indexOf(key) !== -1) ) {
+        if ( $li.parents('.Tree-collection').find('> .Tree-collectionLabel').text().toUpperCase().indexOf(key) !== -1 || ($li.text().toUpperCase().indexOf(key) !== -1) || ($li.find('[data-tags]').attr('data-tags').toUpperCase().indexOf(key) !== -1) ) {
             match = true;
             $li.parents('.Tree-collection').removeClass('is-closed');
             $li.show();
