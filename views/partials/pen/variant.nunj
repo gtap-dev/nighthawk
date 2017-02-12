@@ -4,7 +4,8 @@
     {% if not isDefault %}
         <div class="Pen-variantHeader">
             <h2 class="Pen-variantTitle">
-                {{ variant.name }}
+                {{ variant.label }}
+                {{ status.unlabelled(variant.status, variant.status.key) }}
             </h2>
         </div>
     {% endif %}

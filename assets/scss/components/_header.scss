@@ -65,7 +65,7 @@
     position: absolute;
     z-index: 11;
     top: 18px;
-    right: 5px;
+    right: 15px;
     background-color: $white;
 
     &:focus {
@@ -74,6 +74,10 @@
 
     .Header-dropdown.is-open & {
         background: $teal-l;
+    }
+
+    @include mq($until: navCollapse) {
+        right: 5px;
     }
 }
 
