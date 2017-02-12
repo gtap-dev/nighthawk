@@ -1708,6 +1708,9 @@ span.select2-selection.select2-selection--single {
   z-index: 12;
   bottom: 0;
   width: 40px; }
+  @media (max-width: 31.24em) {
+    .Frame-header {
+      width: 30px; } }
 
 .Frame-body {
   display: -webkit-flex;
@@ -1743,6 +1746,9 @@ span.select2-selection.select2-selection--single {
   min-width: 280px;
   overflow: auto;
   margin-right: 40px; }
+  @media (max-width: 31.24em) {
+    .Frame-inner {
+      margin-right: 30px; } }
 
 .Frame-panel {
   position: relative;
@@ -1790,6 +1796,9 @@ span.select2-selection.select2-selection--single {
     background: #e5e5e5;
     width: 2px;
     display: block; }
+    @media (max-width: 31.24em) {
+      .Frame-panel--main:after {
+        right: 29px; } }
 
 .Frame-handle {
   transition: all 0.15s ease-out;
@@ -1878,7 +1887,7 @@ span.select2-selection.select2-selection--single {
   position: absolute;
   z-index: 11;
   top: 18px;
-  right: 15px;
+  right: 5px;
   background-color: #fff; }
   .Header-button:focus {
     outline: 0; }
@@ -2037,6 +2046,9 @@ span.select2-selection.select2-selection--single {
   background: #fff; }
   .logo:hover {
     color: #000; }
+  @media (max-width: 31.24em) {
+    .logo {
+      left: calc(100% - 54px); } }
 
 .logo__text {
   display: inline-block;
@@ -2111,7 +2123,7 @@ span.select2-selection.select2-selection--single {
   padding: 40px; }
   @media (max-width: 31.24em) {
     .Pen {
-      padding: 20px; } }
+      padding: 20px 30px 20px 20px; } }
   .Pen.is-resizing {
     cursor: -webkit-grabbing;
     cursor: grabbing; }
@@ -2137,7 +2149,6 @@ span.select2-selection.select2-selection--single {
   @media (max-width: 31.24em) {
     .Pen-header {
       margin: 0;
-      border-bottom: 1px solid #e4e4e4;
       padding: 0.75rem; }
       .Pen-header .Status .Status-label {
         position: relative;

@@ -16,6 +16,10 @@
     &:hover {
         color: $color-header-content;
     }
+
+    @include mq($until: navCollapse) {
+        left: calc(100% - 54px);
+    }
 }
 
 .logo__text {

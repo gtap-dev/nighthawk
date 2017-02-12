@@ -33,6 +33,10 @@
     z-index: 12;
     bottom: 0;
     width: 40px;
+
+    @include mq($until: navCollapse) {
+        width: 30px;
+    }
 }
 
 .Frame-body {
@@ -55,6 +59,10 @@
     min-width: 280px;
     overflow: auto;
     margin-right: 40px;
+
+    @include mq($until: navCollapse) {
+        margin-right: 30px;
+    }
 }
 
 .Frame-panel {
@@ -101,6 +109,10 @@
         background: #e5e5e5;
         width: 2px;
         display: block;
+
+        @include mq($until: navCollapse) {
+            right: 29px;
+        }
     }
 }
 
