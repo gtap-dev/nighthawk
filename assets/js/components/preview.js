@@ -1,9 +1,10 @@
 'use strict';
 
-const $          = global.jQuery;
-const storage    = require('../storage');
-const events     = require('../events');
-const resizeable = require('jquery-resizable-dom/dist/jquery-resizable.js');
+const $             = global.jQuery;
+const storage       = require('../storage');
+const events        = require('../events');
+const resizeable    = require('jquery-resizable-dom/dist/jquery-resizable.js');
+const iframeResizer = require('iframe-resizer/js/iframeResizer.min.js');
 
 class Preview {
 
@@ -73,6 +74,8 @@ class Preview {
             },
             resizeHeightFrom: 'bottom'
         });
+
+        iframeResizer({log:true});
     }
 
     disableEvents() {
