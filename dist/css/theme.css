@@ -686,7 +686,6 @@ h6 {
 
 .AssetList-icon {
   -webkit-margin-end: 8px;
-     -moz-margin-end: 8px;
           margin-inline-end: 8px; }
   [dir="ltr"] .AssetList-icon {
     margin-right: 8px; }
@@ -1306,7 +1305,6 @@ h6 {
         opacity: 0.9; }
   .Browser-tab svg {
     -webkit-margin-end: 0.125rem;
-       -moz-margin-end: 0.125rem;
             margin-inline-end: 0.125rem;
     pointer-events: none;
     opacity: 0.6;
@@ -1726,7 +1724,6 @@ span.select2-selection.select2-selection--single {
   @media (max-width: 31.24em) {
     .Frame-body {
       -webkit-margin-end: 240px;
-         -moz-margin-end: 240px;
               margin-inline-end: 240px;
       -webkit-transform: translate3d(-240px, 0, 0);
               transform: translate3d(-240px, 0, 0);
@@ -1757,7 +1754,6 @@ span.select2-selection.select2-selection--single {
 
 .Frame-panel--sidebar {
   -webkit-border-end: 1px solid #e4e4e4;
-     -moz-border-end: 1px solid #e4e4e4;
           border-inline-end: 1px solid #e4e4e4;
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
@@ -1803,7 +1799,6 @@ span.select2-selection.select2-selection--single {
 .Frame-handle {
   transition: all 0.15s ease-out;
   -webkit-margin-end: -0.625rem;
-     -moz-margin-end: -0.625rem;
           margin-inline-end: -0.625rem;
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
@@ -2184,7 +2179,6 @@ span.select2-selection.select2-selection--single {
   text-decoration: none; }
   .Pen-previewLink svg {
     -webkit-margin-start: 5px;
-       -moz-margin-start: 5px;
             margin-inline-start: 5px;
     fill: #19ba9a; }
     [dir="ltr"] .Pen-previewLink svg {
@@ -2364,7 +2358,6 @@ span.select2-selection.select2-selection--single {
 
 .Preview-handle {
   -webkit-border-start: 1px solid #e4e4e4;
-     -moz-border-start: 1px solid #e4e4e4;
           border-inline-start: 1px solid #e4e4e4;
   transition: all 0.15s ease-out;
   offset-inline-end: 0;
@@ -2481,7 +2474,6 @@ span.select2-selection.select2-selection--single {
     font-feature-settings: "c2sc"; }
   .Prose blockquote {
     -webkit-border-start: solid rgba(0, 0, 0, 0.25);
-       -moz-border-start: solid rgba(0, 0, 0, 0.25);
             border-inline-start: solid rgba(0, 0, 0, 0.25);
     padding-left: 1em;
     opacity: 0.75; }
@@ -2704,7 +2696,6 @@ span.select2-selection.select2-selection--single {
 
 .Status-dot + .Status-dot {
   -webkit-margin-start: 3px;
-     -moz-margin-start: 3px;
           margin-inline-start: 3px; }
   [dir="ltr"] .Status-dot + .Status-dot {
     margin-left: 3px; }
@@ -2732,7 +2723,6 @@ span.select2-selection.select2-selection--single {
 
 .Status-label + .Status-label {
   -webkit-margin-start: 0.25rem;
-     -moz-margin-start: 0.25rem;
           margin-inline-start: 0.25rem; }
   [dir="ltr"] .Status-label + .Status-label {
     margin-left: 0.25rem; }
@@ -2741,7 +2731,6 @@ span.select2-selection.select2-selection--single {
 
 .Status--labelled .Status-label {
   -webkit-margin-end: 0.75rem;
-     -moz-margin-end: 0.75rem;
           margin-inline-end: 0.75rem; }
   [dir="ltr"] .Status--labelled .Status-label {
     margin-right: 0.75rem; }
