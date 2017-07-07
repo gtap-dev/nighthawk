@@ -1,16 +1,28 @@
 {% import "macros/image.nunj" as icon %}
 <div id="searchid">
-<div class="navigation-search">
-    <div class="form-search form-search--big">
-        <input  id="search-input" type="text" class="form-search__input" placeholder="Search..." data-clear="true" value="">
-        <button class="form-search__action">
-            {{ icon.svg('search', 'form-search__action-icon') }}
-        </button>
+    <div class="navigation-search">
+        <div class="form-search form-search--big">
+            <input  id="search-input" type="text" class="form-search__input" placeholder="Search..." data-clear="true" value="">
+            <button class="form-search__action">
+                {{ icon.svg('search', 'form-search__action-icon') }}
+            </button>
+        </div>
     </div>
-</div>
-<nav class="Navigation">
-{% for navPartial in frctl.theme.get('nav') %}
-    {% include 'partials/navigation/' + navPartial + '.nunj' %}
-{% endfor %}
-</nav>
+    <nav class="Navigation">
+        {% for navPartial in frctl.theme.get('nav') %}
+            {% include 'partials/navigation/' + navPartial + '.nunj' %}
+        {% endfor %}
+        <div class="Navigation-group">
+            <div class="Tree" data-behaviour="settings" id="tree-settings">
+                <h3 class="Tree-title">Settings</h3>
+                <div class="toggle">
+                    <input type="checkbox" name="simple-ui" id="simple-ui" data-role="simple-ui" class="toggle__input">
+                    <label for="simple-ui" class="toggle__label">
+                        <span class="toggle__indicator"></span>
+                        <span class="toggle__text">Simple UI</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>

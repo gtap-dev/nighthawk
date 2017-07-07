@@ -1,0 +1,55 @@
+.toggle {
+    position: relative;
+    padding-left: 5px;
+}
+
+.toggle__indicator {
+    display: inline-block;
+    position: relative;
+    width: 34px;
+    height: 14px;
+    border-radius: 7px;
+    background: $color-border;
+    transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 15px;
+
+    .toggle__input:checked + .toggle__label & {
+        background: darken($color-link, 5%);
+    }
+}
+
+.toggle__indicator::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: 20px;
+    height: 20px;
+    background: $color-background-offset;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .toggle__label:active & {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(128, 128, 128, 0.1);
+    }
+
+    .toggle__input:checked + .toggle__label & {
+        left: 20px;
+        background: $color-link;
+    }
+
+    .toggle__input:checked + .toggle__label:active & {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28), 0 0 0 20px rgba(0, 150, 136, 0.2);
+    }
+}
+
+.toggle__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+}
