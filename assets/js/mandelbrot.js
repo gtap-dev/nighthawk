@@ -13,6 +13,7 @@ const Tree       = require('./components/tree');
 const search     = require('./components/search');
 const Pen        = require('./components/pen');
 const Header     = require('./components/header');
+const Settings   = require('./components/settings');
 
 global.fractal = {
     events: events
@@ -20,6 +21,7 @@ global.fractal = {
 
 const frame     = framer($('#frame'));
 const navTrees  = $.map($('[data-behaviour="tree"]'), t => new Tree(t));
+const settings  = $.map($('[data-behaviour="settings"]'), s => new Settings(s));
 let pens        = [];
 
 loadPen();
