@@ -26,6 +26,13 @@ module.exports = function(options){
     config.styles  = [`/${config.static.mount}/css/theme.css`];
     config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url));
     config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
+    config.now = new Date().toLocaleString(config.lang, {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: 'numeric',
+        minute: 'numeric'
+    });
 
     const assetSourceName = 'components';
 
