@@ -20,12 +20,14 @@ module.exports = function(options){
         version: packageJSON.version,
         favicon: null
     });
+    const now = new Date();
 
     config.panels  = config.panels || ['preview', 'html', 'context', 'info'];
     config.nav     = config.nav || ['components','docs','assets'];
     config.styles  = [`/${config.static.mount}/css/theme.css`];
     config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url));
     config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
+    config.now = config.lang === 'et' ? getEstonianTime(now) : now.toLocaleString(config.lang);
 
     const assetSourceName = 'components';
 
@@ -120,6 +122,18 @@ module.exports = function(options){
             }));
         });
         return params;
+    }
+
+    function getEstonianTime(date) {
+        const day = ('0' + date.getDate()).slice(-2);
+        const month = ('0' + (date.getMonth() + 1)).slice(-2);
+        const year = date.getFullYear();
+        const time = date.toLocaleTimeString(config.lang, {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        return day + '.' + month + '.' + year + ' ' + time;
     }
 
     return theme;
