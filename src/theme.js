@@ -8,6 +8,7 @@ const packageJSON = require('../package.json');
 module.exports = function(options){
 
     const config = _.defaultsDeep(_.clone(options || {}), {
+        brandColor: '#19ba9a',
         skin: 'default',
         rtl: false,
         lang: 'en',

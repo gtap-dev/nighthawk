@@ -41,7 +41,8 @@
 
         &:hover,
         &:focus {
-            color: $teal;
+            color: $color-brand;
+            color: var(--color-brand);
         }
     }
 
@@ -54,7 +55,8 @@
         color: $black;
 
         &:hover {
-            color: $teal;
+            color: $color-brand;
+            color: var(--color-brand);
         }
 
         &.is-visible {

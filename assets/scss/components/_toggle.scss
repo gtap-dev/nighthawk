@@ -16,7 +16,8 @@
     margin-right: 15px;
 
     .toggle__input:checked + .toggle__label & {
-        background: darken($color-link, 5%);
+        background: $color-brand;
+        background: var(--color-brand);
     }
 }
 
@@ -38,7 +39,8 @@
 
     .toggle__input:checked + .toggle__label & {
         left: 20px;
-        background: $color-link;
+        background: $color-brand;
+        background: var(--color-brand);
     }
 
     .toggle__input:checked + .toggle__label:active & {

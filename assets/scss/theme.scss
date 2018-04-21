@@ -2,8 +2,8 @@ $font-family-monospace: Hack, Consolas, Monaco, "Andale Mono", monospace !defaul
 $font-family-sans-serif: "Open Sans", sans-serif !default;
 $font-family-heading: $font-family-sans-serif;
 
-$color-link: #19ba9a !default;
-$color-link-hover: #19ba9a !default;
+$color-brand: #19ba9a;
+
 $color-text: #000 !default;
 $color-heading: $color-text !default;
 
@@ -11,9 +11,6 @@ $color-background: #fff !default;
 $color-background-offset: #f2f2f2 !default;
 
 $color-border: #e4e4e4 !default;
-
-$color-ui-hover: $color-link !default;
-$color-ui-active: $color-link !default;
 
 $color-header-background: #fff !default;
 $color-header-content: #000 !default;
@@ -23,10 +20,6 @@ $color-frame-border: $color-border !default;
 $color-sidebar-heading: rgba($color-text, 0.75) !default;
 
 $highlight-theme: 'github' !default;
-
-$teal:       #19ba9a;
-
-$teal-l:       #19ba9a;
 
 $green:        #0c6;
 $green-l:      #32ff00;

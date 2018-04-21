@@ -26,7 +26,8 @@
 }
 
 .icon--highlight {
-    color: $teal;
+    color: $color-brand;
+    color: var(--color-brand);
 }
 
 .icon--middle {

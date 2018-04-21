@@ -61,7 +61,8 @@
         color: $color-text;
 
         &:hover {
-            border-bottom-color: $color-link;
+            border-bottom-color: $color-brand;
+            border-bottom-color: var(--color-brand);
 
             svg {
                 opacity: 0.9;
@@ -80,8 +81,10 @@
     &.is-active {
 
         a {
-            border-bottom-color: $color-link;
-            color: $color-link;
+            border-bottom-color: $color-brand;
+            border-bottom-color: var(--color-brand);
+            color: $color-brand;
+            color: var(--color-brand);
         }
 
         svg {

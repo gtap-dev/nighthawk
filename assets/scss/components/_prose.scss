@@ -29,7 +29,8 @@
 
     h1 {
         @include font(title);
-        color: $teal;
+        color: $color-brand;
+        color: var(--color-brand);
     }
 
     h2 {
