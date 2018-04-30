@@ -30,7 +30,8 @@
     &:hover,
     &:focus,
     .is-open & {
-        background: $teal-l;
+        background: $color-brand;
+        background: var(--color-brand);
     }
 }
 
@@ -59,7 +60,8 @@
     height: 48px;
     padding: 14px;
     text-align: center;
-    color: $teal;
+    color: $color-brand;
+    color: var(--color-brand);
     outline: 0;
     cursor: pointer;
     position: absolute;
@@ -73,7 +75,8 @@
     }
 
     .Header-dropdown.is-open & {
-        background: $teal-l;
+        background: $color-brand;
+        background: var(--color-brand);
     }
 
     @include mq($until: navCollapse) {

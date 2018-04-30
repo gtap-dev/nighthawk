@@ -5,7 +5,8 @@
 }
 
 ::selection {
-    background-color: rgba($color-link, 0.075);
+    background-color: $color-brand;
+    background-color: var(--color-brand);
 }
 
 html {
@@ -69,16 +70,19 @@ ul {
 }
 
 a {
-    color: $color-link;
+    color: $color-brand;
+    color: var(--color-brand);
     transition: all 0.15s ease-out;
     text-decoration: none;
 
     &:active {
-        color: $color-link;
+        color: $color-brand;
+        color: var(--color-brand);
     }
 
     &:hover {
-        color: $color-link-hover;
+        color: $color-brand;
+        color: var(--color-brand);
     }
 }
 

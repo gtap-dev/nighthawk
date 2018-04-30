@@ -11,8 +11,10 @@
 
 .AssetList-name {
     color: rgba($color-text, 0.5);
+
     strong {
-        color: $color-link;
+        color: $color-brand;
+        color: var(--color-brand);
         font-weight: normal;
     }
 }

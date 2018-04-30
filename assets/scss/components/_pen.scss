@@ -63,11 +63,8 @@
 
     svg {
         @include margin-inline(start, 5px);
-        fill: $color-link;
-    }
-
-    &:hover svg {
-        fill: darken($color-link, 15%);
+        fill: $color-brand;
+        fill: var(--color-brand);
     }
 }
 

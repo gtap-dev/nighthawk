@@ -1,140 +1,35 @@
-$btn-primary-color: $white;
-$btn-primary-background-color: $teal;
-$btn-primary-border-color: $teal;
-$btn-border-width: 2px;
-$btn-min-horizontal-padding: 30 - $btn-border-width;
-$btn-icon-padding: 25px - $btn-border-width;
-$btn-icon-spacing: 8 - 4px;
-$btn-letter-spacing: .2px;
-$btn-line-height: 2.625rem;
-
-$btn-small-font-size: .7858em;
-$btn-small-line-height: 1.429rem;
-$btn-small-min-horizontal-padding: 20 - $btn-border-width;
-$btn-small-icon-padding: 15px - $btn-border-width;
-$btn-small-icon-spacing: 6 - 5px;
-
-@mixin button-variant($color, $background, $background-h, $border, $border-h) {
-    color: $color;
-    background-color: $background;
-    border-color: $border;
-
-    &:focus {
-        outline: none;
-        background-color: $background-h;
-        border-color: $border-h;
-        color: $color;
-    }
-
-    &.btn--hide-focus:focus {
-        background-color: $background;
-        border-color: $border;
-    }
-
-    &:hover,
-    &.btn--hide-focus:hover,
-    a.card:hover &,
-    label.form-option-card__label:hover & {
-        background-color: $background-h;
-        border-color: $border-h;
-        color: $color;
-    }
-
-    &.btn--disabled {
-        color: rgba($color, .5);
-
-        &:hover {
-            background-color: $background;
-            border-color: $border;
-            color: rgba($color, .5);
-        }
-    }
-}
-
-/*
-Button base styles
-*/
-
 .btn {
     display: inline-block;
     vertical-align: middle;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    min-width: 125px;
     max-width: 100%;
-    font-size: 12px;
-    line-height: $btn-line-height;
+    font-size: 11px;
+    line-height: 1.429rem;
     font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
     box-sizing: border-box;
     border-style: solid;
-    border-width: $btn-border-width;
-    padding: 1px (9 - $btn-border-width);
+    border-width: 2px;
+    padding: 1px 18px;
     border-radius: 20px;
-    letter-spacing: $btn-letter-spacing;
+    letter-spacing: .2px;
     cursor: pointer;
     overflow: hidden;
+    color: $color-brand;
+    color: var(--color-brand);
+    background-color: $grey-l;
+    border-color: $grey-l;
 
-    @include button-variant($white, $teal, $teal-l, $teal, $teal-l);
-
-    @media only screen and (min-width: $break-sm) {
-        min-width: 150px;
-        font-size: $font-size-small;
-        padding: 1px $btn-min-horizontal-padding;
-    }
-
-    &--disabled {
-        cursor: inherit;
-    }
-
-    &--small {
-        min-width: 0;
-        font-size: 11px;
-        line-height: $btn-small-line-height;
-        padding: 1px $btn-small-min-horizontal-padding;
-
-        [class*="btn__icon--"] {
-            /* stylelint-disable declaration-block-no-duplicate-properties */
-            font-size: $btn-small-font-size;
-            font-size: calc(#{$btn-small-font-size} + 1px);
-            /* stylelint-enable */
-        }
-
-        .btn__icon {
-            &--left {
-                margin-right: $btn-small-icon-spacing;
-                margin-left: $btn-small-icon-padding - $btn-small-min-horizontal-padding;
-            }
-
-            &--right {
-                margin-left: $btn-small-icon-spacing;
-                margin-right: $btn-small-icon-padding - $btn-small-min-horizontal-padding;
-            }
-        }
+    &:hover,
+    &:focus {
+        outline: none;
+        border-color: $color-brand;
+        border-color: var(--color-brand);
     }
 
     + .btn {
         margin-left: 5px;
     }
-}
-
-/*
-Button variants
-*/
-
-.btn--variant-dark {
-    @include button-variant($teal, $grey-l, $grey-l, $grey-l, $teal);
-}
-
-.btn--variant-light {
-    @include button-variant($teal, $white, $white, $white, $teal);
-}
-
-.btn--order {
-    @include button-variant($white, $green, $green-l, $green, $green-l);
-}
-
-.btn--quit {
-    @include button-variant($white, $red, $red-l, $red, $red-l);
 }
