@@ -1,8 +1,7 @@
 'use strict';
 
-global.jQuery    = require('jquery');
+global.jQuery = global.$ = require('jquery');
 const pjax       = require('jquery-pjax');
-const $          = global.jQuery;
 const doc        = $(document);
 const frctl      = window.frctl || {};
 

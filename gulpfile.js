@@ -1,104 +1,129 @@
 'use strict';
 
-const gulp              = require('gulp');
-const sass              = require('gulp-sass');
-const sourcemaps        = require('gulp-sourcemaps');
-const autoprefixer      = require('gulp-autoprefixer');
-const sassGlob          = require('gulp-sass-glob');
-const stylelint         = require('gulp-stylelint');
-const uglify            = require('gulp-uglify');
-const browserify        = require('browserify');
-const watchify          = require('watchify');
-const babel             = require('babelify');
-const source            = require('vinyl-source-stream');
-const buffer            = require('vinyl-buffer');
-const del               = require('del');
+const gulp         = require('gulp');
+const sass         = require('gulp-sass');
+const sourcemaps   = require('gulp-sourcemaps');
+const autoprefixer = require('gulp-autoprefixer');
+const sassGlob     = require('gulp-sass-glob');
+const stylelint    = require('gulp-stylelint');
+const uglify       = require('gulp-uglify');
+const browserify   = require('browserify');
+const watchify     = require('watchify');
+const babel        = require('babelify');
+const source       = require('vinyl-source-stream');
+const buffer       = require('vinyl-buffer');
+const del          = require('del');
 
 //
 // JS
 //
-gulp.task('js', ['clean:js'], () => compileJS());
-gulp.task('js:watch', () => compileJS(true));
+function compileJS() {
+    return _compileJS();
+}
 
-gulp.task('clean:js', function() {
+function cleanJS() {
     return del(['./dist/js']);
-});
+}
+
+const moveJS = gulp.series(cleanJS, compileJS);
+
+const watchJS = () => _compileJS(true);
+
+exports.js = moveJS;
 
 //
 // CSS
 //
+function compileCSS() {
+    return gulp.src('./assets/scss/theme.scss')
+      .pipe(stylelint({
+          reporters: [{formatter: 'string', console: true}]
+      }))
+      .pipe(sassGlob())
+      .pipe(sass({
+          includePaths: 'node_modules'
+      }).on('error', sass.logError))
+      .pipe(autoprefixer())
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest('./dist/css'));
+}
 
-gulp.task('css', function() {
-  return gulp.src('./assets/scss/theme.scss')
-    .pipe(stylelint({
-        reporters: [{formatter: 'string', console: true}]
-    }))
-    .pipe(sassGlob())
-    .pipe(sass({
-        includePaths: 'node_modules'
-    }).on('error', sass.logError))
-    .pipe(autoprefixer({
-        browsers: ['last 5 versions']
-    }))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/css'));
-});
-
-gulp.task('css:clean', function() {
+function cleanCSS() {
     return del(['./dist/css']);
-});
+}
 
-gulp.task('css:watch', function () {
-    gulp.watch('./assets/scss/**/*.scss', ['css']);
-});
+const moveCSS = gulp.series(cleanCSS, compileCSS);
+
+function watchCSS() {
+    gulp.watch('./assets/scss/**/*.scss', compileCSS);
+}
+
+exports.css = moveCSS;
 
 //
 // Fonts
 //
-gulp.task('fonts', ['fonts:clean'], function() {
-   gulp.src('./assets/fonts/**/*').pipe(gulp.dest('./dist/fonts'));
-});
+function copyFonts() {
+    return gulp.src('./assets/fonts/**/*').pipe(gulp.dest('./dist/fonts'));
+}
 
-gulp.task('fonts:clean', function() {
+function cleanFonts() {
     return del(['./dist/fonts']);
-});
+}
 
-gulp.task('fonts:watch', function () {
-    gulp.watch('./assets/fonts/**/*', ['fonts']);
-});
+const moveFonts = gulp.series(cleanFonts, copyFonts);
+
+function watchFonts() {
+    gulp.watch('./assets/fonts/**/*', copyFonts)
+}
+
+exports.fonts = moveFonts;
 
 //
 // Images
 //
-gulp.task('img', ['img:clean'], function() {
-   gulp.src('./assets/img/**/*').pipe(gulp.dest('./dist/img'));
-   gulp.src('./assets/favicon.ico').pipe(gulp.dest('./dist'));
-});
+function copyImages() {
+    return gulp.src('./assets/img/**/*').pipe(gulp.dest('./dist/img'));;
+}
 
-gulp.task('img:clean', function() {
+function copyFavicon() {
+    return gulp.src('./assets/favicon.ico').pipe(gulp.dest('./dist'));
+}
+
+function cleanImages() {
     return del(['./dist/img']);
-});
+}
 
-gulp.task('img:watch', function () {
-    gulp.watch('./assets/img/**/*', ['img']);
-});
+const moveImages = gulp.series(cleanImages, gulp.parallel(copyImages, copyFavicon));
+
+function watchImages() {
+    gulp.watch('./assets/img/**/*', gulp.parallel(copyImages, copyFavicon));
+}
+
+exports.images = moveImages;
 
 //
 // Task sets
 //
-gulp.task('watch', ['css:watch', 'js:watch', 'img:watch', 'fonts:watch']);
 
-gulp.task('default', ['fonts', 'css', 'js', 'img']);
+exports.watch = function() {
+    watchCSS();
+    watchJS();
+    watchImages();
+    watchFonts();
+}
+
+exports.default = gulp.parallel(moveFonts, moveCSS, moveJS, moveImages);
 
 //
 // Utils
 //
-function compileJS(watch) {
+function _compileJS(watch) {
 
     let bundler = browserify('./assets/js/mandelbrot.js', {
-        debug: true
+        debug: true,
     }).transform(babel, {
-        presets: ["es2015"]
+        presets: ['@babel/preset-env']
     });
 
     if (watch) {
@@ -129,5 +154,5 @@ function compileJS(watch) {
         return bundle;
     }
 
-    rebundle();
+    return rebundle();
 }
