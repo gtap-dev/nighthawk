@@ -37,8 +37,8 @@ class Preview {
             }
         });
 
-        /*this._resizer.resizable({
-            handleSelector: this._handle,
+        this._resizer.resizable({
+            handleSelector: '> [data-role="resize-handle"]',
             resizeHeight: false,
             onDragStart: () => {
                 this._el.addClass('is-resizing');
@@ -58,7 +58,7 @@ class Preview {
         });
 
         this._resizer.resizable({
-            handleSelector: this._handleHor,
+            handleSelector: '> [data-role="resize-handle-hor"]',
             resizeWidth: false,
             onDragStart: () => {
                 this._el.addClass('is-resizing');
@@ -72,7 +72,7 @@ class Preview {
 
             },
             resizeHeightFrom: 'bottom'
-        });*/
+        });
 
         iframeResizer({log:true});
     }

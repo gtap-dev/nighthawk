@@ -1,6 +1,10 @@
 'use strict';
 
-global.jQuery = global.$ = require('jquery');
+require('jquery');
+require('core-js/features/symbol');
+require('core-js/features/symbol/iterator');
+require('core-js/features/array/includes');
+
 const pjax       = require('jquery-pjax');
 const doc        = $(document);
 const frctl      = window.frctl || {};
