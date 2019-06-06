@@ -15,11 +15,18 @@
         <div class="Navigation-group">
             <div class="Tree" data-behaviour="settings" id="tree-settings">
                 <h3 class="Tree-title">Settings</h3>
-                <div class="toggle">
+                <div class="toggle Tree-toggle">
                     <input type="checkbox" name="simple-ui" id="simple-ui" data-role="simple-ui" class="toggle__input">
                     <label for="simple-ui" class="toggle__label">
                         <span class="toggle__indicator"></span>
                         <span class="toggle__text">Simple UI</span>
+                    </label>
+                </div>
+                <div class="toggle Tree-toggle">
+                    <input type="checkbox" name="test-icons" id="test-icons" data-role="test-icons" class="toggle__input">
+                    <label for="test-icons" class="toggle__label">
+                        <span class="toggle__indicator"></span>
+                        <span class="toggle__text">Test icons</span>
                     </label>
                 </div>
             </div>

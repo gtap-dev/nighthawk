@@ -105,3 +105,9 @@
         margin-top: -6px;
     }
 }
+
+.Tree-toggle {
+    & + & {
+        margin-top: 10px;
+    }
+}

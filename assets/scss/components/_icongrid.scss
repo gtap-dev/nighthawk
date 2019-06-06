@@ -17,6 +17,11 @@
     @include mq($until: navCollapse) {
         font-size: 50px;
     }
+
+    body.is-icon-test-active & {
+        color: $color-brand;
+        color: var(--color-brand);
+    }
 }
 
 .IconGrid-label {
