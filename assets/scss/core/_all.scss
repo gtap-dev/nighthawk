@@ -15,9 +15,9 @@ $mq-breakpoints: (
 // -----------------------------------------------------------------------------
 // Vendor (node_modules)
 // -----------------------------------------------------------------------------
-@import "normalize.css/normalize";
-@import "sass-mq/_mq";
-@import "highlight.js/styles/github";
+@import "~normalize.css/normalize";
+@import "~sass-mq/_mq";
+@import "~highlight.js/styles/github";
 
 // -----------------------------------------------------------------------------
 // Core

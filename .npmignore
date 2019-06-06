@@ -1,0 +1,7 @@
+assets
+!dist
+.editorconfig
+.gitattributes
+.jshintrc
+.stylelintrc
+gulpfile.js

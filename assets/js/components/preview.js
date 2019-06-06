@@ -1,15 +1,14 @@
 'use strict';
 
-const $             = global.jQuery;
 const storage       = require('../storage');
 const events        = require('../events');
-const resizeable    = require('jquery-resizable-dom/dist/jquery-resizable.js');
+const resizeable    = require('jquery-resizable-dom');
 const iframeResizer = require('iframe-resizer/js/iframeResizer.min.js');
 
 class Preview {
 
     constructor(el){
-        this._el      = $(el);
+        this._el      = jQuery(el);
         this._id      = this._el[0].id;
         this._handle  = this._el.find('[data-role="resize-handle"]');
         this._handleHor  = this._el.find('[data-role="resize-handle-hor"]');
@@ -39,7 +38,7 @@ class Preview {
         });
 
         this._resizer.resizable({
-            handleSelector: this._handle,
+            handleSelector: '> [data-role="resize-handle"]',
             resizeHeight: false,
             onDragStart: () => {
                 this._el.addClass('is-resizing');
@@ -59,7 +58,7 @@ class Preview {
         });
 
         this._resizer.resizable({
-            handleSelector: this._handleHor,
+            handleSelector: '> [data-role="resize-handle-hor"]',
             resizeWidth: false,
             onDragStart: () => {
                 this._el.addClass('is-resizing');

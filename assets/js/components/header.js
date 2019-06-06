@@ -1,6 +1,5 @@
 'use strict';
 
-const $          = global.jQuery;
 const storage    = require('../storage');
 
 $('#copyPreferenceForm').find('[name=copyPreferenceRadio]').each(function () {

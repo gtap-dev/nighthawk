@@ -1,11 +1,10 @@
 'use strict';
 
-const $          = global.jQuery;
 const storage    = require('../storage');
 const events     = require('../events');
 const Preview    = require('./preview');
 const Browser    = require('./browser');
-const resizeable = require('jquery-resizable-dom/dist/jquery-resizable.js');
+const resizeable = require('jquery-resizable-dom');
 
 class Pen {
 

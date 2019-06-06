@@ -1,7 +1,6 @@
 'use strict';
 
-const $          = global.jQuery;
-const select     = require('select2')();
+const select     = require('select2');
 const storage    = require('../storage');
 const events     = require('../events');
 
