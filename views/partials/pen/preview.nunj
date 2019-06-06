@@ -12,9 +12,6 @@
                             {{ frctl.components.renderPreview(variant, false, renderEnv) | async }}
                         </div>
                         <div class="IconGrid-label">{{ variant.name }}</div>
-                        <div class="IconGrid-button">
-                            <button class="btn btn--variant-light btn--small js-copyHtml" title="Copy component html">Copy</button>
-                        </div>
                     </div>
                     {% endif %}
                 {% endfor %}

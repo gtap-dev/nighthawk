@@ -23,7 +23,6 @@
     {% if entity.handle == 'icon' %}
     {% else %}
     <div class="Browser-links">
-        <button class="btn js-copyHtml" title="Copy component html">Copy</button>
         <a class="btn" href="{{ previewUrl }}" title="Component preview" target="_blank" data-no-pjax>Preview</a>
     </div>
     {% endif %}
