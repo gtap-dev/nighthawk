@@ -49,9 +49,9 @@
             {% if entity.handle == 'icon' %}
                 {% include "partials/pen/icon.nunj" %}
             {% else %}
-                {% asyncAll variant in variants.items() %}
+                {% asyncEach variant in variants.items() %}
                     {% include "partials/pen/variant.nunj" %}
-                {% endall %}
+                {% endeach %}
             {% endif %}
         {% endif %}
 
