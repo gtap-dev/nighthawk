@@ -1,0 +1,9 @@
+<div class="Navigation-group Navigation-search">
+    <form action="" class="Search" data-behaviour="search">
+        <label class="Search-label" for="search-input">{{ frctl.theme.get('labels.navigation.search.label') }}</label>
+        <input class="Search-input" id="search-input" type="text" placeholder="{{ frctl.theme.get('labels.navigation.search.placeholder') }}" data-role="input">
+        <button type="button" data-behaviour="clear-search" class="Search-clearButton" aria-label="{{ frctl.theme.get('labels.navigation.search.clear') }}" hidden>
+            {% include 'icons/close.svg' %}
+        </button>
+    </form>
+</div>

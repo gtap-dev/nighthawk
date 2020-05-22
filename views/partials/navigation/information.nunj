@@ -1,0 +1,15 @@
+<div class="Navigation-group">
+    <div class="Tree">
+        <div class="Tree-header">
+            <div class="Tree-title">
+                {{ frctl.theme.get('labels.navigation.information.title') }}
+            </div>
+        </div>
+        <div class="Tree-aside">
+            {{ frctl.theme.get('labels.navigation.information.timePrefix') }}
+            <time datetime="{{ frctl.theme.get('now').toISOString() }}">
+                {{ frctl.theme.get('now').toLocaleDateString(frctl.theme.get('lang')) }}
+            </time>
+        </div>
+    </div>
+</div>

@@ -14,18 +14,15 @@ const frctl      = window.frctl || {};
 const events     = require('./events');
 const utils      = require('./utils');
 const framer     = require('./components/frame');
-const Tree       = require('./components/tree');
+const Navigation = require('./components/navigation');
 const Pen        = require('./components/pen');
-const Settings   = require('./components/settings');
 
 global.fractal = {
     events: events
 };
 
-const frame     = framer($('#frame'));
-
-$.map($('[data-behaviour="tree"]'), t => new Tree(t));
-$.map($('[data-behaviour="settings"]'), s => new Settings(s));
+const frame = framer($('#frame'));
+new Navigation($('.Navigation'));
 
 loadPen();
 

@@ -2,10 +2,11 @@
     @include font(body);
 
     max-width: 44em;
+    width: 100%;
     font-feature-settings: "liga", "dlig", "kern", "onum";
     hanging-punctuation: first;
 
-    > * {
+    > *:not(pre):not(:last-child) {
         margin-bottom: 0.75em;
     }
 
@@ -21,7 +22,7 @@
     }
 
     ul > li {
-        list-style-type: disc;
+        list-style-type: square;
     }
 
     ol > li {
@@ -30,23 +31,13 @@
 
     h1 {
         @include font(title);
-
-        color: $color-brand;
-        color: var(--color-brand);
     }
 
     h2 {
         @include font(heading);
 
-        font-weight: 400;
-        text-transform: initial;
         margin-bottom: 1em;
         color: $color-heading;
-    }
-
-    * + h1,
-    * + h2 {
-        margin-top: 1em;
     }
 
     *:not(hr) + h2 {
@@ -81,8 +72,8 @@
         opacity: 0.75;
     }
 
-    code,
-    code pre {
+    code:not(.hljs),
+    pre > code:not(.hljs) {
         background-color: rgba($color-text, 0.075);
     }
 
@@ -91,10 +82,14 @@
         padding: 0.125rem;
     }
 
-    code pre {
+    pre {
         padding: 0.125rem 0.5rem;
         margin: 1rem -0.5rem;
         overflow: auto;
+    }
+
+    img {
+        max-width: 100%;
     }
 
     table {
@@ -103,11 +98,10 @@
         border-collapse: collapse;
         font-size: 0.875rem;
         font-feature-settings: "lnum" 1, "tnum" 1;
-        box-shadow: 0 1px 1px rgba($black, 0.1);
     }
 
     caption {
-        @include font(navigation);
+        @include font(caption);
 
         padding: 0 0.5rem;
         font-style: italic;
@@ -118,20 +112,26 @@
 
     td,
     th {
-        padding: 10px 15px;
+        padding: 0.75em 0.5rem;
         text-align: start;
 
         // text-align: start isn't fully supported for th elements
-        [dir="ltr"] & { text-align: left; }
-        [dir="rtl"] & { text-align: right; }
+        [dir="ltr"] & {
+            text-align: left;
+        }
+
+        [dir="rtl"] & {
+            text-align: right;
+        }
     }
 
-    tr:nth-child(odd) {
-        background-color: $grey-m;
+    tr:nth-child(even) {
+        background-color: rgba($color-text, 0.05);
     }
 
     th {
-        background-color: $white;
+        background-color: rgba($color-text, 0.075);
+        border-bottom: 1px solid rgba($color-text, 0.1);
     }
 }
 

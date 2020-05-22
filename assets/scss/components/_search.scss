@@ -1,66 +1,51 @@
-.form-search {
+.Search {
     position: relative;
+}
 
-    &__input {
-        width: 100%;
-        height: 40px;
-        box-sizing: inherit;
-        padding: 0 20px 0 20px;
-        border: none;
-        border-radius: 99em;
-        outline: none;
-        background-color: #f2f2f2;
-        color: $text-color-base;
-        font-size: 12px;
-        font-weight: 400;
+.Search-clearButton {
+    width: 2rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 0;
+    opacity: 0.5;
 
-        &::placeholder {
-            opacity: 1;
-            color: $grey-d;
-        }
-
-        &::-ms-clear {
-            display: none;
-        }
+    &:hover,
+    &:focus {
+        opacity: 1;
     }
 
-    &__action {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        height: 40px;
-        padding: 4px 15px 0 15px;
-        border: none;
-        outline: none;
-        background-color: transparent;
-
-        .icon {
-            font-size: 16px;
-            vertical-align: top;
-        }
-
-        &:hover,
-        &:focus {
-            color: $color-brand;
-            color: var(--color-brand);
-        }
+    svg {
+        width: 18px;
+        height: 18px;
     }
+}
 
-    .form-textfield__icon--clear {
+.Search-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $color-sidebar-heading;
+
+    @include font(label);
+    @include visuallyhidden;
+}
+
+.Search-input {
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 0.5625rem;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    border: 1px solid $color-frame-border;
+
+    // Hide native "clear" button in IE
+    &::-ms-clear {
         display: none;
-        position: absolute;
-        top: 7px;
-        right: 10px;
-        font-size: 14px;
-        color: $black;
+        -webkit-appearance: none;
+    }
 
-        &:hover {
-            color: $color-brand;
-            color: var(--color-brand);
-        }
-
-        &.is-visible {
-            display: block;
-        }
+    &:focus {
+        outline: none;
+        border-color: $black;
     }
 }
