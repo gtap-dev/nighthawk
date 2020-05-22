@@ -1,13 +1,11 @@
 'use strict';
 
+const $ = global.jQuery;
 const storage    = require('../storage');
 
 class Settings {
 
     constructor(el){
-
-        const self = this;
-
         this._el                = $(el);
         this._simpleToggleState = storage.get(`settings.simpleToggle`, false);
         this._simpleToggle      = this._el.find('[data-role="simple-ui"]');

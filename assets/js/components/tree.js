@@ -1,5 +1,6 @@
 'use strict';
 
+const $ = global.jQuery;
 const storage = require('../storage');
 const events  = require('../events');
 
@@ -23,7 +24,7 @@ class Tree {
                 this._state.push(collection.id);
             }
         }
-        this._state = jQuery.unique(this._state);
+        this._state = $.unique(this._state);
         this._applyState();
         events.on('main-content-preload', (e, url) => {
             this.selectItem(getTreeUrl(url));

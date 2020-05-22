@@ -30,8 +30,6 @@ module.exports = function(options){
     config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
     config.now = config.lang === 'et' ? getEstonianTime(now) : now.toLocaleString(config.lang);
 
-    const assetSourceName = 'components';
-
     const theme = new Theme(Path.join(__dirname, '..', 'views'), config);
 
     theme.setErrorView('pages/error.nunj');
@@ -83,7 +81,7 @@ module.exports = function(options){
         }
     }, getResources);
 
-    theme.addRoute('/docs/:path([^\?]+?)', {
+    theme.addRoute('/docs/:path([^?]+?)', {
         handle: 'page',
         view: 'pages/doc.nunj'
     }, function(app){

@@ -1,6 +1,6 @@
 const path = require('path');
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const globImporter         = require('node-sass-glob-importer');
 const CopyPlugin           = require('copy-webpack-plugin');

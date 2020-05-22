@@ -1,6 +1,5 @@
 'use strict';
 
-const _            = require('lodash');
 const Path         = require('path');
 const beautifyHTML = require('js-beautify').html;
 
@@ -54,7 +53,7 @@ module.exports = function(theme, env, app){
             return str;
         }
         const refs = item.references;
-        return str.replace(new RegExp(`(${refs.map(r => `\@${r.handle}`).join('|')})`, 'g'), (handle) => {
+        return str.replace(new RegExp(`(${refs.map(r => `@${r.handle}`).join('|')})`, 'g'), (handle) => {
             try {
                 let url = theme.urlFromRoute('component', {
                     handle: handle.replace('@', '')

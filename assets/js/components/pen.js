@@ -1,10 +1,10 @@
 'use strict';
 
-const storage    = require('../storage');
-const events     = require('../events');
+const $ = global.jQuery;
 const Preview    = require('./preview');
 const Browser    = require('./browser');
-const resizeable = require('jquery-resizable-dom');
+
+require('jquery-resizable-dom');
 
 class Pen {
 
@@ -18,13 +18,8 @@ class Pen {
     }
 
     _init() {
-        const initialHeight = storage.get(`pen.previewHeight`, (this._el.outerHeight() / 2));
         let browsers        = [];
         let previews        = [];
-        let state           = storage.get(`pen.previewState`, 'open');
-        let handleClicks    = 0;
-        let dblClick        = false;
-        const that          = this;
 
         for(let i = 0; i < this._browser.length; i++) {
             browsers.push(new Browser(this._browser[i]));

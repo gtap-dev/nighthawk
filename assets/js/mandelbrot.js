@@ -5,7 +5,9 @@ require('core-js/features/symbol');
 require('core-js/features/symbol/iterator');
 require('core-js/features/array/includes');
 
-const pjax       = require('jquery-pjax');
+require('jquery-pjax');
+
+const $ = global.jQuery;
 const doc        = $(document);
 const frctl      = window.frctl || {};
 
@@ -13,9 +15,7 @@ const events     = require('./events');
 const utils      = require('./utils');
 const framer     = require('./components/frame');
 const Tree       = require('./components/tree');
-const search     = require('./components/search');
 const Pen        = require('./components/pen');
-const Header     = require('./components/header');
 const Settings   = require('./components/settings');
 
 global.fractal = {
@@ -23,9 +23,9 @@ global.fractal = {
 };
 
 const frame     = framer($('#frame'));
-const navTrees  = $.map($('[data-behaviour="tree"]'), t => new Tree(t));
-const settings  = $.map($('[data-behaviour="settings"]'), s => new Settings(s));
-let pens        = [];
+
+$.map($('[data-behaviour="tree"]'), t => new Tree(t));
+$.map($('[data-behaviour="settings"]'), s => new Settings(s));
 
 loadPen();
 
@@ -49,6 +49,6 @@ events.on('main-content-loaded', loadPen);
 
 function loadPen(){
     setTimeout(function(){
-        pens = $.map($('[data-behaviour="pen"]'), p => new Pen(p));
+        $.map($('[data-behaviour="pen"]'), p => new Pen(p));
     }, 1);
 }
