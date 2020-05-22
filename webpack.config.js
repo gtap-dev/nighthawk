@@ -22,17 +22,19 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'css/theme.css',
         }),
-        new CopyPlugin([
-            {
-                from: './assets/img/**/*',
-                to: './img',
-                flatten: true,
-            },
-            {
-                from: './assets/favicon.ico',
-                to: '.'
-            },
-        ]),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: './assets/img/**/*',
+                    to: './img',
+                    flatten: true,
+                },
+                {
+                    from: './assets/favicon.ico',
+                    to: '.'
+                },
+            ],
+        }),
         // new BundleAnalyzerPlugin(),
     ],
     resolve: {
@@ -116,7 +118,9 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
-                            importer: globImporter(),
+                            sassOptions: {
+                                importer: globImporter(),
+                            },
                         }
                     }
                 ]
