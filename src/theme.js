@@ -83,12 +83,12 @@ module.exports = function(options){
     theme.addRoute('/components/preview/:handle', {
         handle: 'preview',
         view: 'pages/components/preview.nunj'
-    }, getHandles);
+    }, getPreviewHandles);
 
     theme.addRoute('/components/detail/:handle', {
         handle: 'component',
         view: 'pages/components/detail.nunj'
-    }, getHandles);
+    }, getDetailHandles);
 
     theme.addRoute('/components/raw/:handle/:asset', {
         handle: 'component-resource',
@@ -112,22 +112,44 @@ module.exports = function(options){
         require('./filters')(theme, env, app);
     });
 
-    let handles = null;
+    let previewHandles = null;
 
-    function getHandles(app) {
-        app.components.on('updated', () => (handles = null));
-        if (handles) {
-            return handles;
+    function getPreviewHandles(app) {
+        app.components.on('updated', () => (previewHandles = null));
+        if (previewHandles) {
+            return previewHandles;
         }
-        handles = [];
+        previewHandles = [];
         app.components.flatten().each(comp => {
-            handles.push(comp.handle);
+            if (!comp.collated || comp.variants().size === 1) {
+                previewHandles.push(comp.handle);
+            }
+
             if (comp.variants().size > 1) {
-                comp.variants().each(variant => handles.push(variant.handle));
+                comp.variants().each(variant => previewHandles.push(variant.handle));
             }
         });
-        handles = handles.map(h => ({handle: h}));
-        return handles;
+        previewHandles = previewHandles.map(h => ({handle: h}));
+        return previewHandles;
+    }
+
+    let detailHandles = null;
+
+    function getDetailHandles(app) {
+        app.components.on('updated', () => (detailHandles = null));
+        if (detailHandles) {
+            return detailHandles;
+        }
+        detailHandles = [];
+        app.components.flatten().each(comp => {
+            detailHandles.push(comp.handle);
+
+            if (!comp.collated && comp.variants().size > 1) {
+                comp.variants().each(variant => detailHandles.push(variant.handle));
+            }
+        });
+        detailHandles = detailHandles.map(h => ({handle: h}));
+        return detailHandles;
     }
 
     function getResources(app) {
