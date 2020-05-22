@@ -22,6 +22,7 @@
 
 .Preview-wrapper {
     @include offset-inline(start, 0);
+
     position: relative;
     top: 0;
     bottom: 0;
@@ -29,17 +30,17 @@
     width: 100%;
     width: calc(100% + #{$handle-size});
     min-width: 200px;
-    max-width: calc(100% + #{$handle-size});
     background-color: transparent;
     min-height: 100px;
 
     // @include mq($until: navCollapse) {
-        max-width: 100%;
+    max-width: 100%;
     // }
 }
 
 .Preview-resizer {
     @include offset-inline(start, 0);
+
     position: relative;
     top: 0;
     bottom: 0;
@@ -66,6 +67,7 @@
 
 .Preview-iframe {
     @include trbl(0);
+
     position: relative;
     z-index: 0;
     width: 100%;
@@ -75,6 +77,7 @@
 
 .Preview-overlay {
     @include trbl(0);
+
     display: none;
     position: absolute;
     height: 100%;
@@ -86,6 +89,7 @@
     @include border-inline(start, 1px solid $color-frame-border);
     @include dragHandle;
     @include offset-inline(end, 0);
+
     position: absolute;
     top: 0;
     bottom: 0;
@@ -103,6 +107,7 @@
 
 .Preview-handle-horizontal {
     @include dragHandle;
+
     flex: 0 0 auto;
     height: $handle-size;
     margin: 0 $handle-size 0 0;

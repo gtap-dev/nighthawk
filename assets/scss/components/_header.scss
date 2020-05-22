@@ -9,6 +9,7 @@
 
 .Header-title {
     @include link-default(inherit, none);
+
     padding: 0.75rem 1rem;
     font-size: 1.125rem; // 18px
     line-height: (24 / 18);
@@ -97,9 +98,9 @@
     transform: rotate(-225deg);
 
     &,
-    &:after,
-    &:before {
-        transition: all .3s ease;
+    &::after,
+    &::before {
+        transition: all 0.3s ease;
         content: "";
         display: block;
         width: 100%;
@@ -109,28 +110,28 @@
         border-radius: 99em;
     }
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
         top: 50%;
         margin-top: -1px;
     }
 
-    &:after {
+    &::after {
         transform: rotate(90deg);
     }
 
     .Frame.is-closed & {
         transform: rotate(0);
 
-        &:before {
-            top: -.64em;
-            margin-top: .125em;
+        &::before {
+            top: -0.64em;
+            margin-top: 0.125em;
             transform: rotate(0);
         }
 
-        &:after {
-            top: .64em;
-            margin-top: -.125em;
+        &::after {
+            top: 0.64em;
+            margin-top: -0.125em;
             transform: rotate(0);
         }
     }

@@ -47,6 +47,7 @@
 
     @include mq($until: navCollapse) {
         @include margin-inline(end, $width-sidebar);
+
         transform: translate3d(($width-sidebar * -1), 0, 0);
         transition: none;
     }
@@ -54,6 +55,7 @@
 
 .Frame-inner {
     @include trbl(0);
+
     position: absolute;
     height: 100%;
     min-width: 280px;
@@ -73,6 +75,7 @@
 
 .Frame-panel--sidebar {
     @include border-inline(end, 1px solid $color-frame-border);
+
     flex: 0 0 auto;
     width: $width-sidebar;
     background-color: $white;
@@ -99,7 +102,7 @@
         }
     }
 
-    &:after {
+    &::after {
         content: "";
         position: absolute;
         z-index: 10;

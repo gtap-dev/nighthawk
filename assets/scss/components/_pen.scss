@@ -63,6 +63,7 @@
 
     svg {
         @include margin-inline(start, 5px);
+
         fill: $color-brand;
         fill: var(--color-brand);
     }
@@ -89,6 +90,7 @@
 
 .Pen-handle {
     @include dragHandle;
+
     flex: 0 0 auto;
     height: $handle-size;
     margin: 0 $handle-size;

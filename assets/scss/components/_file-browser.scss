@@ -14,18 +14,22 @@
     padding: 15px;
     border-bottom: 1px solid lighten($color-frame-border, 10%);
     background-color: darken($color-background-offset, 2%);
+
     .select2-container {
         min-width: 200px;
         font-size: 14px;
     }
+
     select:focus,
     select:active {
         outline: none;
     }
 }
+
 span.select2-selection.select2-selection--single {
-        outline: none;
-    }
+    outline: none;
+}
+
 .select2-container--focus {
     outline: none;
 }
@@ -43,11 +47,11 @@ span.select2-selection.select2-selection--single {
 .FileBrowser-item {
     display: none;
     padding: 0 0.75rem 0.75rem 0.75rem;
+
     &.is-active {
         display: block;
     }
 }
-
 
 @include mq($from: medium) {
     .Frame.is-closed {

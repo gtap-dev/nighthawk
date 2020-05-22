@@ -1,6 +1,7 @@
 .Meta-item {
     padding: 14px 0;
     overflow: hidden;
+
     & + & {
         border-top: 1px solid lighten($color-frame-border, 10%);
     }
@@ -25,6 +26,7 @@
 
     li {
         margin-bottom: 5px;
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -51,6 +53,7 @@
         .Meta-item {
             padding-left: 200px;
         }
+
         .Meta-key {
             width: 180px;
             float: left;
@@ -64,6 +67,7 @@
         .Meta-item {
             padding-left: 200px;
         }
+
         .Meta-key {
             width: 180px;
             float: left;

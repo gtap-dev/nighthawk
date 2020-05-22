@@ -72,6 +72,7 @@
 
     svg {
         @include margin-inline(end, 0.125rem);
+
         pointer-events: none;
         opacity: 0.6;
         position: relative;
@@ -79,7 +80,6 @@
     }
 
     &.is-active {
-
         a {
             border-bottom-color: $color-brand;
             border-bottom-color: var(--color-brand);
@@ -99,10 +99,6 @@
     }
 }
 
-.Browser-tab--html {
-
-}
-
 .Browser-tab--view {
     svg {
         top: 1px;
@@ -111,7 +107,7 @@
 
 .Browser-tab--context {
     svg {
-        top: 0px;
+        top: 0;
     }
 }
 
@@ -126,10 +122,6 @@
     svg {
         top: 1px;
     }
-}
-
-.Browser-tab--meta {
-
 }
 
 .Browser-panel {
@@ -148,11 +140,13 @@
 
     .Code {
         background-color: $color-background-offset;
+
         pre {
             background-color: $color-background-offset;
             padding: 0;
         }
     }
+
     > .Meta {
         flex-basis: 100%;
     }
