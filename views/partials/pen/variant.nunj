@@ -10,7 +10,7 @@
         </div>
     {% endif %}
 
-    {% if not isDefault and variant.notes %}
+    {% if not isDefault and variant.notes and variant.notes != entity.notes %}
         <div class="Pen-variantDescription Prose">
             {{ frctl.docs.renderString(variant.notes, renderEnv) | async }}
         </div>
