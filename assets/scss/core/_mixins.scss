@@ -50,7 +50,7 @@
         visibility: hidden;
     }
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         pointer-events: none;
         visibility: hidden;
     }

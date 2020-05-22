@@ -17,7 +17,7 @@
         color: $color-header-content;
     }
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         left: calc(100% - 54px);
     }
 }

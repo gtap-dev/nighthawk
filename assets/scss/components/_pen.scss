@@ -2,7 +2,7 @@
     background: white;
     padding: 40px;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         padding: 20px 30px 20px 20px;
     }
 
@@ -27,7 +27,7 @@
         padding-top: 5px;
     }
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         margin: 0;
         padding: 0.75rem;
 
@@ -80,7 +80,7 @@
     max-height: calc(100% - 3.75rem);
     width: 100%;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         flex: 1 1 auto;
         height: auto !important;
         max-height: 100%;
@@ -98,7 +98,7 @@
     background-size: 16px 3px;
     cursor: ns-resize;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         display: none;
     }
 }
@@ -112,7 +112,7 @@
 .Pen-info {
     position: relative;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         //display: none;
     }
 }
@@ -129,7 +129,7 @@
         padding-left: 4px;
     }
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         .Status .Status-label {
             position: relative;
             height: 0;

@@ -34,7 +34,7 @@
     bottom: 0;
     width: 40px;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         width: 30px;
     }
 }
@@ -45,7 +45,7 @@
     flex-grow: 1;
     height: calc(100% - 3rem);
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         @include margin-inline(end, $width-sidebar);
 
         transform: translate3d(($width-sidebar * -1), 0, 0);
@@ -62,7 +62,7 @@
     overflow: auto;
     margin-right: 40px;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         margin-right: 30px;
     }
 }
@@ -81,7 +81,7 @@
     background-color: $white;
     padding: 20px 40px 20px 0;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         max-width: $width-sidebar;
     }
 }
@@ -113,7 +113,7 @@
         width: 2px;
         display: block;
 
-        @include mq($until: navCollapse) {
+        @include mq($until: navcollapse) {
             right: 29px;
         }
     }

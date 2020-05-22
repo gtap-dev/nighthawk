@@ -5,7 +5,7 @@
     text-align: center;
     padding: 15px;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         width: 134px;
         padding: 10px;
     }
@@ -14,7 +14,7 @@
 .IconGrid-icon {
     font-size: 75px;
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         font-size: 50px;
     }
 

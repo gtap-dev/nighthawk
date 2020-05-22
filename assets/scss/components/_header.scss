@@ -80,7 +80,7 @@
         background: var(--color-brand);
     }
 
-    @include mq($until: navCollapse) {
+    @include mq($until: navcollapse) {
         right: 5px;
     }
 }
