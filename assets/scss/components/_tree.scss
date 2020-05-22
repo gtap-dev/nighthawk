@@ -1,7 +1,11 @@
 .Tree-header {
     display: flex;
     align-items: center;
+    padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
+    border-bottom: 1px solid $color-border;
+    margin-right: -40px;
+    padding-right: 40px;
 }
 
 .Tree-title {
