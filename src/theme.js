@@ -36,6 +36,9 @@ module.exports = function(options){
                     placeholder: 'Search…',
                     clear: 'Clear search',
                 },
+                tree: {
+                    collapse: 'Collapse tree',
+                },
             },
         },
     });

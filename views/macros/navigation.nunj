@@ -6,7 +6,7 @@
     <div class="Tree-header">
         <h3 class="Tree-title">{{ root.label }}</h3>
 
-        <button type="button" data-behaviour="collapse-tree" class="Tree-collapse" title="{{ frctl.theme.get('labels.tree.collapse') }}" aria-label="{{ frctl.theme.get('labels.tree.collapse') }}" hidden>
+        <button type="button" data-behaviour="collapse-tree" class="Tree-collapse" title="{{ frctl.theme.get('labels.navigation.tree.collapse') }}" aria-label="{{ frctl.theme.get('labels.navigation.tree.collapse') }}" hidden>
             {% include 'icons/collapse.svg' %}
         </button>
     </div>
