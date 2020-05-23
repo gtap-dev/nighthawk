@@ -5,8 +5,8 @@
     <div class="FileBrowser">
 
         <div class="FileBrowser-selectWrapper">
-            <label class="FileBrowser-select-label" for="filebrowser-select">File:</label>
-            <select class="FileBrowser-select" id="filebrowser-select">
+            <label class="FileBrowser-select-label" for="filebrowser-select-{{ entity.id }}">File:</label>
+            <select class="FileBrowser-select" id="filebrowser-select-{{ entity.id }}">
                 {% for resource in collection.items() %}
                 <option value="file-{{ resource.id }}">{{ resource.base }}</option>
                 {% endfor %}
