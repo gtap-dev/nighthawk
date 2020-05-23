@@ -18,7 +18,7 @@ class Browser {
         this._activeClass     = 'is-active';
         this._initTabs();
 
-        $(".FileBrowser-select").select2({
+        this._el.find(".FileBrowser-select").select2({
             minimumResultsForSearch: Infinity
         }).on('change', function(){
             $(this).closest('.FileBrowser').find('[data-role="resource-preview"]').removeClass(self._activeClass);
