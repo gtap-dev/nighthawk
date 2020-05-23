@@ -1,35 +1,27 @@
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     vertical-align: middle;
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
     max-width: 100%;
-    font-size: 11px;
-    line-height: 1.429rem;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
     box-sizing: border-box;
     border-style: solid;
-    border-width: 2px;
-    padding: 1px 18px;
-    border-radius: 20px;
-    letter-spacing: 0.2px;
+    border-width: 1px;
+    padding: 5px;
     cursor: pointer;
     overflow: hidden;
-    color: $color-brand;
-    color: var(--color-brand);
-    background-color: $grey-l;
-    border-color: $grey-l;
+    border: 0;
+    color: rgba($color-text, 0.5);
 
     &:hover,
     &:focus {
         outline: none;
-        border-color: $color-brand;
-        border-color: var(--color-brand);
-    }
-
-    + .btn {
-        margin-left: 5px;
+        color: $color-brand;
+        color: var(--color-brand);
     }
 }

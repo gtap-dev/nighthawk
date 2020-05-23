@@ -20,10 +20,4 @@
         {% endif %}
         {% endfor %}
     </ul>
-    {% if entity.handle == 'icon' %}
-    {% else %}
-    <div class="Browser-links">
-        <a class="btn" href="{{ previewUrl }}" title="Component preview" target="_blank" data-no-pjax>Preview</a>
-    </div>
-    {% endif %}
 </div>

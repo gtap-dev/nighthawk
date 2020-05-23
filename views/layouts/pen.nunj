@@ -8,6 +8,13 @@
 
 {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: entity.handle})) %}
 
+{% if entity.isComponent %}
+    {% if entity.variants().size > 1 %}
+        {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: entity.variants().default().handle})) %}
+        {% set isDefaultHidden = entity.variants().default().isHidden %}
+    {% endif %}
+{% endif %}
+
 {% block content %}
 
 {% if frctl.env.server and frctl.env.sync %}
@@ -35,6 +42,11 @@
             {{ header.title }}
             {{ status.unlabelled(header.status, header.status.key) }}
         </h1>
+        {% if entity.handle != 'icon' and not isDefaultHidden %}
+        <a class="btn Pen-headerButton" href="{{ previewUrl }}" title="Component preview" target="_blank" data-no-pjax>
+            {% include "icons/open-in-browser.svg" %}
+        </a>
+        {% endif %}
     </div>
     {% if header.notes %}
     <div class="Pen-variantDescription Prose">
