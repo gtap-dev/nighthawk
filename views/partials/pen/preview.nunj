@@ -1,6 +1,5 @@
 <div class="Pen-panel Pen-preview Preview" data-behaviour="preview" id="preview-{{ entity.id }}-{{ entity.name }}">
     {% if entity.handle == 'icon' %}
-        {{ frctl.components.render | dump }}
         {% set variants = entity.variants() %}
 
         {% if variants.size > 0 %}
@@ -11,7 +10,13 @@
                         <div class="IconGrid-icon">
                             {{ frctl.components.renderPreview(variant, false, renderEnv) | async }}
                         </div>
-                        <div class="IconGrid-label">{{ variant.name }}</div>
+                        <div class="IconGrid-label">
+                            {{ variant.name }}
+                            {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: variant.handle})) %}
+                            <a class="btn" href="{{ previewUrl }}" title="Component preview" target="_blank" data-no-pjax>
+                                {% include "icons/open-in-browser.svg" %}
+                            </a>
+                        </div>
                     </div>
                     {% endif %}
                 {% endfor %}
