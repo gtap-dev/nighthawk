@@ -7,8 +7,8 @@
         </div>
         <div class="Tree-aside">
             {{ frctl.theme.get('labels.navigation.information.timePrefix') }}
-            <time datetime="{{ frctl.theme.get('now').toISOString() }}">
-                {{ frctl.theme.get('now').toLocaleDateString(frctl.theme.get('lang')) }}
+            <time datetime="{{ frctl.theme.get('nowIso') }}">
+                {{ frctl.theme.get('now') }}
             </time>
         </div>
     </div>
