@@ -4,6 +4,7 @@
 
         {% if variants.size > 0 %}
             <div class="IconGrid">
+                {% set renderEnv = renderEnv | setAttribute('ssr', true) %}
                 {% for variant in variants.items() %}
                     {% if not variant.isHidden %}
                     <div class="IconGrid-item">
