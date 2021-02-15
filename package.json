@@ -1,6 +1,6 @@
 {
   "name": "@gotoandplay/nighthawk",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "A custom theme for Fractal. Remaster by gotoAndPlay.",
   "main": "index.js",
   "repository": {
