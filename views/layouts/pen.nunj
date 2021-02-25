@@ -11,8 +11,8 @@
 {% if entity.isComponent %}
     {% if entity.variants().size > 1 %}
         {% set previewUrl = path(frctl.theme.urlFromRoute('preview', {handle: entity.variants().default().handle})) %}
-        {% set isDefaultHidden = entity.variants().default().isHidden %}
     {% endif %}
+    {% set isDefaultHidden = entity.variants().default().isHidden %}
 {% endif %}
 
 {% block content %}
