@@ -46,7 +46,7 @@ module.exports = function(options){
 
     config.panels  = config.panels || ['preview', 'html', 'view', 'context', 'resources', 'info'];
     config.nav     = config.nav || ['search', 'components', 'docs', 'assets', 'settings', 'information'];
-    config.styles  = [`/${config.static.mount}/css/theme.css`];
+    config.styles  = [].concat(config.styles).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/theme.css` : url));
     config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url));
     config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
     config.now = config.lang === 'et' ? getEstonianTime(now) : now.toLocaleString(config.lang);
