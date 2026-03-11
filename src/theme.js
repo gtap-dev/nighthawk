@@ -1,11 +1,11 @@
 'use strict';
 
-const Path        = require('path');
-const _           = require('lodash');
-const Theme       = require('@frctl/fractal').WebTheme;
+const Path = require('path');
+const _ = require('lodash');
+const Theme = require('@frctl/fractal').WebTheme;
 const packageJSON = require('../package.json');
 
-module.exports = function(options){
+module.exports = function (options) {
 
     const config = _.defaultsDeep(_.clone(options || {}), {
         brandColor: '#19ba9a',
@@ -30,6 +30,7 @@ module.exports = function(options){
                     title: 'Settings',
                     simpleUiLabel: 'Simple UI',
                     testIconsLabel: 'Test icons',
+                    darkModeLabel: 'Dark mode',
                 },
                 search: {
                     label: 'Search',
@@ -44,9 +45,9 @@ module.exports = function(options){
     });
     const now = new Date();
 
-    config.panels  = config.panels || ['preview', 'html', 'view', 'context', 'resources', 'info'];
-    config.nav     = config.nav || ['search', 'components', 'docs', 'assets', 'settings', 'information'];
-    config.styles  = [].concat(config.styles).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/theme.css` : url));
+    config.panels = config.panels || ['preview', 'html', 'view', 'context', 'resources', 'info'];
+    config.nav = config.nav || ['search', 'components', 'docs', 'assets', 'settings', 'information'];
+    config.styles = [].concat(config.styles).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/css/theme.css` : url));
     config.scripts = [].concat(config.scripts).filter(url => url).map(url => (url === 'default' ? `/${config.static.mount}/js/mandelbrot.js` : url));
     config.favicon = config.favicon || `/${config.static.mount}/favicon.ico`;
     config.now = config.lang === 'et' ? getEstonianTime(now) : now.toLocaleString(config.lang);
@@ -56,7 +57,7 @@ module.exports = function(options){
 
     theme.setErrorView('pages/error.nunj');
 
-    theme.addStatic(Path.join(__dirname, '..' , 'dist'), `/${config.static.mount}`);
+    theme.addStatic(Path.join(__dirname, '..', 'dist'), `/${config.static.mount}`);
 
     theme.addRoute('/', {
         handle: 'overview',
@@ -78,7 +79,7 @@ module.exports = function(options){
     theme.addRoute('/assets/:name', {
         handle: 'asset-source',
         view: 'pages/assets.nunj'
-    }, function(app){
+    }, function (app) {
         return app.assets.visible().map(asset => ({name: asset.name}));
     });
 
@@ -94,7 +95,7 @@ module.exports = function(options){
 
     theme.addRoute('/components/raw/:handle/:asset', {
         handle: 'component-resource',
-        static: function(params, app){
+        static: function (params, app) {
             const component = app.components.find(`@${params.handle}`);
             if (component) {
                 return Path.join(component.viewDir, params.asset);
@@ -106,11 +107,11 @@ module.exports = function(options){
     theme.addRoute('/docs/:path([^?]+?)', {
         handle: 'page',
         view: 'pages/doc.nunj'
-    }, function(app){
+    }, function (app) {
         return app.docs.filter(d => (!d.isHidden && d.path !== '')).flatten().map(page => ({path: page.path}));
     });
 
-    theme.on('init', function(env, app){
+    theme.on('init', function (env, app) {
         require('./filters')(theme, env, app);
     });
 

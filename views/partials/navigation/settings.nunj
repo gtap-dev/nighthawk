@@ -17,5 +17,12 @@
                 <span class="toggle__text">{{ frctl.theme.get('labels.navigation.settings.testIconsLabel') }}</span>
             </label>
         </div>
+        <div class="toggle Tree-toggle">
+            <input type="checkbox" name="dark-mode" id="dark-mode" data-role="dark-mode" class="toggle__input">
+            <label for="dark-mode" class="toggle__label">
+                <span class="toggle__indicator"></span>
+                <span class="toggle__text">{{ frctl.theme.get('labels.navigation.settings.darkModeLabel') }}</span>
+            </label>
+        </div>
     </div>
 </div>

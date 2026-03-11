@@ -1,19 +1,23 @@
 'use strict';
 
 const $ = global.jQuery;
-const storage    = require('../storage');
+const storage = require('../storage');
 
 class Settings {
 
-    constructor(el){
-        this._el                = $(el);
+    constructor(el) {
+        this._el = $(el);
         this._simpleToggleState = storage.get(`settings.simpleToggle`, false);
-        this._simpleToggle      = this._el.find('[data-role="simple-ui"]');
-        this._simpleClass       = 'has-simple-ui';
+        this._simpleToggle = this._el.find('[data-role="simple-ui"]');
+        this._simpleClass = 'has-simple-ui';
 
         this._iconTestToggleState = storage.get(`settings.iconTest`, false);
-        this._iconTestToggle      = this._el.find('[data-role="test-icons"]');
-        this._iconTestClass       = 'is-icon-test-active';
+        this._iconTestToggle = this._el.find('[data-role="test-icons"]');
+        this._iconTestClass = 'is-icon-test-active';
+
+        this._darkModeToggleState = storage.get(`settings.darkMode`, null);
+        this._darkModeToggle = this._el.find('[data-role="dark-mode"]');
+        this._darkModeClass = 'is-dark-mode';
 
         this._init();
     }
@@ -22,7 +26,7 @@ class Settings {
         this._simpleToggle.on('change', (event) => {
             const _self = $(event.currentTarget);
 
-            if (_self.is(':checked') ) {
+            if (_self.is(':checked')) {
                 $('body').addClass(this._simpleClass);
                 storage.set(`settings.simpleToggle`, true);
             } else {
@@ -38,7 +42,7 @@ class Settings {
         this._iconTestToggle.on('change', (event) => {
             const _self = $(event.currentTarget);
 
-            if (_self.is(':checked') ) {
+            if (_self.is(':checked')) {
                 $('body').addClass(this._iconTestClass);
                 storage.set(`settings.iconTest`, true);
             } else {
@@ -50,7 +54,36 @@ class Settings {
         if (this._iconTestToggleState) {
             this._iconTestToggle.prop('checked', true).trigger('change');
         }
+
+        this._darkModeToggle.on('change', (event) => {
+            const _self = $(event.currentTarget);
+
+            if (_self.is(':checked')) {
+                $('body').addClass(this._darkModeClass);
+                document.documentElement.setAttribute('data-theme', 'dark');
+                storage.set(`settings.darkMode`, true);
+            } else {
+                $('body').removeClass(this._darkModeClass);
+                document.documentElement.setAttribute('data-theme', 'light');
+                storage.set(`settings.darkMode`, false);
+            }
+        });
+
+        if (this._darkModeToggleState === null) {
+            // No explicit preference stored — use system setting
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                this._darkModeToggle.prop('checked', true).trigger('change');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        } else if (this._darkModeToggleState) {
+            this._darkModeToggle.prop('checked', true).trigger('change');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
     }
 }
 
 module.exports = Settings;
+

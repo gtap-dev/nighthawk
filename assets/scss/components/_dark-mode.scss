@@ -1,0 +1,328 @@
+// =============================================================================
+// Dark Mode
+// =============================================================================
+// Three-tier targeting:
+// 1. @media (prefers-color-scheme: dark) — system preference, no explicit choice
+// 2. :root[data-theme='dark'] — explicit data-theme attribute
+// 3. body.is-dark-mode — body class for JS toggle
+//
+// We use a mixin to avoid repeating all dark overrides three times.
+// =============================================================================
+
+@mixin dark-mode-root {
+    color-scheme: dark;
+}
+
+@mixin dark-mode-body {
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+}
+
+@mixin dark-mode-overrides {
+
+    // Foundation
+    html {
+        background: #1a1a2e;
+        color: #e0e0e0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #f0f0f0;
+    }
+
+    // Scrollbars
+    ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+        background: rgba(255, 255, 255, 0.35);
+    }
+
+    // Header
+    .Header {
+        background-color: #1a1a2e;
+        color: #e0e0e0;
+    }
+
+    .Header-dropdown-content {
+        color: #e0e0e0;
+        background-color: #16213e;
+    }
+
+    .Header-button {
+        background-color: #1a1a2e;
+    }
+
+    // Frame
+    .Frame-panel--sidebar {
+        background-color: #1a1a2e;
+        border-color: #2a2a4a;
+    }
+
+    .Frame-panel--main::after {
+        background: #2a2a4a;
+    }
+
+    // Logo
+    .logo {
+        color: #e0e0e0;
+        background: #1a1a2e;
+    }
+
+    .logo__text {
+        color: #e0e0e0;
+    }
+
+    // Tree / Navigation
+    .Tree-header {
+        border-bottom-color: #2a2a4a;
+    }
+
+    .Tree-title {
+        color: #7a7a9a;
+    }
+
+    .Tree-collectionLabel {
+        color: #e0e0e0;
+    }
+
+    .Tree-entityLink {
+        color: #c0c0d0;
+    }
+
+    .Tree-collapse {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .Tree-collectionIcon {
+        color: #c0c0d0;
+    }
+
+    // Search
+    .Search-input {
+        background-color: #16213e;
+        color: #e0e0e0;
+        border-bottom-color: #2a2a4a;
+
+        &:focus {
+            border-color: #e0e0e0;
+        }
+    }
+
+    .Search-clearButton {
+        color: #c0c0d0;
+    }
+
+    // Toggle
+    .toggle__indicator {
+        background: #2a2a4a;
+    }
+
+    .toggle__indicator::before {
+        background: #446;
+    }
+
+    // Pen
+    .Pen {
+        background: #16213e;
+    }
+
+    .Pen-title {
+        color: #f0f0f0;
+    }
+
+    // Browser
+    .Browser-tab a {
+        color: #c0c0d0;
+    }
+
+    .Browser-panel {
+        background-color: #16213e;
+        border-color: #2a2a4a;
+
+        .Code {
+            background-color: #16213e;
+
+            pre {
+                background-color: #16213e;
+            }
+        }
+    }
+
+    .Browser-isEmptyNote {
+        color: #c0c0d0;
+    }
+
+    // Code
+    .Code {
+        background-color: #16213e;
+    }
+
+    // Preview
+    .Preview {
+        @include mq(navcollapse) {
+            background-color: #16213e;
+        }
+    }
+
+    .Preview-resizer {
+        background-color: #16213e;
+    }
+
+    .Preview-handle {
+        border-color: #2a2a4a;
+    }
+
+    .Preview-handle-horizontal {
+        background-color: #2a2a4a;
+    }
+
+    // Prose
+    .Prose {
+        hr {
+            border-top-color: #2a2a4a;
+        }
+
+        code:not(.hljs),
+        pre > code:not(.hljs) {
+            background-color: rgba(255, 255, 255, 0.075);
+        }
+
+        blockquote {
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        caption {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.075);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            color: #f0f0f0;
+        }
+    }
+
+    // Meta
+    .Meta-item + .Meta-item {
+        border-top-color: #2a2a4a;
+    }
+
+    // Button
+    .btn {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    // Asset list
+    .AssetList-name {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .AssetList-link:hover .AssetList-path {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .AssetList-icon svg {
+        fill: #666;
+    }
+
+    .AssetList-link:hover .AssetList-icon svg {
+        fill: #999;
+    }
+
+    // Error
+    .Error-stack pre {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    // File browser
+    .FileBrowser-selectWrapper {
+        background-color: #12192d;
+        border-bottom-color: #2a2a4a;
+    }
+
+    .select2-results__option--highlighted {
+        background-color: #1a1a2e !important;
+        color: #e0e0e0 !important;
+    }
+
+    // Radio / Forms
+    .form-radio__indicator {
+        background: #2a2a4a;
+        border-color: #557;
+    }
+
+    .form-radio__input:focus ~ .form-radio__label .form-radio__indicator {
+        border-color: #e0e0e0;
+    }
+
+    // Icon
+    .icon-thumbnail {
+        background: #2a2a4a;
+    }
+
+    // Status dots — keep semantic colors, just adjust white backgrounds
+    .Status-dot {
+        border-color: #1a1a2e;
+    }
+
+    // Selection highlight
+    ::selection {
+        color: #fff;
+    }
+}
+
+// =============================================================================
+// 1. System preference — only when no explicit data-theme is set
+// =============================================================================
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        @include dark-mode-root;
+        @include dark-mode-overrides;
+    }
+
+    :root:not([data-theme]) body {
+        @include dark-mode-body;
+    }
+}
+
+// =============================================================================
+// 2. Explicit data-theme attribute on :root
+// =============================================================================
+:root[data-theme='dark'] {
+    @include dark-mode-root;
+    @include dark-mode-overrides;
+}
+
+:root[data-theme='dark'] body {
+    @include dark-mode-body;
+}
+
+// =============================================================================
+// 3. Body class (JS toggle fallback)
+// =============================================================================
+body.is-dark-mode {
+    @include dark-mode-body;
+}
+
+:root:has(body.is-dark-mode) {
+    @include dark-mode-root;
+    @include dark-mode-overrides;
+}
