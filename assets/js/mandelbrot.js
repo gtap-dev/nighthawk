@@ -16,7 +16,7 @@ const utils      = require('./utils');
 const framer     = require('./components/frame');
 const Navigation = require('./components/navigation');
 const Pen        = require('./components/pen');
-const Themes     = require('./components/themes');
+
 
 global.fractal = {
     events: events
@@ -26,7 +26,7 @@ const frame = framer($('#frame'));
 new Navigation($('.Navigation'));
 
 loadPen();
-loadThemes();
+
 
 if (frctl.env == 'server') {
     doc.pjax('a[data-pjax], code a[href], .Prose a[href]:not([data-no-pjax]), .Browser a[href]:not([data-no-pjax])', '#pjax-container', {
@@ -52,7 +52,5 @@ function loadPen(){
     }, 1);
 }
 
-function loadThemes(){
-    $.map($('[data-behaviour="themes"]'), t => new Themes(t));
-}
+
 

@@ -31,11 +31,7 @@ module.exports = function(options){
                     title: 'Settings',
                     simpleUiLabel: 'Simple UI',
                     testIconsLabel: 'Test icons',
-                },
-                themes: {
-                    title: 'Themes',
-                    placeholder: 'e.g. dark',
-                    addLabel: 'Add',
+                    renderThemesLabel: 'Render themes',
                 },
                 search: {
                     label: 'Search',
