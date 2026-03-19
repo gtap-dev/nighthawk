@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// Typography
+// -----------------------------------------------------------------------------
+
+$font-family-monospace: "Hack", "Consolas", "Monaco", "Andale Mono", monospace !default;
+$font-family-sans-serif: "Open Sans", sans-serif !default;
+$font-family-heading: $font-family-sans-serif;
+
+// -----------------------------------------------------------------------------
+// Colors
+// -----------------------------------------------------------------------------
+
+$color-brand: #19ba9a;
+
+$color-text: #000 !default;
+$color-heading: $color-text !default;
+
+$color-background: #fff !default;
+$color-background-offset: #f2f2f2 !default;
+
+$color-border: #e4e4e4 !default;
+
+$color-header-background: #fff !default;
+$color-header-content: #000 !default;
+
+$color-frame-border: $color-border !default;
+
+$color-sidebar-heading: rgba($color-text, 0.75) !default;
+
+$highlight-theme: 'github' !default;
+
+$green:        #0c6;
+$green-l:      #32ff00;
+
+$red:          #ff452d;
+$red-l:        #ff452d;
+
+$orange:       #ffc400;
+
+$white:        #fff;
+$grey:         #e4e4e4;
+$grey-l:       #f2f2f2;
+$grey-m:       #f6f6f6;
+
+$grey-d:       #9f9f9f;
+$black:        #000;
+
+$break-xs: 320px;
+$break-sm: 600px;
+$break-md: 1024px;
+$break-lg: 1200px;
+
+$base-font-size: 14px;
+$font-size-small: 0.8572em;
+$base-line-height: 1.43;
+$text-color-base: $black;
+
+// -----------------------------------------------------------------------------
+// Layout
+// -----------------------------------------------------------------------------
+
+$width-sidebar: 250px;
+$handle-size: 0.625rem;

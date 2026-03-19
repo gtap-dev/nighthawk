@@ -1,3 +1,5 @@
+@use '../core' as *;
+
 .Prose {
     @include font(body);
 

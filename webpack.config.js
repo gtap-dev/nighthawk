@@ -2,7 +2,6 @@ const path = require('path');
 
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const globImporter         = require('node-sass-glob-importer');
 const CopyPlugin           = require('copy-webpack-plugin');
 
 
@@ -17,6 +16,7 @@ module.exports = {
     output: {
         filename: 'js/mandelbrot.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -26,12 +26,11 @@ module.exports = {
             patterns: [
                 {
                     from: './assets/img/**/*',
-                    to: './img',
-                    flatten: true,
+                    to: 'img/[name][ext]',
                 },
                 {
                     from: './assets/favicon.ico',
-                    to: '.'
+                    to: '[name][ext]',
                 },
             ],
         }),
@@ -58,41 +57,29 @@ module.exports = {
             },
             {
                 test: require.resolve('jquery'),
-                use: [{
-                    loader: 'expose-loader',
-                    options: 'jQuery'
-                }, {
-                    loader: 'expose-loader',
-                    options: '$'
-                }]
+                loader: 'expose-loader',
+                options: {
+                    exposes: ['$', 'jQuery'],
+                },
             },
             {
                 test: /\.(woff|woff2)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: 'fonts/[name].[ext]'
-                    }
-                }]
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[name][ext]',
+                },
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: 'img/[name].[ext]'
-                    }
-                }]
+                type: 'asset/resource',
+                generator: {
+                    filename: 'img/[name][ext]',
+                },
             },
             {
                 test: /\.scss$/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: '../'
-                        }
-                    },
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
@@ -103,9 +90,11 @@ module.exports = {
                         loader: 'postcss-loader',
                         options: {
                             sourceMap: true,
-                            plugins: [
-                                require('autoprefixer')()
-                            ]
+                            postcssOptions: {
+                                plugins: [
+                                    require('autoprefixer')(),
+                                ],
+                            },
                         }
                     },
                     {
@@ -117,9 +106,12 @@ module.exports = {
                     {
                         loader: 'sass-loader',
                         options: {
+                            api: 'modern-compiler',
                             sourceMap: true,
                             sassOptions: {
-                                importer: globImporter(),
+                                loadPaths: [
+                                    path.resolve(__dirname, 'node_modules'),
+                                ],
                             },
                         }
                     }
