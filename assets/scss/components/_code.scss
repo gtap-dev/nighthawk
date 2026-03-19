@@ -1,3 +1,5 @@
+@use '../core' as *;
+
 .Code {
     display: block;
     background-color: $color-background-offset;

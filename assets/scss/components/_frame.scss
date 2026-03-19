@@ -1,3 +1,5 @@
+@use '../core' as *;
+
 .Frame {
     display: flex;
     flex-direction: column;

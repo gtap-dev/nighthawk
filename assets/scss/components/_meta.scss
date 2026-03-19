@@ -1,9 +1,11 @@
+@use 'sass:color';
+@use '../core' as *;
 .Meta-item {
     padding: 14px 0;
     overflow: hidden;
 
     & + & {
-        border-top: 1px solid lighten($color-frame-border, 10%);
+        border-top: 1px solid color.adjust($color-frame-border, $lightness: 10%);
     }
 
     &:first-child {
