@@ -15,6 +15,7 @@ module.exports = function(options){
         styles: 'default',
         scripts: 'default',
         format: 'json',
+        themes: [],
         static: {
             mount: '_theme',
         },
@@ -30,6 +31,11 @@ module.exports = function(options){
                     title: 'Settings',
                     simpleUiLabel: 'Simple UI',
                     testIconsLabel: 'Test icons',
+                },
+                themes: {
+                    title: 'Themes',
+                    placeholder: 'e.g. dark',
+                    addLabel: 'Add',
                 },
                 search: {
                     label: 'Search',

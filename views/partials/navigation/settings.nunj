@@ -19,3 +19,16 @@
         </div>
     </div>
 </div>
+
+<div class="Navigation-group">
+    <div class="Tree Themes-settings" data-behaviour="themes" id="tree-themes" data-config-themes="{{ frctl.theme.get('themes') | dump }}">
+        <div class="Tree-header">
+            <h3 class="Tree-title">{{ frctl.theme.get('labels.navigation.themes.title') }}</h3>
+        </div>
+        <div class="Themes-inputGroup">
+            <input type="text" class="Themes-input" data-role="theme-input" placeholder="{{ frctl.theme.get('labels.navigation.themes.placeholder') }}">
+            <button type="button" class="Themes-addBtn" data-role="theme-add">{{ frctl.theme.get('labels.navigation.themes.addLabel') }}</button>
+        </div>
+        <div class="Themes-list" data-role="theme-list"></div>
+    </div>
+</div>
