@@ -1,3 +1,13 @@
+@use 'sass:math';
+@use 'variables' as *;
+@use 'sass-mq' as * with (
+    $breakpoints: (
+        navcollapse:  500px,
+        medium:  600px,
+        large:  800px
+    )
+);
+
 @mixin link-default($color, $decoration) {
     &:link,
     &:visited,
@@ -77,19 +87,19 @@
     }
 
     @if $preset == body {
-        font: normal 1rem/#{(24 / 16)} $font-family-sans-serif;
+        font: normal 1rem/#{math.div(24, 16)} $font-family-sans-serif;
     }
 
     @if $preset == code {
-        font: normal 0.875rem/#{(24 / 14)} $font-family-monospace;
+        font: normal 0.875rem/#{math.div(24, 14)} $font-family-monospace;
     }
 
     @if $preset == navigation {
-        font: normal 0.8125rem/#{(20 / 13)} $font-family-sans-serif;
+        font: normal 0.8125rem/#{math.div(20, 13)} $font-family-sans-serif;
     }
 
     @if $preset == caption {
-        font: bold 0.6875rem/#{(20 / 11)} $font-family-sans-serif;
+        font: bold 0.6875rem/#{math.div(20, 11)} $font-family-sans-serif;
         letter-spacing: 0.075em;
         text-transform: uppercase;
     }

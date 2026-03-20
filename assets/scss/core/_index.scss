@@ -1,0 +1,6 @@
+// Core module - forwards all variables, mixins, and sass-mq
+// Import mixins first (which configures sass-mq), then forward sass-mq
+@use 'mixins';
+@forward 'variables';
+@forward 'mixins';
+@forward 'sass-mq';

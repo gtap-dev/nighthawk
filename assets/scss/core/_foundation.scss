@@ -1,3 +1,7 @@
+@use 'sass:math';
+@use 'variables' as *;
+@use 'mixins' as *;
+
 *,
 *::before,
 *::after {
@@ -16,7 +20,7 @@ html {
     width: 100%;
     background: $color-background;
     box-sizing: border-box;
-    font: 14px/#{(24/16)} $font-family-sans-serif;
+    font: 14px/#{math.div(24, 16)} $font-family-sans-serif;
     color: $color-text;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -95,7 +99,7 @@ code,
 pre {
     font-family: $font-family-monospace;
     font-size: 0.875rem; //14px
-    line-height: (24/14);
+    line-height: math.div(24, 14);
 }
 
 svg {

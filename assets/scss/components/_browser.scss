@@ -1,4 +1,5 @@
-@import '~select2/dist/css/select2';
+@use '../core' as *;
+@use 'select2/dist/css/select2';
 
 .Browser {
     position: relative;
