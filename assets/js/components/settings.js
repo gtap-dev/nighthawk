@@ -15,6 +15,10 @@ class Settings {
         this._iconTestToggle      = this._el.find('[data-role="test-icons"]');
         this._iconTestClass       = 'is-icon-test-active';
 
+        this._renderThemesToggleState = storage.get(`settings.renderThemes`, false);
+        this._renderThemesToggle      = this._el.find('[data-role="render-themes"]');
+        this._renderThemesClass       = 'is-themes-visible';
+
         this._init();
     }
 
@@ -49,6 +53,23 @@ class Settings {
 
         if (this._iconTestToggleState) {
             this._iconTestToggle.prop('checked', true).trigger('change');
+        }
+
+        this._renderThemesToggle.on('change', (event) => {
+            const _self = $(event.currentTarget);
+            const enabled = _self.is(':checked');
+
+            if (enabled) {
+                $('body').addClass(this._renderThemesClass);
+            } else {
+                $('body').removeClass(this._renderThemesClass);
+            }
+
+            storage.set(`settings.renderThemes`, enabled);
+        });
+
+        if (this._renderThemesToggleState) {
+            this._renderThemesToggle.prop('checked', true).trigger('change');
         }
     }
 }

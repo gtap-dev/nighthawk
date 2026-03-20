@@ -38,5 +38,28 @@
             <div class="Preview-handle-horizontal" data-role="resize-handle-hor"></div>
             <div class="Preview-overlay"></div>
         </div>
+
+        {% set themes = frctl.theme.get('themes') %}
+        {% if themes and themes.length %}
+            {% for themeName in themes %}
+                {% set themeSeperator = '&' if '?' in previewUrl else '?' %}
+                {% set themedSrc = previewUrl + themeSeperator + 'theme=' + themeName %}
+                <div class="Preview-wrapper Preview-wrapper--theme" data-theme-variant="{{ themeName }}" data-role="resizer">
+                    <div class="Preview-themeLabel">{{ themeName }}</div>
+                    <div class="Preview-resizer">
+                        <iframe
+                            class="Preview-iframe"
+                            data-role="window"
+                            src="{{ themedSrc }}"
+                            {% if entity.display %} style="{% for property, value in entity.display %}{{ property }}: {{ value }} !important; {% endfor %}"{% endif %}
+                            marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0" scrolling="yes">
+                        </iframe>
+                    </div>
+                    <div class="Preview-handle" data-role="resize-handle"></div>
+                    <div class="Preview-handle-horizontal" data-role="resize-handle-hor"></div>
+                    <div class="Preview-overlay"></div>
+                </div>
+            {% endfor %}
+        {% endif %}
     {% endif %}
 </div>

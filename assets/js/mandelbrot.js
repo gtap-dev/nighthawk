@@ -17,6 +17,7 @@ const framer     = require('./components/frame');
 const Navigation = require('./components/navigation');
 const Pen        = require('./components/pen');
 
+
 global.fractal = {
     events: events
 };
@@ -25,6 +26,7 @@ const frame = framer($('#frame'));
 new Navigation($('.Navigation'));
 
 loadPen();
+
 
 if (frctl.env == 'server') {
     doc.pjax('a[data-pjax], code a[href], .Prose a[href]:not([data-no-pjax]), .Browser a[href]:not([data-no-pjax])', '#pjax-container', {
@@ -49,3 +51,6 @@ function loadPen(){
         $.map($('[data-behaviour="pen"]'), p => new Pen(p));
     }, 1);
 }
+
+
+

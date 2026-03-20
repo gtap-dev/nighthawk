@@ -125,3 +125,24 @@
         display: none;
     }
 }
+
+// ── Theme variant wrappers ─────────────────────────────────────────
+
+.Preview-wrapper--theme {
+    display: none;
+
+    .is-themes-visible & {
+        display: block;
+    }
+}
+
+.Preview-themeLabel {
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba($color-text, 0.5);
+    background-color: $color-background-offset;
+    border-bottom: 1px solid $color-frame-border;
+}
